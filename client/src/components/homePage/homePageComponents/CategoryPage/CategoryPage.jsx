@@ -6,6 +6,13 @@ import categoryIcon from '../../../../assets/tagIcons/tag01.svg';
 import authorIcon from '../../../../assets/tagIcons/tag02.svg';
 import priceIcon from '../../../../assets/tagIcons/tag03.svg';
 import languageIcon from '../../../../assets/tagIcons/tag04.svg';
+import img01 from '../src/assets/bookCoverPages/coverPage01.svg';
+import img02 from '../src/assets/bookCoverPages/coverPage02.svg';
+import img03 from '../src/assets/bookCoverPages/coverPage03.svg';
+import img04 from '../src/assets/bookCoverPages/coverPage04.svg';
+import img05 from '../src/assets/bookCoverPages/coverPage05.svg';
+import img06 from '../src/assets/bookCoverPages/coverPage06.svg';
+
 
 import './CategoryPage.css';
 import { Carousel } from "./Carousel";
@@ -23,24 +30,24 @@ export const CategoryPage = () => {
   ]
 
   const booksData = [
-    { id: 0, category: 'Fiction', bookCoverPage: '../src/assets/bookCoverPages/coverPage01.svg', bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149 },
-    { id: 1, category: 'Romance', bookCoverPage: '../src/assets/bookCoverPages/coverPage02.svg', bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99 },
-    { id: 2, category: 'Non Fiction', bookCoverPage: '../src/assets/bookCoverPages/coverPage03.svg', bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199 },
-    { id: 3, category: 'Young Adult', bookCoverPage: '../src/assets/bookCoverPages/coverPage04.svg', bookTitle: 'Norwegian Wood', bookAuthor: 'Murakami', bookPrice: 299 },
-    { id: 4, category: 'Featured', bookCoverPage: '../src/assets/bookCoverPages/coverPage05.svg', bookTitle: 'In a thousand dif...', bookAuthor: 'Cecelia Ahern', bookPrice: 299 },
-    { id: 5, category: 'Fiction', bookCoverPage: '../src/assets/bookCoverPages/coverPage06.svg', bookTitle: 'If Beale Street Could Talk', bookAuthor: 'James Baldwin', bookPrice: 129 },
-    { id: 6, category: 'Fiction', bookCoverPage: '../src/assets/bookCoverPages/coverPage01.svg', bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149 },
-    { id: 7, category: 'Romance', bookCoverPage: '../src/assets/bookCoverPages/coverPage02.svg', bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99 },
-    { id: 8, category: 'Non Fiction', bookCoverPage: '../src/assets/bookCoverPages/coverPage03.svg', bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199 },
-    { id: 9, category: 'Young Adult', bookCoverPage: '../src/assets/bookCoverPages/coverPage04.svg', bookTitle: 'Norwegian Wood', bookAuthor: 'Murakami', bookPrice: 299 },
-    { id: 10, category: 'Featured', bookCoverPage: '../src/assets/bookCoverPages/coverPage05.svg', bookTitle: 'In a thousand dif...', bookAuthor: 'Cecelia Ahern', bookPrice: 299 },
-    { id: 11, category: 'Fiction', bookCoverPage: '../src/assets/bookCoverPages/coverPage06.svg', bookTitle: 'If Beale Street Could Talk', bookAuthor: 'James Baldwin', bookPrice: 129 },
-    { id: 12, category: 'Fiction', bookCoverPage: '../src/assets/bookCoverPages/coverPage01.svg', bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149 },
-    { id: 13, category: 'Romance', bookCoverPage: '../src/assets/bookCoverPages/coverPage02.svg', bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99 },
-    { id: 14, category: 'Non Fiction', bookCoverPage: '../src/assets/bookCoverPages/coverPage03.svg', bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199 },
-    { id: 15, category: 'Young Adult', bookCoverPage: '../src/assets/bookCoverPages/coverPage04.svg', bookTitle: 'Norwegian Wood', bookAuthor: 'Murakami', bookPrice: 299 },
-    { id: 16, category: 'Featured', bookCoverPage: '../src/assets/bookCoverPages/coverPage05.svg', bookTitle: 'In a thousand dif...', bookAuthor: 'Cecelia Ahern', bookPrice: 299 },
-    { id: 17, category: 'Fiction', bookCoverPage: '../src/assets/bookCoverPages/coverPage06.svg', bookTitle: 'If Beale Street Could Talk', bookAuthor: 'James Baldwin', bookPrice: 129 },
+    { id: 0, category: 'Fiction', bookCoverPage: img01, bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149 },
+    { id: 1, category: 'Romance', bookCoverPage: img02, bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99 },
+    { id: 2, category: 'Non Fiction', bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199 },
+    { id: 3, category: 'Young Adult', bookCoverPage: img04, bookTitle: 'Norwegian Wood', bookAuthor: 'Murakami', bookPrice: 299 },
+    { id: 4, category: 'Featured', bookCoverPage: img05, bookTitle: 'In a thousand dif...', bookAuthor: 'Cecelia Ahern', bookPrice: 299 },
+    { id: 5, category: 'Fiction', bookCoverPage: img06, bookTitle: 'If Beale Street Could Talk', bookAuthor: 'James Baldwin', bookPrice: 129 },
+    { id: 6, category: 'Fiction', bookCoverPage: img01, bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149 },
+    { id: 7, category: 'Romance', bookCoverPage: img02, bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99 },
+    { id: 8, category: 'Non Fiction', bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199 },
+    { id: 9, category: 'Young Adult', bookCoverPage: img04, bookTitle: 'Norwegian Wood', bookAuthor: 'Murakami', bookPrice: 299 },
+    { id: 10, category: 'Featured', bookCoverPage: img05, bookTitle: 'In a thousand dif...', bookAuthor: 'Cecelia Ahern', bookPrice: 299 },
+    { id: 11, category: 'Fiction', bookCoverPage: img06, bookTitle: 'If Beale Street Could Talk', bookAuthor: 'James Baldwin', bookPrice: 129 },
+    { id: 12, category: 'Fiction', bookCoverPage: img01, bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149 },
+    { id: 13, category: 'Romance', bookCoverPage: img02, bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99 },
+    { id: 14, category: 'Non Fiction', bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199 },
+    { id: 15, category: 'Young Adult', bookCoverPage: img04, bookTitle: 'Norwegian Wood', bookAuthor: 'Murakami', bookPrice: 299 },
+    { id: 16, category: 'Featured', bookCoverPage: img05, bookTitle: 'In a thousand dif...', bookAuthor: 'Cecelia Ahern', bookPrice: 299 },
+    { id: 17, category: 'Fiction', bookCoverPage: img06, bookTitle: 'If Beale Street Could Talk', bookAuthor: 'James Baldwin', bookPrice: 129 },
   ];
 
   const tagOptions = {
