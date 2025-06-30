@@ -6,12 +6,12 @@ import categoryIcon from '../../../../assets/tagIcons/tag01.svg';
 import authorIcon from '../../../../assets/tagIcons/tag02.svg';
 import priceIcon from '../../../../assets/tagIcons/tag03.svg';
 import languageIcon from '../../../../assets/tagIcons/tag04.svg';
-import img01 from '../src/assets/bookCoverPages/coverPage01.svg';
-import img02 from '../src/assets/bookCoverPages/coverPage02.svg';
-import img03 from '../src/assets/bookCoverPages/coverPage03.svg';
-import img04 from '../src/assets/bookCoverPages/coverPage04.svg';
-import img05 from '../src/assets/bookCoverPages/coverPage05.svg';
-import img06 from '../src/assets/bookCoverPages/coverPage06.svg';
+import img01 from '../../../../assets/bookCoverPages/coverPage01.svg';
+import img02 from '../../../../assets/bookCoverPages/coverPage02.svg';
+import img03 from '../../../../assets/bookCoverPages/coverPage03.svg';
+import img04 from '../../../../assets/bookCoverPages/coverPage04.svg';
+import img05 from '../../../../assets/bookCoverPages/coverPage05.svg';
+import img06 from '../../../../assets/bookCoverPages/coverPage06.svg';
 
 
 import './CategoryPage.css';
