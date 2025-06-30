@@ -1,13 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import ImageSection from "../../../../../globalComponents/ImageSection";
-import likeIcon from '../../../../../assets/displayIcons/heartIcon.svg';
+import likeIcon from "../../../../../assets/displayIcons/heartIcon.svg";
 import ColorThief from "colorthief";
 
 const BookCard = ({ book }) => {
-  const handleAddToCart = () => {
-    // Add-to-cart logic
-  };
-
   const [colors, setColors] = useState([
     [255, 255, 255],
     [200, 200, 200],
@@ -40,20 +36,30 @@ const BookCard = ({ book }) => {
     }
   }, [book.bookCoverPage]);
 
-  const rgba = (arr, alpha = 0.3) => `rgba(${arr[0]}, ${arr[1]}, ${arr[2]}, ${alpha})`;
-   const gradient = `linear-gradient(135deg, ${rgba(colors[0], 0.3)}, ${rgba(colors[1], 0.3)})`;
+  const rgba = (arr, alpha = 0.3) =>
+    `rgba(${arr[0]}, ${arr[1]}, ${arr[2]}, ${alpha})`;
+  const gradient = `linear-gradient(135deg, ${rgba(colors[0])}, ${rgba(
+    colors[1]
+  )})`;
 
-
+  const handleAddToCart = () => {
+  };
 
   return (
-    <div className="block group transition-all duration-500 ease-in-out">
+    <div className="block group relative w-[210px] h-[350px] mt-[40px] ">
+
+      {/* ✅ Gradient Overlay */}
       <div
-        className="w-[210px] h-[350px] flex flex-col items-start shadow-lg rounded-xl mx-auto p-3 group-hover:scale-105 transition-all duration-500 ease-in-out group-hover:[background-image:var(--card-gradient)] "
+        className="absolute  w-[210px] h-[350px] inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity p-3 duration-500 delay-200 ease-in-out z-0 [background-image] "
         style={{
-          "--card-gradient": gradient,
+          backgroundImage: gradient,
         }}
-      >
-        {/* Hidden img to extract color */}
+      />
+
+      {/* ✅ Main Card Content */}
+      <div className="relative z-10 w-full h-full flex flex-col items-start shadow-lg rounded-xl mx-auto p-3 transition-transform duration-500 delay-200 ease-in-out ">
+
+        {/* Hidden img for color extraction */}
         <img
           ref={imgRef}
           src={book.bookCoverPage}
@@ -87,7 +93,7 @@ const BookCard = ({ book }) => {
           </p>
         </div>
 
-        {/* Add to Cart */}
+        {/* Add to Cart button */}
         <div
           onClick={handleAddToCart}
           className="w-[170px] h-[37px] text-[#064FA4] bg-white border border-[#064FA4] font-['Georama'] font-semibold flex justify-center items-center rounded-[18px] mt-[9px] text-[14px] cursor-pointer group-hover:bg-[#043c7d] group-hover:text-white transition-all duration-300 ease-in-out mx-auto"
