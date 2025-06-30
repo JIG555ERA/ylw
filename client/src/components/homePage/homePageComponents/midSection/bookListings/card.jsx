@@ -50,14 +50,14 @@ const BookCard = ({ book }) => {
 
       {/* ✅ Gradient Overlay */}
       <div
-        className="absolute  w-[210px] h-[350px] inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity p-3 duration-500 delay-200 ease-in-out z-0 [background-image] "
+        className="absolute  w-[210px] h-[350px] inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity p-3 duration-1000 delay-100 ease-in-out z-0 [background-image] "
         style={{
           backgroundImage: gradient,
         }}
       />
 
       {/* ✅ Main Card Content */}
-      <div className="relative z-10 w-full h-full flex flex-col items-start shadow-lg rounded-xl mx-auto p-3 transition-transform duration-500 delay-200 ease-in-out ">
+      <div className="relative z-10 w-full h-full flex flex-col items-start shadow-lg rounded-xl mx-auto p-3 transition-transform duration-1000 delay-100 ease-in-out ">
 
         {/* Hidden img for color extraction */}
         <img
@@ -96,7 +96,7 @@ const BookCard = ({ book }) => {
         {/* Add to Cart button */}
         <div
           onClick={handleAddToCart}
-          className="w-[170px] h-[37px] text-[#064FA4] bg-white border border-[#064FA4] font-['Georama'] font-semibold flex justify-center items-center rounded-[18px] mt-[9px] text-[14px] cursor-pointer group-hover:bg-[#043c7d] group-hover:text-white transition-all duration-300 ease-in-out mx-auto"
+          className="w-[130px] group-hover:w-[170px]  h-[37px] text-[#064FA4] bg-white border border-[#064FA4] font-['Georama'] font-semibold flex justify-center items-center rounded-[30px] mt-[9px] text-[14px] cursor-pointer group-hover:bg-[#043c7d] group-hover:text-white transition-all duration-1000 ease-in-out mx-auto"
         >
           Add to Cart
         </div>
