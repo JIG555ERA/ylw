@@ -1,0 +1,113 @@
+/* ==== AUTHOR MAIN SECTION ==== */
+.author-listings-main {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+}
+
+/* ==== AUTHOR LISTING SECTION ==== */
+.author-listing-title-section {
+    width: auto;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.selected-category-title-section {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-category-title {
+    font-family: 'Georama';
+    font-size: 20px;
+    font-weight: 400;
+    color: #121212;
+}
+
+.books-listing-title-buttons-section {
+    width: 176px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.view-all-button {
+    width: 105px;
+    height: 35px;
+    background: linear-gradient(to right, #F3CD00, #064FA4); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+
+.view-all-button0 {
+    background: #ffffff;
+    width: 103px;
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.view-all-text {
+    font-family: 'Georama';
+    color: #064FA4;
+    font-size: 14px;
+}
+
+.scroll-button-section {
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.scroll-button {
+    display: block;
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+/* ==== AUTHOR CARD SECTION ==== */
+
+.author-card-section {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 197px;
+    width: 100%;
+}
+
+.author-card {
+    width: 403px;
+    height: 197px;
+    border-radius: 12px;
+    background-color: red;
+    margin-right: 40px;
+}
+
+.author-image-section {
+    width: 132px;
+    height: 197px;
+}
+
+.author-image {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}

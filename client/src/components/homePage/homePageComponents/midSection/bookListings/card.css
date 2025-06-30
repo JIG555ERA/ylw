@@ -1,0 +1,160 @@
+.card {
+    width: 330px;
+    height: 289px;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-section {
+    width: 167px;
+    height: 187px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-2 {
+    margin-left: 30px;
+    font-size: 14px;
+    font-weight: 500px;
+    display: block;
+}
+
+.info-section {
+    width: 163px;
+    height: 102px;
+}
+
+.book-title {
+    color: #064FA4;
+    font-family: 'Georama';
+}
+
+.book-author {
+    color: #8C8C8C;
+    font-family: 'Exo 2';
+}
+
+.book-price {
+    color: #8C8C8C;
+    font-family: 'Exo 2';
+}
+
+.add-to-cart-button {
+    width: 102px;
+    height: 33px;
+    background-color: #064FA4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    margin-left: 30px;
+}
+
+.add-to-cart-text {
+    font-family: 'Georama';
+    color: #ffffff;
+}
+
+/* ===== Book design ===== */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backCover {
+
+}
+
+.book-image {
+    position: absolute;
+    width: 108px;
+    height: 150px;
+    z-index: 10;
+    transform: translateY(-80px);
+    margin-left: 16px;
+}
+
+.whitePage {
+    position: absolute;
+    width: 127px;
+    height: 158px;
+    z-index: 4;
+    transform: translate();
+    margin-bottom: 5px;
+    border: 0.5px solid #BEC2C3;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.first-line {
+    position: absolute;
+    width: 0.75px;
+    height: 158px;
+    background: #D1D1D1;
+    transform: translateX(62px);
+    margin-bottom: 5px;
+    z-index: 6;
+}
+
+.second-line {
+    position: absolute;
+    width: 0.75px;
+    height: 156.3px;
+    background: #D1D1D1;
+    transform: translateX(60px);
+    margin-bottom: 5px;
+    z-index: 6;
+}
+
+.third-line {
+    position: absolute;
+    width: 124px;
+    height: 0.75px;
+    background: #D1D1D1;
+    transform: translateY(77.75px);
+    margin-bottom: 5px;
+    z-index: 6;
+    margin-right: 4px;
+}
+
+.frontCoverPage {
+    position: absolute;
+    width: 125px;
+    height: 158px;
+    z-index: 8;
+    transform: translateX(-4px);
+    margin-bottom: 10px;
+    border-top-left-radius: 5px;
+}
+
+.frontLine {
+    position: absolute;
+    width: 6px;
+    height: 158px;
+    z-index: 9;
+    transform: translateX(-56px);
+    margin-bottom: 10px;
+}
+
+.bookMark {
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    clip-path: polygon(70% 1%, 70% 99%, 42% 83%, 16% 100%, 16% 0);
+    z-index: 5;
+    transform: translateY(82px);
+    background: #F3CD00;
+    margin-right: 55px;
+
+}
+

@@ -1,0 +1,110 @@
+/* ==== MAIN BOOKS LISTING SECTION ==== */
+/* .book-listings-main {
+    position: absolute;
+    width: 100%;
+    margin-top: 40px;
+    z-index: 1;
+} */
+
+/* ==== TITLE LISTING SECTION ==== */
+/* .books-listing-title-section {
+    width: auto;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+} */
+
+.selected-category-title-section {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-category-title {
+    font-family: 'Georama';
+    font-size: 20px;
+    font-weight: 400;
+    color: #121212;
+}
+
+.books-listing-title-buttons-section {
+    width: 176px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.view-all-button {
+    width: 105px;
+    height: 35px;
+    background: linear-gradient(to right, #F3CD00, #064FA4); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+
+.view-all-button0 {
+    background: #ffffff;
+    width: 103px;
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.view-all-text {
+    font-family: 'Georama';
+    color: #064FA4;
+    font-size: 14px;
+}
+
+.scroll-button-section {
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.scroll-button {
+    display: block;
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+
+/* ==== BOOKS LISTING SECTION ==== */
+.books-listing-section {
+    width: 100%;
+    height: 289px;
+    background-color: none;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card {
+    display: block;
+    width: 330px;
+    height: 289px;
+    background-color: none;
+    margin-right: 40px;
+}
+
+.image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
