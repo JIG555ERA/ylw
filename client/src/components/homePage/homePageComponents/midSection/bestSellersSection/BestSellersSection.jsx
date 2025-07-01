@@ -4,6 +4,7 @@ import img02 from '../../../../../assets/bookCoverPages/coverPage02.svg'
 import img03 from '../../../../../assets/bookCoverPages/coverPage03.svg'
 import ImageSection from '../../../../../globalComponents/ImageSection'
 
+
 const BestSellersSection = () => {
 
     const trendingBooks = [

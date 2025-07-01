@@ -3,7 +3,8 @@ import author01 from '../../../../../assets/authorImages/author01.svg'
 import author02 from '../../../../../assets/authorImages/author02.svg'
 import author03 from '../../../../../assets/authorImages/author03.svg'
 import author04 from '../../../../../assets/authorImages/author07.jpeg'
-
+import leftScrollButton from '../../../../../assets/icons/leftScrollButton.svg'
+import rightScrollButton from '../../../../../assets/icons/rightScrollButton.svg'
 
 const BookByAuthorsSection = () => {
 
@@ -43,14 +44,14 @@ const BookByAuthorsSection = () => {
                         <div className="scroll-button">
                             <img
                                 className="left-scroll-button-image"
-                                src="../src/assets/icons/leftScrollButton.svg"
+                                src={leftScrollButton}
                                 alt="left scroll"
                             />
                         </div>
                         <div className="scroll-button">
                             <img
                                 className="right-scroll-button-image"
-                                src="../src/assets/icons/rightScrollButton.svg"
+                                src={rightScrollButton}
                                 alt="right scroll"
                             />
                         </div>
