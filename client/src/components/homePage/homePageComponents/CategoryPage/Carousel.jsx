@@ -135,7 +135,7 @@ export const Carousel = () => {
   };
 
   return (
-    <div className="relative max-w-7xl mx-auto sm:px-6 lg:px-8 overflow-hidden">
+    <div className="relative max-w-[1440px] mx-auto sm:px-6 lg:px-8 overflow-hidden">
       <Slider {...settings} className="w-full rounded-xl overflow-hidden">
         {booksData.map((book, index) => (
           <div key={book.id} className="w-full h-[70vh] my-5">

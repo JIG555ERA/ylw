@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BookCard from "../midSection/bookListings/card";
 import { IoClose } from "react-icons/io5";
+import { Navbar } from "../topSection/navBar/navbar";
 
 import categoryIcon from '../../../../assets/tagIcons/tag01.svg';
 import authorIcon from '../../../../assets/tagIcons/tag02.svg';
@@ -112,20 +113,20 @@ export const CategoryPage = () => {
   ]
 
   return (
-    <div className="mx-[80px]">
-        {/* Navbar */}
+    <div className="">
+        {/* Navbar
         <div className="w-full flex flex-col items-center justify-evenly mt-4">
           {/* Logo Section */}
-          <div className="flex justify-center items-center mb-[30px]">
+          {/* <div className="flex justify-center items-center mb-[30px]">
             <img
               className="h-auto w-auto"
               src="../src/assets/logos/yourLiteraryWorldIcon.svg"
               alt="Your Literary World Logo"
             />
-          </div>
+          </div> */} 
 
           {/* Navigation Items */}
-          <ul className="w-full flex justify-between items-center mb-5 pt-0 mt-0 box-border">
+          {/* <ul className="w-full flex justify-between items-center mb-5 pt-0 mt-0 box-border">
             {navItems.map((item) => (
               <a 
               key={item.name}
@@ -151,7 +152,7 @@ export const CategoryPage = () => {
               </li>
               </a>
             ))}
-          </ul>
+          </ul> */}
 
           {/* Header Text
           <div className="flex justify-center">
@@ -159,12 +160,13 @@ export const CategoryPage = () => {
               Your Literary World
             </h1>
           </div> */}
-        </div>
+        {/* </div> */}
+        <Navbar />
 
-
+        <div className="pt-[140px]"></div>
         <Carousel />
 
-        <div className="px-6 mb-10">
+        <div className="px-6 mb-10 mx-[80px]">
         {/* Filters Section */}
         <div className="mb-10 relative">
             <p className="text-xl font-semibold mb-4">Filters</p>

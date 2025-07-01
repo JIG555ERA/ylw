@@ -1,27 +1,33 @@
-import React from "react";
-import BookCard from "./card"; 
-import './bookListings.css';
+import React from 'react'
+import BookCard from '../bookListings/card'
+import img01 from '../../../../../assets/bookCoverPages/coverPage01.svg'
+import img02 from '../../../../../assets/bookCoverPages/coverPage02.svg'
+import img03 from '../../../../../assets/bookCoverPages/coverPage03.svg'
+import img04 from '../../../../../assets/bookCoverPages/coverPage04.svg'
+import img05 from '../../../../../assets/bookCoverPages/coverPage05.svg'
+import img06 from '../../../../../assets/bookCoverPages/coverPage06.svg'
 
-export const BookListings = () => {
+const FictionCollection = () => {
+
     const booksData = [
-        {id: 0, bookCoverPage: '../src/assets/bookCoverPages/coverPage01.svg', bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149},
-        {id: 1, bookCoverPage: '../src/assets/bookCoverPages/coverPage02.svg', bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99},
-        {id: 2, bookCoverPage: '../src/assets/bookCoverPages/coverPage03.svg', bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott FitzerALD', bookPrice: 199},
-        {id: 3, bookCoverPage: '../src/assets/bookCoverPages/coverPage04.svg', bookTitle: 'Murakami', bookAuthor: 'Norweign Wood', bookPrice: 299},
-        {id: 4, bookCoverPage: '../src/assets/bookCoverPages/coverPage05.svg', bookTitle: 'In a thousand diff...', bookAuthor: 'Cecelia Ahern', bookPrice: 299},
-        {id: 5, bookCoverPage: '../src/assets/bookCoverPages/coverPage06.svg', bookTitle: 'If beale street co...', bookAuthor: 'James Baldwin', bookPrice: 129}
+        {id: 1, bookCoverPage: img02, bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99},
+        {id: 0, bookCoverPage: img01, bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149},
+        {id: 3, bookCoverPage: img04, bookTitle: 'Murakami', bookAuthor: 'Norweign Wood', bookPrice: 299},
+        {id: 2, bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott FitzerALD', bookPrice: 199},
+        {id: 5, bookCoverPage: img06, bookTitle: 'If beale street co...', bookAuthor: 'James Baldwin', bookPrice: 129},
+        {id: 4, bookCoverPage: img05, bookTitle: 'In a thousand diff...', bookAuthor: 'Cecelia Ahern', bookPrice: 299},
     ];
-
+    
     const handleViewAll = () => {
-
+    
     }
 
     return (
         <div className="mx-[80px] mt-[80px]">
-            <div className="books-listing-title-section flex justify-between">
+            <div className="books-listing-title-section flex justify-between ">
                 <div className="selected-categroy-title-section">
-                    <p className="translate-y-[20px] text-[24px] font-semibold">
-                        Best of non-fiction collection
+                    <p className="translate-y-[20px] text-[24px] text-[#111111] font-semibold">
+                        Best of fiction collection
                     </p>
                 </div>
                 <div className="books-listing-title-buttons-section">
@@ -54,11 +60,13 @@ export const BookListings = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-6 w-full mt-5 gap-12 translate-x-[-12px]">
+            <div className="grid grid-cols-6 w-full gap-12 translate-x-[-12px]">
                 {booksData.map((book) => (
                     <BookCard key={book.id} book={book} />
                 ))}
             </div>
         </div>
-    );
-};
+    )
+}
+
+export default FictionCollection

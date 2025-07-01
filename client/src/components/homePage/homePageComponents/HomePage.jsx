@@ -23,7 +23,7 @@ const HomePage = () => {
   ]
 
   return (
-    <div className='mx-[80px]'>
+    <div className=''>
         <TopSection />
         <MidSection />
 
