@@ -7,7 +7,7 @@ export const TopSection = () => {
     <div
       className="pt-0 mt-0 flex justify-center box-border"
     >
-      <Navbar />
+      <Navbar active='Home'/>
       <Carousel01 />
 
     </div>

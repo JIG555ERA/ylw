@@ -161,7 +161,7 @@ export const CategoryPage = () => {
             </h1>
           </div> */}
         {/* </div> */}
-        <Navbar />
+        <Navbar active="Categories"/>
 
         <div className="pt-[140px]"></div>
         <Carousel />

@@ -3,6 +3,7 @@ import img01 from '../../../../../assets/bookCoverPages/coverPage01.svg'
 import img02 from '../../../../../assets/bookCoverPages/coverPage02.svg'
 import img03 from '../../../../../assets/bookCoverPages/coverPage03.svg'
 import ImageSection from '../../../../../globalComponents/ImageSection'
+import bestSellerBg from  '../../../../../assets/backgroundImages/bestsellerBg.svg'
 
 
 const BestSellersSection = () => {

@@ -5,8 +5,8 @@ import heartIcon from '../../../../../assets/pageIcons/heartIcon.svg'
 import cartIcon from '../../../../../assets/pageIcons/cartIcon.svg'
 import bookStoreLogo from '../../../../../assets/logos/bookStoreLogo.svg'
 
-export const Navbar = () => {
-  const [activePage, setActivePage] = useState('Home')
+export const Navbar = ({active=''}) => {
+  const [activePage, setActivePage] = useState(active)
 
   const navItems = [
     { name: 'Home', icon: homeIcon, selectedIcon: 'selectedHomeIcon', link: `/`},
@@ -28,8 +28,8 @@ export const Navbar = () => {
             className={`
               flex items-center justify-between cursor-pointer transition-all duration-300 ease-in-out
               ${activePage === item.name
-                ? 'text-[#8C8C8C] font-normal text-base rounded-md animate-slide-in py-2.5'
-                : 'text-[#8C8C8C] py-2.5'}
+                ? 'text-[#121212] font-semibold text-base rounded-md animate-slide-in py-2.5'
+                : 'text-[#8C8C8C] py-2.5 font-normal'}
             `}
             onClick={() => setActivePage(item.name)}
           >
@@ -66,8 +66,8 @@ export const Navbar = () => {
             className={`
               flex items-center justify-between cursor-pointer transition-all duration-300 ease-in-out
               ${activePage === item.name
-                ? 'text-[#8C8C8C] font-normal text-base rounded-md animate-slide-in py-2.5'
-                : 'text-[#8C8C8C] py-2.5'}
+                ? 'text-[#121212] font-semibold text-base rounded-md animate-slide-in py-2.5'
+                : 'text-[#8C8C8C] py-2.5 font-normal'}
             `}
             onClick={() => setActivePage(item.name)}
           >
