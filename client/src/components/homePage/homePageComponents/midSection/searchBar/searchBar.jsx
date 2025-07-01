@@ -131,7 +131,6 @@ export const SearchBar = () => {
                     border: '1px solid #ccc',
                     borderRadius: '10px',
                     zIndex: 20,
-                    width: '200px',
                     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                     transform: 'translateY(80px)',
                     width: '250px',
