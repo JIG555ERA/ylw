@@ -29,7 +29,7 @@ export const Navbar = () => {
               flex items-center justify-between cursor-pointer transition-all duration-300 ease-in-out
               ${activePage === item.name
                 ? 'text-[#8C8C8C] font-normal text-base rounded-md animate-slide-in py-2.5'
-                : 'py-2.5'}
+                : 'text-[#8C8C8C] py-2.5'}
             `}
             onClick={() => setActivePage(item.name)}
           >
