@@ -6,6 +6,9 @@ import img03 from '../../../../../assets/bookCoverPages/coverPage03.svg'
 import img04 from '../../../../../assets/bookCoverPages/coverPage04.svg'
 import img05 from '../../../../../assets/bookCoverPages/coverPage05.svg'
 import img06 from '../../../../../assets/bookCoverPages/coverPage06.svg'
+import leftScrollButton from '../../../../../assets/icons/leftScrollButton.svg'
+import rightScrollButton from '../../../../../assets/icons/rightScrollButton.svg'
+
 
 const FictionCollection = () => {
 
@@ -46,14 +49,14 @@ const FictionCollection = () => {
                         <div className="scroll-button">
                             <img
                                 className="left-scroll-button-image"
-                                src="../src/assets/icons/leftScrollButton.svg"
+                                src={leftScrollButton}
                                 alt="left scroll"
                             />
                         </div>
                         <div className="scroll-button">
                             <img
                                 className="right-scroll-button-image"
-                                src="../src/assets/icons/rightScrollButton.svg"
+                                src={rightScrollButton}
                                 alt="right scroll"
                             />
                         </div>

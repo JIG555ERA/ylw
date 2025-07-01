@@ -4,6 +4,8 @@ import img01 from '../../../../../assets/bookCoverPages/coverPage01.svg'
 import img02 from '../../../../../assets/bookCoverPages/coverPage02.svg'
 import img03 from '../../../../../assets/bookCoverPages/coverPage03.svg'
 import img04 from '../../../../../assets/bookCoverPages/coverPage04.svg'
+import leftScrollButton from '../../../../../assets/icons/leftScrollButton.svg'
+import rightScrollButton from '../../../../../assets/icons/rightScrollButton.svg'
 
 export const CategorySection = () => {
     const [category, setSelectedCategory] = useState();
@@ -51,14 +53,14 @@ export const CategorySection = () => {
                         <div className="scroll-button">
                             <img
                                 className="left-scroll-button-image"
-                                src="../src/assets/icons/leftScrollButton.svg"
+                                src={leftScrollButton}
                                 alt="left scroll"
                             />
                         </div>
                         <div className="scroll-button">
                             <img
                                 className="right-scroll-button-image"
-                                src="../src/assets/icons/rightScrollButton.svg"
+                                src={rightScrollButton}
                                 alt="right scroll"
                             />
                         </div>

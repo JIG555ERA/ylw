@@ -47,13 +47,15 @@ export const Navbar = () => {
         ))}
           
         {/* Logo Section */}
-        <div className="flex justify-center items-center mx-12">
-          <img
-            className="h-auto w-auto"
-            src={bookStoreLogo}
-            alt="Book Store Logo"
-          />
-        </div>
+        <a href="/">
+          <div className="flex justify-center items-center mx-12">
+            <img
+              className="h-auto w-auto"
+              src={bookStoreLogo}
+              alt="Book Store Logo"
+            />
+          </div>
+        </a>
 
         {navItems.slice(2).map((item, index, array) => (
           <a 

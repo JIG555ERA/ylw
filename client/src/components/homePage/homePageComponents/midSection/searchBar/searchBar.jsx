@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ImageSection from "../../../../../globalComponents/ImageSection";
+import searchIcon from '../../../../../assets/icons/searchIcon.svg'
 import './searchBar.css';
 
 export const SearchBar = () => {
@@ -100,7 +101,7 @@ export const SearchBar = () => {
           </div>
           <div className="search-button">
             <div className="button-container">
-              <img className="search-icon" src="../src/assets/icons/searchIcon.svg" alt="search icon" />
+              <img className="search-icon" src={searchIcon} alt="search icon" />
             </div>
           </div>
         </div>

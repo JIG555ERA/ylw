@@ -1,15 +1,24 @@
 import React from "react";
 import BookCard from "./card"; 
 import './bookListings.css';
+import img01 from '../../../../../assets/bookCoverPages/coverPage01.svg'
+import img02 from '../../../../../assets/bookCoverPages/coverPage02.svg'
+import img03 from '../../../../../assets/bookCoverPages/coverPage03.svg'
+import img04 from '../../../../../assets/bookCoverPages/coverPage04.svg'
+import img05 from '../../../../../assets/bookCoverPages/coverPage05.svg'
+import img06 from '../../../../../assets/bookCoverPages/coverPage06.svg'
+import leftScrollButton from '../../../../../assets/icons/leftScrollButton.svg'
+import rightScrollButton from '../../../../../assets/icons/rightScrollButton.svg'
+
 
 export const BookListings = () => {
     const booksData = [
-        {id: 0, bookCoverPage: '../src/assets/bookCoverPages/coverPage01.svg', bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149},
-        {id: 1, bookCoverPage: '../src/assets/bookCoverPages/coverPage02.svg', bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99},
-        {id: 2, bookCoverPage: '../src/assets/bookCoverPages/coverPage03.svg', bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott FitzerALD', bookPrice: 199},
-        {id: 3, bookCoverPage: '../src/assets/bookCoverPages/coverPage04.svg', bookTitle: 'Murakami', bookAuthor: 'Norweign Wood', bookPrice: 299},
-        {id: 4, bookCoverPage: '../src/assets/bookCoverPages/coverPage05.svg', bookTitle: 'In a thousand diff...', bookAuthor: 'Cecelia Ahern', bookPrice: 299},
-        {id: 5, bookCoverPage: '../src/assets/bookCoverPages/coverPage06.svg', bookTitle: 'If beale street co...', bookAuthor: 'James Baldwin', bookPrice: 129}
+        {id: 1, bookCoverPage: img01, bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99},
+        {id: 2, bookCoverPage: img02, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott FitzerALD', bookPrice: 199},
+        {id: 0, bookCoverPage: img03, bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149},
+        {id: 3, bookCoverPage: img04, bookTitle: 'Murakami', bookAuthor: 'Norweign Wood', bookPrice: 299},
+        {id: 4, bookCoverPage: img05, bookTitle: 'In a thousand diff...', bookAuthor: 'Cecelia Ahern', bookPrice: 299},
+        {id: 5, bookCoverPage: img06, bookTitle: 'If beale street co...', bookAuthor: 'James Baldwin', bookPrice: 129}
     ];
 
     const handleViewAll = () => {
@@ -40,14 +49,14 @@ export const BookListings = () => {
                         <div className="scroll-button">
                             <img
                                 className="left-scroll-button-image"
-                                src="../src/assets/icons/leftScrollButton.svg"
+                                src={leftScrollButton}
                                 alt="left scroll"
                             />
                         </div>
                         <div className="scroll-button">
                             <img
                                 className="right-scroll-button-image"
-                                src="../src/assets/icons/rightScrollButton.svg"
+                                src={rightScrollButton}
                                 alt="right scroll"
                             />
                         </div>
