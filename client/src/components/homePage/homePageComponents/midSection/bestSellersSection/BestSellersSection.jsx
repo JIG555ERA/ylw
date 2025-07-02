@@ -31,6 +31,7 @@ const BestSellersSection = () => {
             className='w-[1280px] h-[225px] mx-auto flex justify-between mt-[40px]'>
                 {trendingBooks.map((book, index, array) => (
                     <div
+                    key={book.id}
                     className='w-[360px] h-[225px] flex '>
                         <div
                         className='h-[225px] flex justify-center items-center w-[180px]'>
