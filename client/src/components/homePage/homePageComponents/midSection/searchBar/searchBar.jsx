@@ -16,6 +16,8 @@ export const SearchBar = () => {
   const [active, setActive] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const wrapperRef = useRef(null);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
 
   const suggestionSectionCard = [
     { bookId: 0, bookName: "Klara and the sun", authorName: "Kazuo Ishihuro", bookImage: img01, languageTag: 'English', genreTag: 'Fiction', price: 199 },
@@ -24,6 +26,17 @@ export const SearchBar = () => {
     { bookId: 3, bookName: "The covenant of water", authorName: "Abraham Verghese", bookImage: img04, languageTag: 'English', genreTag: 'Non Fiction', price: 349 },
     { bookId: 4, bookName: "Premchandra Sahitya Rachnavli", authorName: "James Baldwin", bookImage: img05, languageTag: 'Hindi', genreTag: 'Regional', price: 369 },
   ];
+
+  useEffect(() => {
+    let timer;
+    if (active) {
+      timer = setTimeout(() => setShowSuggestions(true), 500); 
+    } else {
+      setShowSuggestions(false); 
+    }
+    return () => clearTimeout(timer);
+  }, [active]);
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -83,8 +96,8 @@ export const SearchBar = () => {
         </div>
 
         {/* Suggestions */}
-        {active && (
-          <div className="w-[1050px] bg-white z-50 rounded-2xl mt-5 shadow-lg p-5 transition-all duration-500 ease-in-out">
+        {showSuggestions && (
+          <div className="w-[1050px] bg-white z-50 rounded-2xl mt-5 shadow-lg p-5 transition-all duration-1000 delay-800 ease-in-out">
             <div className="flex flex-col mt-5 gap-4">
               {filteredCards.length === 0 ? (
                 <p className="text-center italic text-gray-500">
