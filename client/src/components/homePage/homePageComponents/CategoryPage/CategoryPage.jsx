@@ -13,6 +13,7 @@ import img03 from '../../../../assets/bookCoverPages/coverPage03.svg';
 import img04 from '../../../../assets/bookCoverPages/coverPage04.svg';
 import img05 from '../../../../assets/bookCoverPages/coverPage05.svg';
 import img06 from '../../../../assets/bookCoverPages/coverPage06.svg';
+import categoryPageBg from '../../../../assets/backgroundImages/categoryPageBg.svg'
 
 
 import './CategoryPage.css';
@@ -163,8 +164,15 @@ export const CategoryPage = () => {
         {/* </div> */}
         <Navbar active="Categories"/>
 
-        <div className="pt-[140px]"></div>
-        <Carousel />
+        <div className="pt-[80px]"></div>
+        {/* <Carousel /> */}
+        <div
+        className="w-full h-[625px]">
+          <img 
+          className="w-full h-[625px] bg-cover"
+          src={categoryPageBg} alt="" />
+
+        </div>
 
         <div className="px-6 mb-10 mx-[80px]">
         {/* Filters Section */}

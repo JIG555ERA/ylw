@@ -10,7 +10,7 @@ export const Navbar = ({active=''}) => {
 
   const navItems = [
     { name: 'Home', icon: homeIcon, selectedIcon: 'selectedHomeIcon', link: `/`},
-    { name: 'Categories', icon: categoryIcon, selectedIcon: 'selectedCategoryIcon', link: `/category`},
+    { name: 'Categories', icon: categoryIcon, selectedIcon: 'selectedCategoryIcon', link: `/categories`},
     { name: 'Liked', icon: heartIcon, selectedIcon: 'selectedFavouriteIcon', link: `/liked`},
     { name: 'Cart', icon: cartIcon, selectedIcon: 'selectedUserProfileIcon', link: `/cart`},
   ]
