@@ -30,7 +30,7 @@ export const SearchBar = () => {
   useEffect(() => {
     let timer;
     if (active) {
-      timer = setTimeout(() => setShowSuggestions(true), 500); 
+      timer = setTimeout(() => setShowSuggestions(true), 300); 
     } else {
       setShowSuggestions(false); 
     }
