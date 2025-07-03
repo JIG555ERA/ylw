@@ -57,7 +57,7 @@ const BookCard = ({ book }) => {
       />
 
       {/* ✅ Main Card Content */}
-      <div className="relative z-10 w-full h-full flex flex-col items-start border-2 bg-white border-[#EDEDED] rounded-xl mx-auto p-3 transition-transform duration-1000 delay-100 ease-in-out ">
+      <div className="relative z-10 w-full h-full flex flex-col items-start border-2 border-[#EDEDED] rounded-xl mx-auto p-3 transition-transform duration-1000 delay-100 ease-in-out ">
 
         {/* Hidden img for color extraction */}
         <img
