@@ -99,7 +99,7 @@ const Carousel01 = () => {
         <SearchBar />
       </div>
 
-      <div className="w-[80vw] h-[345px] mx-auto mt-[70px] ">
+      <div className="w-[80vw] h-[345px] mx-auto mt-[70px] cursor-none">
         <Carousel
           ref={carouselRef}
           autoPlay={true}

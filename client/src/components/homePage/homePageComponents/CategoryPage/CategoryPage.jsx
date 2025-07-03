@@ -114,7 +114,7 @@ export const CategoryPage = () => {
   ]
 
   return (
-    <div className="">
+    <div className="bg-[#F9F9F9]">
         {/* Navbar
         <div className="w-full flex flex-col items-center justify-evenly mt-4">
           {/* Logo Section */}
@@ -165,16 +165,17 @@ export const CategoryPage = () => {
         <Navbar active="Categories"/>
 
         <div className="pt-[80px]"></div>
+
         {/* <Carousel /> */}
         <div
         className="w-full h-[625px]">
           <img 
-          className="w-full h-[625px] bg-cover"
+          className="w-[100vw] h-[625px] bg-cover"
           src={categoryPageBg} alt="" />
 
         </div>
 
-        <div className="px-6 mb-10 mx-[80px]">
+        <div className="px-6 py-10 mx-[80px]">
         {/* Filters Section */}
         <div className="mb-10 relative">
             <p className="text-xl font-semibold mb-4">Filters</p>
@@ -242,7 +243,7 @@ export const CategoryPage = () => {
         </div>
 
         {/* Book Listing Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 3xl:grid-cols-3 gap-6 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 3xl:grid-cols-3 gap-6 mt-6">
             {getFilteredBooks().map(book => (
             <BookCard key={book.id} book={book} />
             ))}

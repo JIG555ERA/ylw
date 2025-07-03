@@ -6,6 +6,7 @@ import { CategoryPage } from './components/homePage/homePageComponents/CategoryP
 import ProductDisplayPage from './components/homePage/productDisplayPage/ProductDisplayPage'
 import LikePage from './components/homePage/homePageComponents/likePage/LikePage'
 import CartPage from './components/homePage/homePageComponents/cartPage/CartPage'
+import ProductPage from './components/homePage/homePageComponents/productPage/ProductPage'
 // import './App.css'
 
 function App() {
@@ -14,9 +15,10 @@ function App() {
      <Routes>
         <Route path='/' element={<HomePage />} /> 
         <Route path='/categories' element={<CategoryPage />} /> 
-        <Route path='/product' element={<ProductDisplayPage />} /> 
+        {/* <Route path='/product' element={<ProductDisplayPage />} />  */}
         <Route path="/liked" element={<LikePage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/product" element={<ProductPage />} />
      </Routes>
     </>
   )

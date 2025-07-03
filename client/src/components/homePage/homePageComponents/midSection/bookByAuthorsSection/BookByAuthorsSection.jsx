@@ -21,7 +21,7 @@ const BookByAuthorsSection = () => {
     }    
 
     return (
-        <div className="mx-[80px] mt-[80px] mb-[300px]">
+        <div className="mx-[80px] mt-[80px] pb-[300px]">
             <div className="books-listing-title-section flex justify-between ">
                 <div className="selected-categroy-title-section">
                     <p className="translate-y-[20px] text-[24px] text-[#111111] font-semibold">

@@ -15,7 +15,7 @@ const BestSellersSection = () => {
 
     return (
         <div
-        className='w-full h-[460px] py-[60px]  mt-[40px] flex flex-col '>
+        className='w-full h-[460px] py-[60px]  pt-[40px] flex flex-col '>
             <div
             className='flex mx-auto flex-col'>
                 <h1

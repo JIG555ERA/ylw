@@ -10,7 +10,7 @@ import BookByAuthorsSection from "./bookByAuthorsSection/BookByAuthorsSection";
 
 export const MidSection = () => {
     return (
-        <div className="main-section">
+        <div className="main-section bg-[#F9F9F9]">
             <BestSellersSection />
             <CategorySection />
             <BestSellersListing />
