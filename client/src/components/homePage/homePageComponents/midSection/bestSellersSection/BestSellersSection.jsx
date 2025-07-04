@@ -16,9 +16,9 @@ const BestSellersSection = () => {
 
     return (
         <div
-        className='w-[100vw] h-[460px] pt-[60px] flex flex-col relative'>
+        className='w-full h-[460px] pt-[60px] flex flex-col relative'>
             <div
-            className='w-[100vw] h-[460px] absolute z-0 '>
+            className='w-full h-[460px] absolute z-0 '>
                 <img 
                 className="w-[100vw] h-[460px]"
                 src={bestSellerBg} alt="" />
