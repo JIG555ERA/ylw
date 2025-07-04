@@ -1,5 +1,4 @@
 import React from "react";
-import './midSection.css'
 import { CategorySection } from './categorySection/categorySection'
 import { BookListings } from './bookListings/bookListings'
 import { AuthorSection } from './authorSection/authorSection'

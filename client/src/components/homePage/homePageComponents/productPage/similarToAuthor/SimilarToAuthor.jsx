@@ -24,8 +24,9 @@ const SimilarToAuthor = ({context=''}) => {
     }
 
     return (
-        <div className="px-[80px] mt-[50px] w-full">
-            <div className="books-listing-title-section flex justify-between ">
+        <div className="px-[80px] mt-[40px] w-full">
+            <div className="w-full  border-t-[3px] border-dashed border-[#D1D1D1] "/>
+            <div className="books-listing-title-section flex justify-between mt-[30px]">
                 <div className="selected-categroy-title-section">
                     <p className="translate-y-[20px] text-[24px] text-[#111111] font-semibold">
                         Most of {context}

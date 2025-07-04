@@ -3,6 +3,7 @@ import img01 from '../../../../../assets/bookCoverPages/coverPage01.svg'
 import img02 from '../../../../../assets/bookCoverPages/coverPage02.svg'
 import img03 from '../../../../../assets/bookCoverPages/coverPage03.svg'
 import ImageSection from '../../../../../globalComponents/ImageSection'
+import bestSellerBg from '../../../../../assets/backgroundImages/bestSellerBg.svg'
 
 
 const BestSellersSection = () => {
@@ -15,9 +16,15 @@ const BestSellersSection = () => {
 
     return (
         <div
-        className='w-full h-[460px] py-[60px]  pt-[40px] flex flex-col '>
+        className='w-[100vw] h-[460px] pt-[60px] flex flex-col relative'>
             <div
-            className='flex mx-auto flex-col'>
+            className='w-[100vw] h-[460px] absolute z-0 '>
+                <img 
+                className="w-[100vw] h-[460px]"
+                src={bestSellerBg} alt="" />
+            </div>
+            <div
+            className='flex mx-auto flex-col relative'>
                 <h1
                 className='text-[32px] font-semibold text-[#121212] text-center'>
                     Bestsellers
@@ -28,7 +35,7 @@ const BestSellersSection = () => {
                 </p>
             </div>
             <div
-            className='w-[1280px] h-[225px] mx-auto flex justify-between mt-[40px]'>
+            className='w-[1280px] h-[225px] mx-auto flex justify-between mt-[40px] relative'>
                 {trendingBooks.map((book, index, array) => (
                     <div
                     key={book.id}
@@ -63,7 +70,7 @@ const BestSellersSection = () => {
                             </p>
 
                             <div
-                            className='w-[170px] h-[37px] border-2 border-[#064FA4] bg-white flex justify-center items-center rounded-[18px] mt-[10px]'>
+                            className='w-[170px] h-[37px] border-2 border-[#064FA4]  flex justify-center items-center rounded-[18px] mt-[10px]'>
                                 <p
                                 className='text-[#064FA4] text-[14px] font-semibold '>
                                     Add to Cart
