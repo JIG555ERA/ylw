@@ -46,7 +46,7 @@ const BookCard = ({ book }) => {
   };
 
   return (
-    <div className="block group relative w-[210px] h-[350px] mt-[40px] ">
+    <div className="block group relative w-[210px] h-[350px] mt-[40px] font-[Poppins]">
 
       {/* ✅ Gradient Overlay */}
       <div
@@ -81,14 +81,14 @@ const BookCard = ({ book }) => {
         </div>
 
         {/* Book info */}
-        <div className="text-sm font-medium space-y-1 text-center flex flex-col justify-center mx-auto">
-          <p className="text-[#064FA4] font-['Georama'] text-[16px] font-semibold">
+        <div className="text-sm font-medium space-y-1 text-center flex flex-col justify-center mx-auto ">
+          <p className="text-[#064FA4] text-[16px] font-semibold line-clamp-1">
             {book.bookTitle}
           </p>
-          <p className="text-[#8C8C8C] font-['Exo_2'] text-[14px] font-medium">
+          <p className="text-[#8C8C8C] text-[14px] font-medium line-clamp-1">
             {book.bookAuthor}
           </p>
-          <p className="text-[#111111] font-['Exo_2'] text-[18px] font-medium">
+          <p className="text-[#111111] text-[18px] font-medium">
             ₹ {book.bookPrice}
           </p>
         </div>
@@ -96,7 +96,7 @@ const BookCard = ({ book }) => {
         {/* Add to Cart button */}
         <div
           onClick={handleAddToCart}
-          className="w-[130px] group-hover:w-[170px]  h-[37px] text-[#064FA4] bg-white border border-[#064FA4] font-['Georama'] font-semibold flex justify-center items-center rounded-[30px] mt-[9px] text-[14px] cursor-pointer group-hover:bg-[#043c7d] group-hover:text-white transition-all duration-1000 ease-in-out mx-auto"
+          className="w-[130px] group-hover:w-[170px]  h-[37px] text-[#064FA4] bg-white border border-[#064FA4] font-semibold flex justify-center items-center rounded-[30px] mt-[9px] text-[14px] cursor-pointer group-hover:bg-[#043c7d] group-hover:text-white transition-all duration-1000 ease-in-out mx-auto"
         >
           Add to Cart
         </div>

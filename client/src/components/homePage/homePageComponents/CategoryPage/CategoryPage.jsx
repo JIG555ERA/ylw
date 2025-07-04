@@ -1,254 +1,338 @@
 import React, { useState } from "react";
+import { IoChevronDown, IoChevronUp } from "react-icons/io5";
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
 import BookCard from "../midSection/bookListings/card";
-import { IoClose } from "react-icons/io5";
 import { Navbar } from "../topSection/navBar/navbar";
-
-import categoryIcon from '../../../../assets/tagIcons/tag01.svg';
-import authorIcon from '../../../../assets/tagIcons/tag02.svg';
-import priceIcon from '../../../../assets/tagIcons/tag03.svg';
-import languageIcon from '../../../../assets/tagIcons/tag04.svg';
+import filledCheck from '../../../../assets/icons/filledCheck.svg';
+import emptyCheck from '../../../../assets/icons/emptyCheck.svg';
+import author01 from '../../../../assets/authorImages/author01.svg';
+import author02 from '../../../../assets/authorImages/author02.svg';
+import author03 from '../../../../assets/authorImages/author03.svg';
+import author04 from '../../../../assets/authorImages/author04.svg';
 import img01 from '../../../../assets/bookCoverPages/coverPage01.svg';
 import img02 from '../../../../assets/bookCoverPages/coverPage02.svg';
 import img03 from '../../../../assets/bookCoverPages/coverPage03.svg';
 import img04 from '../../../../assets/bookCoverPages/coverPage04.svg';
 import img05 from '../../../../assets/bookCoverPages/coverPage05.svg';
 import img06 from '../../../../assets/bookCoverPages/coverPage06.svg';
-import categoryPageBg from '../../../../assets/backgroundImages/categoryPageBg.svg'
 
+// dataset import
+import { booksData0 } from "../../../../globalComponents/booksData";
 
-import './CategoryPage.css';
-import { Carousel } from "./Carousel";
+export const CategoryPage = ({ collection = "Fiction" }) => {
+  const [openCard, setOpenCard] = useState({});
+  const [category, setCategory] = useState({});
+  const [author, setAuthor] = useState({});
+  const [publication, setPublication] = useState({});
+  const [priceRange, setPriceRange] = useState([150, 1200]);
+  const [yearRange, setYearRange] = useState([1920, 2000]);
 
-export const CategoryPage = () => {
+  const toggleCard = (id) => {
+    setOpenCard(prev => ({ ...prev, [id]: !prev[id] }));
+  };
+  const toggleCategory = (id) => setCategory(prev => ({ ...prev, [id]: !prev[id] }));
+  const toggleAuthor = (id) => setAuthor(prev => ({ ...prev, [id]: !prev[id] }));
+  const togglePublication = (id) => setPublication(prev => ({ ...prev, [id]: !prev[id] }));
 
-  const [activePage, setActivePage] = useState('Categories')
-  
-  const navItems = [
-    { name: 'Home', icon: 'homeIcon', selectedIcon: 'selectedHomeIcon', link: `/`},
-    { name: 'Categories', icon: 'categoryIcon', selectedIcon: 'selectedCategoryIcon', link: `/category`},
-    { name: 'Product', icon: 'categoryIcon', selectedIcon: 'selectedCategoryIcon', link: `/product`},
-    { name: 'Liked', icon: 'favouriteIcon', selectedIcon: 'selectedFavouriteIcon', link: `/liked`},
-    { name: 'Profile', icon: 'userProfileIcon', selectedIcon: 'selectedUserProfileIcon', link: `/profile`},
-  ]
+  const handlePriceChange = (e, val) => setPriceRange(val);
+  const handleYearChange = (e, val) => setYearRange(val);
 
-  const booksData = [
-    { id: 0, category: 'Fiction', bookCoverPage: img01, bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149 },
-    { id: 1, category: 'Romance', bookCoverPage: img02, bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99 },
-    { id: 2, category: 'Non Fiction', bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199 },
-    { id: 3, category: 'Young Adult', bookCoverPage: img04, bookTitle: 'Norwegian Wood', bookAuthor: 'Murakami', bookPrice: 299 },
-    { id: 4, category: 'Featured', bookCoverPage: img05, bookTitle: 'In a thousand dif...', bookAuthor: 'Cecelia Ahern', bookPrice: 299 },
-    { id: 5, category: 'Fiction', bookCoverPage: img06, bookTitle: 'If Beale Street Could Talk', bookAuthor: 'James Baldwin', bookPrice: 129 },
-    { id: 6, category: 'Fiction', bookCoverPage: img01, bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149 },
-    { id: 7, category: 'Romance', bookCoverPage: img02, bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99 },
-    { id: 8, category: 'Non Fiction', bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199 },
-    { id: 9, category: 'Young Adult', bookCoverPage: img04, bookTitle: 'Norwegian Wood', bookAuthor: 'Murakami', bookPrice: 299 },
-    { id: 10, category: 'Featured', bookCoverPage: img05, bookTitle: 'In a thousand dif...', bookAuthor: 'Cecelia Ahern', bookPrice: 299 },
-    { id: 11, category: 'Fiction', bookCoverPage: img06, bookTitle: 'If Beale Street Could Talk', bookAuthor: 'James Baldwin', bookPrice: 129 },
-    { id: 12, category: 'Fiction', bookCoverPage: img01, bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149 },
-    { id: 13, category: 'Romance', bookCoverPage: img02, bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99 },
-    { id: 14, category: 'Non Fiction', bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199 },
-    { id: 15, category: 'Young Adult', bookCoverPage: img04, bookTitle: 'Norwegian Wood', bookAuthor: 'Murakami', bookPrice: 299 },
-    { id: 16, category: 'Featured', bookCoverPage: img05, bookTitle: 'In a thousand dif...', bookAuthor: 'Cecelia Ahern', bookPrice: 299 },
-    { id: 17, category: 'Fiction', bookCoverPage: img06, bookTitle: 'If Beale Street Could Talk', bookAuthor: 'James Baldwin', bookPrice: 129 },
+  const filterCards = [
+    { id: 0, name: "Category" },
+    { id: 1, name: "Author" },
+    { id: 2, name: "Publications" },
+    { id: 3, name: "Price range" },
+    { id: 4, name: "Book by year" },
   ];
 
-  const tagOptions = {
-    Category: [...new Set(booksData.map(book => book.category))],
-    Author: [...new Set(booksData.map(book => book.bookAuthor))],
-    // Price: ['< 150', '150 - 250', '> 250'],
-    Title: [...new Set(booksData.map(book => book.bookTitle))],
-  };
+  const categoryFilter = [
+    { categoryId: 0, name: "Fiction" },
+    { categoryId: 1, name: "Non-fiction" },
+    { categoryId: 2, name: "Romance" },
+    { categoryId: 3, name: "Horror" },
+    { categoryId: 4, name: "Mystery" },
+  ];
 
-  const tagIcons = {
-    Category: categoryIcon,
-    Author: authorIcon,
-    // Price: priceIcon,
-    language: languageIcon,
-  };
+  const authorFilter = [
+    { authorId: 0, name: "Thomas Erikson", img: author01 },
+    { authorId: 1, name: "William Shakespeare", img: author02 },
+    { authorId: 2, name: "J.K. Rowling", img: author03 },
+    { authorId: 3, name: "Stephen King", img: author04 },
+    { authorId: 4, name: "Rabindranath Tagore", img: author01 },
+    { authorId: 5, name: "George Orwell", img: author02 },
+    { authorId: 6, name: "Jane Austen", img: author03 },
+    { authorId: 7, name: "Agatha Christie", img: author04 },
+    { authorId: 8, name: "Paulo Coelho", img: author01 },
+    { authorId: 9, name: "Ernest Hemingway", img: author02 },
+    { authorId: 10, name: "Haruki Murakami", img: author03 },
+    { authorId: 11, name: "Leo Tolstoy", img: author04 },
+    { authorId: 12, name: "Dan Brown", img: author01 },
+    { authorId: 13, name: "Mark Twain", img: author02 },
+    { authorId: 14, name: "Chetan Bhagat", img: author03 },
+  ];
 
-  const [selectedFilters, setSelectedFilters] = useState({});
-  const [openDropdown, setOpenDropdown] = useState(null);
+  const publicationFilter = [
+    { publicationId: 0, name: "Penguin Random House" },
+    { publicationId: 1, name: "HarperCollins" },
+    { publicationId: 2, name: "Simon & Schuster" },
+    { publicationId: 3, name: "Hachette Book Group" },
+    { publicationId: 4, name: "Macmillan Publishers" },
+    { publicationId: 5, name: "Scholastic" },
+    { publicationId: 6, name: "Pearson" },
+    { publicationId: 7, name: "Oxford University Press" },
+    { publicationId: 8, name: "Cambridge University Press" },
+    { publicationId: 9, name: "Bloomsbury Publishing" },
+    { publicationId: 10, name: "Wiley" },
+    { publicationId: 11, name: "Springer Nature" },
+    { publicationId: 12, name: "Taylor & Francis" },
+    { publicationId: 13, name: "Zubaan Books" },
+    { publicationId: 14, name: "Rupa Publications" },
+    { publicationId: 15, name: "SAGE Publications" }
+  ];
 
-  const handleFilterChange = (tag, option) => {
-    setSelectedFilters(prev => {
-      const updated = { ...prev };
-      const current = updated[tag] || [];
-      updated[tag] = current.includes(option)
-        ? current.filter(o => o !== option)
-        : [...current, option];
+  const booksData = booksData0
 
-      if (updated[tag].length === 0) delete updated[tag];
-      return updated;
-    });
-  };
+  const filteredBooks = booksData.filter(book => {
+    const categoryActive = Object.values(category).some(Boolean);
+    const authorActive = Object.values(author).some(Boolean);
+    const publicationActive = Object.values(publication).some(Boolean);
 
-  const getFilteredBooks = () => {
-    return booksData.filter(book => {
-      const categoryFilter = selectedFilters.Category?.length
-        ? selectedFilters.Category.includes(book.category)
-        : true;
+    const matchesCategory = !categoryActive || categoryFilter.some(c => category[c.categoryId] && c.name === book.category);
+    const matchesAuthor = !authorActive || authorFilter.some(a => author[a.authorId] && a.name === book.bookAuthor);
+    const matchesPublication = !publicationActive || publicationFilter.some(p => publication[p.publicationId] && p.name === book.publication);
+    const matchesPrice = book.bookPrice >= priceRange[0] && book.bookPrice <= priceRange[1];
+    const matchesYear = book.releaseYear >= yearRange[0] && book.releaseYear <= yearRange[1];
 
-      const authorFilter = selectedFilters.Author?.length
-        ? selectedFilters.Author.includes(book.bookAuthor)
-        : true;
-
-    //   const priceFilter = selectedFilters.Price?.length
-    //     ? selectedFilters.Price.some(price => {
-    //       if (price === '< 150') return book.bookPrice < 150;
-    //       if (price === '150 - 250') return book.bookPrice >= 150 && book.bookPrice <= 250;
-    //       if (price === '> 250') return book.bookPrice > 250;
-    //       return false;
-    //     })
-    //     : true;
-
-      const titleFilter = selectedFilters.Title?.length
-        ? selectedFilters.Title.includes(book.bookTitle)
-        : true;
-
-      return categoryFilter && authorFilter && titleFilter;
-    });
-  };
-
-  const heroSectionInfo = [
-    {displayId: 0, displayBook: ''},
-  ]
+    return matchesCategory && matchesAuthor && matchesPublication && matchesPrice && matchesYear;
+  });
 
   return (
-    <div className="bg-[#F9F9F9]">
-        {/* Navbar
-        <div className="w-full flex flex-col items-center justify-evenly mt-4">
-          {/* Logo Section */}
-          {/* <div className="flex justify-center items-center mb-[30px]">
-            <img
-              className="h-auto w-auto"
-              src="../src/assets/logos/yourLiteraryWorldIcon.svg"
-              alt="Your Literary World Logo"
-            />
-          </div> */} 
+    <div className="bg-[#F9F9F9] font-[Poppins]">
+      <Navbar active="Categories" />
+      <div className="w-full px-[80px] h-auto grid grid-cols-2 py-[150px] gap-[80px]">
+        <div className="w-[325px] h-[7000px] flex flex-col overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide">
+          <h1 className="text-[32px] font-semibold text-[#000000] mb-[10px]">{collection} Collection</h1>
 
-          {/* Navigation Items */}
-          {/* <ul className="w-full flex justify-between items-center mb-5 pt-0 mt-0 box-border">
-            {navItems.map((item) => (
-              <a 
-              key={item.name}
-              href={item.link}>
-              <li
-                key={item.name}
-                className={`
-                  flex items-center justify-between px-5 cursor-pointer transition-all duration-300 ease-in-out
-                  ${activePage === item.name
-                    ? 'bg-[#064FA4] text-[#f0f0f0] font-normal text-base rounded-md animate-slide-in py-2.5'
-                    : 'text-[#8C8C8C] py-2.5'}
-                `}
-                onClick={() => setActivePage(item.name)}
-              >
-                <img
-                  className="mr-2"
-                  src={`../src/assets/icons/${
-                    activePage === item.name ? item.selectedIcon : item.icon
-                  }.svg`}
-                  alt={`${item.name} Icon`}
-                />
-                <p>{item.name}</p>
-              </li>
-              </a>
-            ))}
-          </ul> */}
+          {/* filters */}
+                    {filterCards.map((card) => (
+                        <div
+                        key={card.id}
+                        className="w-full h-auto bg-white p-[24px] mt-[20px] text-[16px] font-semibold text-[#000000]"> 
+                            <div
+                            className="flex justify-between">
+                                <p>
+                                    {card.name}
+                                </p>
+                                <div 
+                                onClick={() => toggleCard(card.id)} 
+                                className="cursor-pointer">
+                                  {openCard[card.id] ? (
+                                    <IoChevronUp className="w-[20px] h-[20px]" />
+                                  ) : (
+                                    <IoChevronDown className="w-[20px] h-[20px]" />
+                                  )}
+                                </div>
+                            </div>
 
-          {/* Header Text
-          <div className="flex justify-center">
-            <h1 className="text-[54px] text-[#064FA4] font-medium font-['Exo_2']">
-              Your Literary World
-            </h1>
-          </div> */}
-        {/* </div> */}
-        <Navbar active="Categories"/>
+                            {openCard[card.id] && (
+                                <div
+                                className="w-full h-auto">
+                                  {card.id === 0 && (
+                                      <div>
+                                        <div className="border-t-[3px] border-dashed border-[#D1D1D1] mt-5 "></div>
+                                        <div
+                                        className="w-full grid grid-cols-2 h-auto mt-3">
 
-        <div className="pt-[80px]"></div>
+                                          {categoryFilter.map((item) => (
+                                            <div
+                                            key={item.categoryId}
+                                            onClick={() => toggleCategory(item.categoryId)}
+                                            className="flex mt-5 pr-[10px]">
+                                              <div 
+                                              className="cursor-pointer">
+                                                {category[item.categoryId] ? (
+                                                  <img src={filledCheck} alt="" className="w-[20px] h-[20px]" />
+                                                ) : (
+                                                  <img src={emptyCheck} alt="" className="w-[20px] h-[20px]"/>
+                                                )}
+                                              </div>
+                                              <p
+                                              className=" ml-2 line-clamp-1 cursor-pointer">
+                                                {category[item.categoryId] ? (
+                                                  <p className="text-[14px] font-semibold text-[#064FA4]">{item.name}</p>
+                                                ) : (
+                                                  <p className="text-[14px] font-semibold text-[#444444]">{item.name}</p>
+                                                )}
+                                              </p>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      </div>
+                                  )}
 
-        {/* <Carousel /> */}
-        <div
-        className="w-full h-[625px]">
-          <img 
-          className="w-[100vw] h-[625px] bg-cover"
-          src={categoryPageBg} alt="" />
+                                  {card.id === 1 && (
+                                      <div>
+                                        <div className="border-t-[3px] border-dashed border-[#D1D1D1] mt-5 "></div>
+                                        <div
+                                        className="w-full grid grid-cols-1 h-[420px] overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide mt-3">
 
-        </div>
+                                          {authorFilter.map((item) => (
+                                            <div
+                                            key={item.authorId}
+                                            onClick={() => toggleAuthor(item.authorId)}
+                                            className={`flex mt-2 pr-[10px] items-center `}>
+                                              <div 
+                                              className="cursor-pointer">
+                                                {author[item.authorId] ? (
+                                                  <div
+                                                  className="bg-[#EBF4FF] pl-2 py-2 rounded-l-3xl">
+                                                    <img src={filledCheck} alt="" className="w-[28px] h-[28px] rounded-full" />
+                                                  </div>
+                                                ) : (
+                                                  <div
+                                                  className="pl-2 py-2 rounded-l-3xl">
+                                                    <img src={item.img} alt="" className="w-[28px] h-[28px] rounded-full"/>
+                                                  </div>
+                                                )}
+                                              </div>
+                                              <p
+                                              className=" line-clamp-1 cursor-pointer">
+                                                {author[item.authorId] ? (
+                                                  <p className="text-[14px] font-semibold text-[#064FA4] bg-[#EBF4FF] pl-2 py-3 pr-4 rounded-r-3xl">{item.name}</p>
+                                                ) : (
+                                                  <p className="text-[14px] font-semibold text-[#444444] py-3 pr-4 pl-2">{item.name}</p>
+                                                )}
+                                              </p>
+                                            </div>
+                                          ))}
+                                        </div>
 
-        <div className="px-6 py-10 mx-[80px]">
-        {/* Filters Section */}
-        <div className="mb-10 relative">
-            <p className="text-xl font-semibold mb-4">Filters</p>
-            <div className="flex flex-wrap gap-6">
-            {Object.keys(tagOptions).map(tag => (
-                <div key={tag} className="relative">
-                <button
-                    className="border px-4 py-2 rounded-md shadow flex items-center gap-2"
-                    onClick={() => setOpenDropdown(openDropdown === tag ? null : tag)}
-                >
-                    <img src={tagIcons[tag]} alt={`${tag} icon`} className="w-4 h-4" />
-                    {tag}
-                </button>
-                {openDropdown === tag && (
-                    <div
-                    className="absolute bg-white mt-2 border border-[#B6D6FC] rounded-md p-4 shadow-lg z-20"
-                    style={{ minWidth: '250px' }}
-                    >
-                    {tagOptions[tag].map(option => (
-                        <label key={option} className="block text-sm">
-                        <input
-                            type="checkbox"
-                            checked={(selectedFilters[tag] || []).includes(option)}
-                            onChange={() => handleFilterChange(tag, option)}
-                        />{' '}
-                        {option}
-                        </label>
+                                      </div>
+                                  )}
+
+                                  {card.id === 2 && (
+                                      <div>
+                                        <div className="border-t-[3px] border-dashed border-[#D1D1D1] mt-5 "></div>
+                                        <div
+                                        className="w-full grid grid-cols-2 h-auto mt-3">
+
+                                          {publicationFilter.map((item) => (
+                                            <div
+                                            key={item.publicationId}
+                                            onClick={() => togglePublication(item.publicationId)}
+                                            className="flex mt-5 pr-[10px]">
+                                              <div 
+                                              className="cursor-pointer">
+                                                {publication[item.publicationId] ? (
+                                                  <img src={filledCheck} alt="" className="w-[30px] h-[20px]" />
+                                                ) : (
+                                                  <img src={emptyCheck} alt="" className="w-[30px] h-[20px]"/>
+                                                )}
+                                              </div>
+                                              <p
+                                              className="pl-2 line-clamp-1 cursor-pointer overflow-hidden">
+                                                {publication[item.publicationId] ? (
+                                                  <p className="text-[14px] font-semibold text-[#064FA4]">{item.name}</p>
+                                                ) : (
+                                                  <p className="text-[14px] font-semibold text-[#444444]">{item.name}</p>
+                                                )}
+                                              </p>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      </div>
+                                  )}
+
+                                  {card.id === 3 && (
+                                    <div>
+                                        <div className="border-t-[3px] border-dashed border-[#D1D1D1] mt-5 "></div>
+                                        <div className="w-full p-4 mt-4">
+                                          <Box sx={{ width: '100%' }}>
+                                            <Slider
+                                              getAriaLabel={() => 'Price range'}
+                                              value={priceRange}
+                                              onChange={handlePriceChange}
+                                              min={50}
+                                              max={2000}
+                                              step={50}
+                                              valueLabelDisplay="off"
+                                              sx={{
+                                                color: '#064FA4',
+                                                '& .MuiSlider-thumb': {
+                                                  backgroundColor: '#4B6CB7',
+                                                },
+                                                '& .MuiSlider-track': {
+                                                  backgroundColor: '#064FA4',
+                                                },
+                                                '& .MuiSlider-rail': {
+                                                  backgroundColor: '#E5E5E5',
+                                                },
+                                              }}
+                                            />
+                                            <div className="flex justify-between mt-4 text-[#444444] text-sm font-medium">
+                                              <span>₹50</span>
+                                              <span className="text-[#000000]">₹{priceRange[0]}</span>
+                                              <span className="text-[#000000]">₹{priceRange[1]}</span>
+                                              <span>₹2,000</span>
+                                            </div>
+                                          </Box>
+                                        </div>
+                                    </div>
+                                  )}
+
+                                  {card.id === 4 && (
+                                      <div>
+                                        <div className="border-t-[3px] border-dashed border-[#D1D1D1] mt-5 "></div>
+                                        <div className="w-full p-4 mt-4">
+                                          <Box sx={{ width: '100%' }}>
+                                            <Slider
+                                              getAriaLabel={() => 'Price range'}
+                                              value={yearRange}
+                                              onChange={handleYearChange}
+                                              min={1880}
+                                              max={2025}
+                                              step={1}
+                                              valueLabelDisplay="off"
+                                              sx={{
+                                                color: '#064FA4',
+                                                '& .MuiSlider-thumb': {
+                                                  backgroundColor: '#4B6CB7',
+                                                },
+                                                '& .MuiSlider-track': {
+                                                  backgroundColor: '#064FA4',
+                                                },
+                                                '& .MuiSlider-rail': {
+                                                  backgroundColor: '#E5E5E5',
+                                                },
+                                              }}
+                                            />
+                                            <div className="flex justify-between mt-4 text-[#444444] text-sm font-medium">
+                                              <span>1880</span>
+                                              <span className="text-[#000000]">{yearRange[0]}</span>
+                                              <span className="text-[#000000]">{yearRange[1]}</span>
+                                              <span>2025</span>
+                                            </div>
+                                          </Box>
+                                        </div>
+                                    </div>
+                                  )}
+
+                                </div>
+                                
+                            )}
+                        </div>
                     ))}
-                    </div>
-                )}
-                </div>
+        </div>
+
+        <div className="w-[60vw] h-auto translate-x-[-18vw] ">
+          <div className="w-full grid xl:grid-cols-3 2xl:grid-cols-4 lg:grid-cols-2 pt-[30px]">
+            {filteredBooks.map((book) => (
+              <BookCard key={book.id} book={book} />
             ))}
-            </div>
-
-            {/* Hashtags Display */}
-            <div className="mt-4 flex flex-wrap gap-3">
-            {Object.entries(selectedFilters).flatMap(([tag, options]) =>
-                options.map(option => (
-                <span
-                    key={`${tag}-${option}`}
-                    className="flex items-center gap-2 bg-gray-100 text-sm px-3 py-1 rounded-full border border-gray-300"
-                >
-                    <img src={tagIcons[tag]} alt={`${tag} icon`} className="w-4 h-4" />
-                    #{option}
-                    <IoClose
-                    className="ml-1 cursor-pointer text-red-500"
-                    onClick={() => handleFilterChange(tag, option)}
-                    />
-                </span>
-                ))
-            )}
-            </div>
+          </div>
         </div>
-
-        {/* Book Listing Title */}
-        <div className="books-listing-title-section flex justify-between mt-10">
-            <p className="text-2xl font-bold">
-            {selectedFilters.Category?.length === 1
-                ? `${selectedFilters.Category[0]} Collection`
-                : selectedFilters.Category?.length > 1
-                ? 'Mixed Collection'
-                : 'All Books'}
-            </p>
-            {/* <button className="text-blue-500 underline">View All</button> */}
-        </div>
-
-        {/* Book Listing Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 3xl:grid-cols-3 gap-6 mt-6">
-            {getFilteredBooks().map(book => (
-            <BookCard key={book.id} book={book} />
-            ))}
-        </div>
-        </div>
+      </div>
     </div>
   );
 };
