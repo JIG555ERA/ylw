@@ -32,7 +32,7 @@ const BooksCategory = () => {
     return (
         <div className="w-full px-[80px] flex flex-col justify-between mt-[40px]">
             <div className="books-listing-title-section flex flex-col justify-between ">
-                <div className="w-full  border-t-[3px] border-dashed border-[#D1D1D1] "/>
+                <div className="w-full  border-t-[2px] border-dashed border-[#D1D1D1] "/>
                 <div className="selected-categroy-title-section mt-[30px]">
                     <p className="translate-y-[20px] text-[#121212] font-semibold text-[24px]">
                         Books By Category

@@ -27,7 +27,7 @@ const FictionCollection = () => {
 
     return (
         <div className="mx-[80px] mt-[40px]">
-            <div className="w-full  border-t-[3px] border-dashed border-[#D1D1D1] "/>
+            <div className="w-full  border-t-[2px] border-dashed border-[#D1D1D1] "/>
             <div className="books-listing-title-section flex justify-between mt-[30px]">
                 <div className="selected-categroy-title-section">
                     <p className="translate-y-[20px] text-[24px] text-[#111111] font-semibold">

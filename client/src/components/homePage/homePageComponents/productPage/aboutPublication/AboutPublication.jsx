@@ -4,7 +4,7 @@ const AboutPublication = ({context=""}) => {
     return (
         <div
         className='w-full h-auto flex flex-col px-[80px] mt-[40px]'>
-            <div className="w-full  border-t-[3px] border-dashed border-[#D1D1D1] "/>
+            <div className="w-full  border-t-[2px] border-dashed border-[#D1D1D1] "/>
             <h1
             className='text-[24px] font-semibold text-[#121212] mt-[30px]'>
                 About publication

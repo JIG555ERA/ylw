@@ -10,6 +10,7 @@ import author01 from '../../../../assets/authorImages/author01.svg';
 import author02 from '../../../../assets/authorImages/author02.svg';
 import author03 from '../../../../assets/authorImages/author03.svg';
 import author04 from '../../../../assets/authorImages/author04.svg';
+import './CategoryPage.css'
 
 // dataset import
 import { booksData0 } from "../../../../globalComponents/booksData";
@@ -112,7 +113,7 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
                     {filterCards.map((card) => (
                         <div
                         key={card.id}
-                        className="w-full h-auto bg-white p-[24px] mt-[20px] text-[16px] font-semibold text-[#000000]"> 
+                        className="w-full h-auto bg-white p-[16px] mt-[20px] text-[16px] font-semibold text-[#000000]"> 
                             <div
                             className="flex justify-between">
                                 <p>
@@ -134,7 +135,7 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
                                 className="w-full h-auto">
                                   {card.id === 0 && (
                                       <div>
-                                        <div className="border-t-[3px] border-dashed border-[#D1D1D1] mt-5 "></div>
+                                        <div className="border-t-[2px] border-dashed border-[#D1D1D1] mt-5 "></div>
                                         <div
                                         className="w-full grid grid-cols-2 h-auto mt-3">
 
@@ -167,9 +168,9 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
 
                                   {card.id === 1 && (
                                       <div>
-                                        <div className="border-t-[3px] border-dashed border-[#D1D1D1] mt-5 "></div>
+                                        <div className="border-t-[2px] border-dashed border-[#D1D1D1] mt-5 "></div>
                                         <div
-                                        className="w-full grid grid-cols-1 h-[420px] overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide mt-3">
+                                        className="w-full grid grid-cols-1 h-[420px] overflow-y-scroll scrollbar-2px mt-3">
 
                                           {authorFilter.map((item) => (
                                             <div
@@ -207,7 +208,7 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
 
                                   {card.id === 2 && (
                                       <div>
-                                        <div className="border-t-[3px] border-dashed border-[#D1D1D1] mt-5 "></div>
+                                        <div className="border-t-[2px] border-dashed border-[#D1D1D1] mt-5 "></div>
                                         <div
                                         className="w-full grid grid-cols-2 h-auto mt-3">
 
@@ -240,7 +241,7 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
 
                                   {card.id === 3 && (
                                     <div>
-                                        <div className="border-t-[3px] border-dashed border-[#D1D1D1] mt-5 "></div>
+                                        <div className="border-t-[2px] border-dashed border-[#D1D1D1] mt-5 "></div>
                                         <div className="w-full p-4 mt-4">
                                           <Box sx={{ width: '100%' }}>
                                             <Slider
@@ -277,7 +278,7 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
 
                                   {card.id === 4 && (
                                       <div>
-                                        <div className="border-t-[3px] border-dashed border-[#D1D1D1] mt-5 "></div>
+                                        <div className="border-t-[2px] border-dashed border-[#D1D1D1] mt-5 "></div>
                                         <div className="w-full p-4 mt-4">
                                           <Box sx={{ width: '100%' }}>
                                             <Slider

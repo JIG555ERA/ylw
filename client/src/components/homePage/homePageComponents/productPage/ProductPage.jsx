@@ -56,12 +56,12 @@ const ProductPage = () => {
                     <div
                     className='flex h-auto justify-center items-center'>
                         <h1
-                        className='text-[28px] font-semibold'>
-                            ₹{booksData[1].discountedPrice}
+                        className='text-[28px] font-semibold flex'>
+                            <p className='font-[Roboto]'>₹ {booksData[1].discountedPrice}</p> 
                         </h1>
                         <h1
-                        className='text-[18px] font-normal stroke-1 text-[#7D7D7D] ml-[10px] line-through'>
-                            ₹{booksData[1].bookPrice}
+                        className='text-[18px] font-normal stroke-1 text-[#7D7D7D] ml-[10px] line-through flex '>
+                            <p className='font-[Roboto]'>₹{booksData[1].bookPrice}</p>
                         </h1>
                         <p
                         className='ml-[10px] text-[#1038FF] text-[14px] font-medium'>
@@ -118,7 +118,7 @@ const ProductPage = () => {
                             </div>
                         </a>
                         <a 
-                        className='rounded-[12px] border-[#EDEDED] bg-white w-[60px] h-[50px] flex justify-center items-center ml-[30px]'
+                        className='rounded-[12px] border-[#EDEDED] shadow-md bg-white w-[60px] h-[50px] flex justify-center items-center ml-[30px]'
                         href="">
                             <img 
                             className=''

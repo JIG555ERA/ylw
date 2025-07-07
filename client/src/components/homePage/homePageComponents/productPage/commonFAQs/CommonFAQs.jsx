@@ -21,7 +21,7 @@ const CommonFAQs = () => {
 
   return (
     <div className='px-[80px] w-full h-auto flex flex-col mt-[40px] pb-[200px]'>
-      <div className="w-full  border-t-[3px] border-dashed border-[#D1D1D1] "/>
+      <div className="w-full  border-t-[2px] border-dashed border-[#D1D1D1] "/>
       <h1 className='text-[24px] font-semibold text-[#121212] mt-[30px]'>Common FAQ’s</h1>
 
       <div className='flex flex-col mt-[30px]'>

@@ -26,7 +26,7 @@ const SimilarToCollection = ({context=''}) => {
     return (
         <div className="px-[80px] mt-[40px] w-full">
             <div className="books-listing-title-section flex flex-col justify-between ">
-                <div className="w-full  border-t-[3px] border-dashed border-[#D1D1D1] "/>
+                <div className="w-full  border-t-[2px] border-dashed border-[#D1D1D1] "/>
                 <div className="selected-categroy-title-section mt-[30px]">
                     <p className="translate-y-[20px] text-[24px] text-[#111111] font-semibold">
                         {context}
