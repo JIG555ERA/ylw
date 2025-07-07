@@ -10,12 +10,6 @@ import author01 from '../../../../assets/authorImages/author01.svg';
 import author02 from '../../../../assets/authorImages/author02.svg';
 import author03 from '../../../../assets/authorImages/author03.svg';
 import author04 from '../../../../assets/authorImages/author04.svg';
-import img01 from '../../../../assets/bookCoverPages/coverPage01.svg';
-import img02 from '../../../../assets/bookCoverPages/coverPage02.svg';
-import img03 from '../../../../assets/bookCoverPages/coverPage03.svg';
-import img04 from '../../../../assets/bookCoverPages/coverPage04.svg';
-import img05 from '../../../../assets/bookCoverPages/coverPage05.svg';
-import img06 from '../../../../assets/bookCoverPages/coverPage06.svg';
 
 // dataset import
 import { booksData0 } from "../../../../globalComponents/booksData";
@@ -110,9 +104,9 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
   return (
     <div className="bg-[#F9F9F9] font-[Poppins]">
       <Navbar active="Categories" />
-      <div className="w-full px-[80px] h-auto grid grid-cols-2 py-[150px] gap-[80px]">
-        <div className="w-[325px] h-[7000px] flex flex-col overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide">
-          <h1 className="text-[32px] font-semibold text-[#000000] mb-[10px]">{collection} Collection</h1>
+      <div className="w-full h-screen px-[80px] grid grid-cols-[325px_1fr] gap-[80px] pt-[140px]">
+        <div className="w-[325px] h-full pb-[80px] overflow-y-auto pr-2 overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide ">
+          <h1 className="text-[32px] font-semibold text-[#000000] mb-[10px] ">{collection} Collection</h1>
 
           {/* filters */}
                     {filterCards.map((card) => (
@@ -325,8 +319,8 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
                     ))}
         </div>
 
-        <div className="w-[60vw] h-auto translate-x-[-18vw] ">
-          <div className="w-full grid xl:grid-cols-3 2xl:grid-cols-4 lg:grid-cols-2 pt-[30px]">
+        <div className="h-full overflow-y-auto pr-2 overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide">
+          <div className="w-full grid xl:grid-cols-3 2xl:grid-cols-4 lg:grid-cols-2 pt-[25px] pb-[100px]">
             {filteredBooks.map((book) => (
               <BookCard key={book.id} book={book} />
             ))}

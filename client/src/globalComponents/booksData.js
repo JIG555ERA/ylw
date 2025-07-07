@@ -108,4 +108,104 @@ export const booksData0 = [
     releaseYear: 2018,
     publication: "Zubaan Books"
   },
+  {
+    id: 10,
+    category: "Young Adult",
+    bookCoverPage: img01,
+    bookTitle: "Book Title 1",
+    bookAuthor: "George Orwell",
+    bookPrice: 1363,
+    releaseYear: 1889,
+    publication: "Simon & Schuster"
+  },
+  {
+    id: 11,
+    category: "Romance",
+    bookCoverPage: img05,
+    bookTitle: "Book Title 2",
+    bookAuthor: "William Shakespeare",
+    bookPrice: 1231,
+    releaseYear: 1983,
+    publication: "Taylor & Francis"
+  },
+  {
+    id: 12,
+    category: "Mystery",
+    bookCoverPage: img02,
+    bookTitle: "Book Title 3",
+    bookAuthor: "Leo Tolstoy",
+    bookPrice: 1268,
+    releaseYear: 1931,
+    publication: "Hachette Book Group"
+  },
+  {
+    id: 13,
+    category: "Romance",
+    bookCoverPage: img06,
+    bookTitle: "Book Title 4",
+    bookAuthor: "Leo Tolstoy",
+    bookPrice: 887,
+    releaseYear: 1936,
+    publication: "Springer Nature"
+  },
+  {
+    id: 14,
+    category: "Young Adult",
+    bookCoverPage: img02,
+    bookTitle: "Book Title 5",
+    bookAuthor: "Rabindranath Tagore",
+    bookPrice: 1284,
+    releaseYear: 1989,
+    publication: "Rupa Publications"
+  },
+  {
+    id: 15,
+    category: "Romance",
+    bookCoverPage: img02,
+    bookTitle: "Book Title 6",
+    bookAuthor: "Thomas Erikson",
+    bookPrice: 924,
+    releaseYear: 1965,
+    publication: "HarperCollins"
+  },
+  {
+    id: 16,
+    category: "Young Adult",
+    bookCoverPage: img03,
+    bookTitle: "Book Title 7",
+    bookAuthor: "J.K. Rowling",
+    bookPrice: 1370,
+    releaseYear: 1887,
+    publication: "Penguin Random House"
+  },
+  {
+    id: 17,
+    category: "Romance",
+    bookCoverPage: img04,
+    bookTitle: "Book Title 8",
+    bookAuthor: "Leo Tolstoy",
+    bookPrice: 912,
+    releaseYear: 1963,
+    publication: "Simon & Schuster"
+  },
+  {
+    id: 18,
+    category: "Horror",
+    bookCoverPage: img06,
+    bookTitle: "Book Title 9",
+    bookAuthor: "Jane Austen",
+    bookPrice: 329,
+    releaseYear: 1891,
+    publication: "Simon & Schuster"
+  },
+  {
+    id: 19,
+    category: "Romance",
+    bookCoverPage: img01,
+    bookTitle: "Book Title 10",
+    bookAuthor: "J.K. Rowling",
+    bookPrice: 328,
+    releaseYear: 2018,
+    publication: "Zubaan Books"
+  },
 ];

@@ -58,15 +58,15 @@ const Carousel01 = () => {
 
     switch (relativeOffset) {
       case 0:
-        return "h-[300px] mx-[100px]";
+        return "h-[260px] mx-[100px]";
       case 1:
-        return "h-[250px] mt-[20px]";
+        return "h-[185px] mt-[32px] opacity-70";
       case 2:
-        return "h-[180px] mt-[50px]";
+        return "h-[135px] mt-[50px] opacity-50";
       case 3:
-        return "h-[130px] mt-[70px]";
+        return "h-[70px] mt-[80px] opacity-30";
       default:
-        return "h-[130px] mt-[70px]";
+        return "h-[70px] mt-[80px] opacity-30";
     }
   };
 
@@ -77,15 +77,15 @@ const Carousel01 = () => {
 
     switch (relativeOffset) {
       case 0:
-        return "w-[1800px] ";
+        return "w-[180px] ";
       case 1:
-        return "w-[150px]";
-      case 2:
         return "w-[130px]";
+      case 2:
+        return "w-[100px]";
       case 3:
-        return "w-[90px]";
+        return "w-[60px]";
       default:
-        return "w-[90px]";
+        return "w-[60px]";
     }
   };
 
@@ -99,7 +99,7 @@ const Carousel01 = () => {
         <SearchBar />
       </div>
 
-      <div className="w-[80vw] h-[345px] mx-auto mt-[70px] cursor-none">
+      <div className="w-[80vw] h-[345px] mx-auto  pointer-events-none">
         <Carousel
           ref={carouselRef}
           autoPlay={true}
