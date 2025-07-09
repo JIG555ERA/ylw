@@ -58,7 +58,7 @@ const Carousel01 = () => {
 
     switch (relativeOffset) {
       case 0:
-        return "h-[260px] opacity-100";
+        return "h-[260px] opacity-100 ";
       case 1:
         return "h-[185px] mt-[32px] opacity-70 ";
       case 2:
