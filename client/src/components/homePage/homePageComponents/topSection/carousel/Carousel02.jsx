@@ -1,0 +1,204 @@
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import ImageSection from "../../../../../globalComponents/ImageSection";
+import { SearchBar } from "../../midSection/searchBar/searchBar";
+import ColorThief from "colorthief";
+import SearchBar02 from "../../../../../globalComponents/SearchBar02";
+import { TrendingUp, Sparkles, Badge } from "lucide-react";
+
+import img01 from '../../../../../assets/bookCoverPages/coverPage01.svg';
+import img02 from '../../../../../assets/bookCoverPages/coverPage02.svg';
+import img03 from '../../../../../assets/bookCoverPages/coverPage03.svg';
+import img04 from '../../../../../assets/bookCoverPages/coverPage04.svg';
+import img05 from '../../../../../assets/bookCoverPages/coverPage05.svg';
+import img06 from '../../../../../assets/bookCoverPages/coverPage06.svg';
+import { icon } from "leaflet";
+
+const booksData = [
+  { id: 0, bookCoverPage: img01 },
+  { id: 1, bookCoverPage: img02 },
+  { id: 2, bookCoverPage: img03 },
+  { id: 3, bookCoverPage: img04 },
+  { id: 4, bookCoverPage: img05 },
+  { id: 5, bookCoverPage: img06 },
+  { id: 6, bookCoverPage: img01 },
+  { id: 7, bookCoverPage: img02 },
+  { id: 8, bookCoverPage: img03 },
+  { id: 9, bookCoverPage: img04 },
+];
+
+const Carousel02 = () => {
+  const [colors, setColors] = useState([
+    [255, 255, 255],
+    [200, 200, 200],
+  ]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const itemsPerSlide = 7;
+
+  useEffect(() => {
+    const colorThief = new ColorThief();
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.src = booksData[(currentSlide + Math.floor(itemsPerSlide / 2)) % booksData.length].bookCoverPage;
+
+    img.onload = () => {
+      try {
+        const palette = colorThief.getPalette(img, 2);
+        setColors(palette);
+      } catch (err) {
+        console.error("ColorThief error:", err);
+      }
+    };
+  }, [currentSlide]);
+
+  const settings = {
+    infinite: true,
+    speed: 1000,
+    slidesToShow: itemsPerSlide,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: false,
+    pauseOnHover: true,
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+    ],
+  };
+
+  const getHeightClass = (index) => {
+  const centerIndex = (currentSlide + Math.floor(itemsPerSlide / 2)) % booksData.length;
+  const offset = Math.abs(index - centerIndex);
+  const relativeOffset = Math.min(offset, booksData.length - offset);
+
+  // Directional horizontal shift
+  const direction =
+    index < centerIndex
+      ? "translate-x-[-15px]" 
+      : index > centerIndex
+      ? "translate-x-[30px]"
+      : "translate-x-[-20px]"; 
+
+  const direction01 =
+    index < centerIndex
+      ? "translate-x-[20px]" 
+      : index > centerIndex
+      ? "translate-x-[20px]"
+      : "translate-x-[-20px]"; 
+
+  const direction02 =
+    index < centerIndex
+      ? "translate-x-[90px]" 
+      : index > centerIndex
+      ? "translate-x-[-2px]"
+      : "translate-x-[-20px]"; 
+
+  const direction03 =
+    index < centerIndex
+      ? "translate-x-[90px]" 
+      : index > centerIndex
+      ? "translate-x-[-2px]"
+      : "translate-x-[-20px]"; 
+
+  switch (relativeOffset) {
+    case 0:
+      return `lg:h-[300px] lg:opacity-100 h-[120px] ${direction}`;
+    case 1:
+      return `lg:h-[205px] lg:mt-[32px] lg:opacity-70 h-[150px] ${direction}`;
+    case 2:
+      return `lg:h-[165px] lg:mt-[50px] lg:opacity-50 h-[120px] ${direction01}`;
+    case 3:
+      return `lg:h-[100px] lg:mt-[80px] lg:opacity-30 h-[120px] ${direction02}`;
+    default:
+      return `lg:h-[100px] lg:mt-[80px] lg:opacity-30 ${direction03}`;
+  }
+};
+
+
+  const getWidthClass = (index) => {
+    const centerIndex = (currentSlide + Math.floor(itemsPerSlide / 2)) % booksData.length;
+    const offset = Math.abs(index - centerIndex);
+    const relativeOffset = Math.min(offset, booksData.length - offset);
+
+    switch (relativeOffset) {
+      case 0:
+        return "lg:w-[200px]";
+      case 1:
+        return "lg:w-[150px]";
+      case 2:
+        return "lg:w-[120px]";
+      case 3:
+        return "lg:w-[80px]";
+      default:
+        return "lg:w-[80px]";
+    }
+  };
+
+  const tagContexts = [
+    {id: 0, tagName: '50000+ books', icon: TrendingUp, color: "text-green-400"},
+    {id: 1, tagName: 'Award Winners', icon: Badge, color: "text-amber-400"},
+    {id: 2, tagName: 'Daily Updates', icon: Sparkles, color: "text-purple-400"},
+  ]
+
+  return (
+    <div
+      className="lg:w-[90vw] w-[90vw] mx-[30px] mr-[30px] lg:h-[640px] h-[520px] flex flex-col items-center rounded-[32px] mt-[140px] shadow-md lg:translate-y-[0px] translate-y-[-140px] opacity-100"
+      style={{
+        transition: "background 0.8s ease-in-out",
+        background: `linear-gradient(to right, rgba(${colors[0].join(",")}, 0.3), rgba(${colors[1].join(",")}, 0.3))`,
+      }}
+    >
+      {/* Title */}
+      <h1 className="lg:text-[44px] text-[24px] font-semibold text-[#121212] text-center lg:mt-[40px] mt-[30px]">
+        Your Literary World
+      </h1>
+
+      {/* Search Bar */}
+      <div className="w-full flex flex-col justify-center lg:mt-[30px] mt-[30px]">
+        {/* <SearchBar /> */}
+        <SearchBar02 />
+        <div
+        className="w-full h-auto items-center gap-8 flex justify-center mt-8">
+          {tagContexts.map((badge) => (
+            <div
+            key={badge.id}
+            className="h-[50px] flex justify-center items-center px-[12px] rounded-3xl bg-white/75 hover:bg-white/90 shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer">
+              <badge.icon className={`w-5 h-5 mr-2 ${badge.color}`} />
+              <p className="text-[16px] font-medium">{badge.tagName}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Carousel */}
+      <div className="w-[80vw] lg:h-[345px] mx-auto pointer-events-none lg:translate-y-[50px] translate-y-[50px]">
+        <Slider {...settings}>
+          {booksData.map((book, index) => (
+            <div key={book.id} className="flex justify-center items-start px-2 gap-[20px]">
+              <div
+                className={`${getWidthClass(index)} ${getHeightClass(index)} aspect-[3/4] transition-all duration-500 ease-in-out`}
+              >
+                <ImageSection bookCoverPage={book.bookCoverPage} />
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
+  );
+};
+
+export default Carousel02;

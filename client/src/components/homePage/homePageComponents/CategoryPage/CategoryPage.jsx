@@ -11,9 +11,13 @@ import author02 from '../../../../assets/authorImages/author02.svg';
 import author03 from '../../../../assets/authorImages/author03.svg';
 import author04 from '../../../../assets/authorImages/author04.svg';
 import './CategoryPage.css'
+import PhoneNavBar from '../../../../components/homePage/homePageComponents/topSection/navBar/PhoneNavBar'
+import bookStoreLogo from '../../../../assets/logos/bookStoreLogo.svg'
+import filterIcon from '../../../../assets/icons/filterIcon.svg'
 
 // dataset import
 import { booksData0 } from "../../../../globalComponents/booksData";
+import Advertisements from "../../../../globalComponents/advertisements/Advertisements";
 
 export const CategoryPage = ({ collection = "Fiction" }) => {
   const [openCard, setOpenCard] = useState({});
@@ -103,10 +107,42 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
   });
 
   return (
-    <div className="bg-[#F9F9F9] font-[Poppins]">
+    <div className="bg-[#FaFaFa] font-[Poppins]">
       <Navbar active="Categories" />
-      <div className="w-full h-screen px-[80px] grid grid-cols-[325px_1fr] gap-[80px] pt-[140px]">
-        <div className="w-[325px] h-full pb-[80px] overflow-y-auto pr-2 overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide ">
+      {/* <a href="/" className="block lg:hidden w-full py-2">
+        <div className="flex justify-center items-center">
+          <img
+            src={bookStoreLogo}
+            alt="Book Store Logo"
+            className="h-[72px] w-auto" // Adjust size as needed 
+          />
+        </div>
+      </a>
+      <div
+      className="block lg:hidden w-full px-[16px] py-3">
+        <div
+        className="w-full flex justify-between">
+          <h1
+          className="text-[24px] font-semibold text-[#121212]">
+            Collections
+          </h1>
+          <div
+          className="w-[140px] h-[35px] flex justify-evenly items-center rounded-[20px] border-1 bg-[#ffffff] border-[#064FA4] font-medium">
+            <img
+            className="" 
+            src={filterIcon} 
+            alt="" />
+            <p
+            className="text-[14px] text-[#064FA4]">
+              Filter Result
+            </p>
+          </div>
+        </div>
+      </div> */}
+      <div className="w-full h-screen lg:px-[80px] px-[16px] grid grid-cols-[325px_1fr] gap-[80px] lg:pt-[140px]">
+        
+        <div className="hidden sm:block w-[325px] h-full pb-[80px] overflow-y-auto pr-2 overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide">
+
           <h1 className="text-[32px] font-semibold text-[#000000] mb-[10px] ">{collection} Collection</h1>
 
           {/* filters */}
@@ -320,14 +356,46 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
                     ))}
         </div>
 
-        <div className="h-full overflow-y-auto pr-2 overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide">
-          <div className="w-full grid xl:grid-cols-3 2xl:grid-cols-4 lg:grid-cols-2 pt-[25px] pb-[100px]">
+        <div className="w-full h-full overflow-y-auto pr-2 overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide">
+          <a href="/" className="block lg:hidden w-full py-2">
+            <div className="flex justify-center items-center">
+              <img
+                src={bookStoreLogo}
+                alt="Book Store Logo"
+                className="h-[72px] w-auto" // Adjust size as needed 
+              />
+            </div>
+          </a>
+          <div
+          className="block lg:hidden w-full py-3">
+            <div
+            className="w-full flex justify-between">
+              <h1
+              className="text-[24px] font-semibold text-[#121212]">
+                Collections
+              </h1>
+              <div
+              className="w-[140px] h-[35px] flex justify-evenly items-center rounded-[20px] border-1 bg-[#ffffff] border-[#064FA4] font-medium">
+                <img
+                className="" 
+                src={filterIcon} 
+                alt="" />
+                <p
+                className="text-[14px] text-[#064FA4]">
+                  Filter Result
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="w-full grid xl:grid-cols-3 2xl:grid-cols-4 grid-cols-2 gap-[16px] lg:pt-[25px] pb-[100px]">
             {filteredBooks.map((book) => (
               <BookCard key={book.id} book={book} />
             ))}
           </div>
         </div>
       </div>
+      <Advertisements />
+      <PhoneNavBar />
     </div>
   );
 };

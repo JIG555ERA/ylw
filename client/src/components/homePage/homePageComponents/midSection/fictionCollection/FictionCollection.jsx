@@ -17,8 +17,8 @@ const FictionCollection = () => {
         {id: 0, bookCoverPage: img01, bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149},
         {id: 3, bookCoverPage: img04, bookTitle: 'Murakami', bookAuthor: 'Norweign Wood', bookPrice: 299},
         {id: 2, bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott FitzerALD', bookPrice: 199},
-        {id: 5, bookCoverPage: img06, bookTitle: 'If beale street co...', bookAuthor: 'James Baldwin', bookPrice: 129},
-        {id: 4, bookCoverPage: img05, bookTitle: 'In a thousand diff...', bookAuthor: 'Cecelia Ahern', bookPrice: 299},
+        // {id: 5, bookCoverPage: img06, bookTitle: 'If beale street co...', bookAuthor: 'James Baldwin', bookPrice: 129},
+        // {id: 4, bookCoverPage: img05, bookTitle: 'In a thousand diff...', bookAuthor: 'Cecelia Ahern', bookPrice: 299},
     ];
     
     const handleViewAll = () => {
@@ -26,15 +26,15 @@ const FictionCollection = () => {
     }
 
     return (
-        <div className="mx-[80px] mt-[40px]">
-            <div className="w-full  border-t-[2px] border-dashed border-[#D1D1D1] "/>
+        <div className="lg:mx-[80px] mx-[16px] lg:mt-[40px] mt-[16px] font-[Poppins]">
+            <div className="w-full border-t-[2px] border-dashed border-[#D1D1D1] flex lg:block hidden"/>
             <div className="books-listing-title-section flex justify-between mt-[30px]">
-                <div className="selected-categroy-title-section">
-                    <p className="translate-y-[20px] text-[24px] text-[#111111] font-semibold">
+                <div className="selected-categroy-title-section flex">
+                    <p className="translate-y-[4px] lg:text-[24px] text-[18px] text-[#111111] font-semibold flex">
                         Best of fiction collection
                     </p>
                 </div>
-                <div className="books-listing-title-buttons-section">
+                <div className="flex justify-between">
                     <div 
                     onClick={handleViewAll}
                     className="view-all-button">
@@ -46,7 +46,7 @@ const FictionCollection = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="scroll-button-section">
+                    <div className="flex lg:block hidden">
                         <div className="scroll-button">
                             <img
                                 className="left-scroll-button-image"
@@ -64,7 +64,7 @@ const FictionCollection = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-6 w-full gap-12 translate-x-[-12px]">
+            <div className="grid lg:grid-cols-6 grid-cols-2 w-full lg:gap-12 gap-[16px] lg:translate-x-[-12px]">
                 {booksData.map((book) => (
                     <BookCard key={book.id} book={book} />
                 ))}

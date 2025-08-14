@@ -30,14 +30,14 @@ export const CategorySection = () => {
     }
 
     return (
-        <div className="w-full px-[80px] flex flex-col justify-between ">
+        <div className="w-full lg:px-[80px] px-[16px] flex flex-col justify-between font-[Poppins] lg:mt-[80px] mt-[300px]">
             <div className="books-listing-title-section flex justify-between ">
-                <div className="selected-categroy-title-section">
-                    <p className="translate-y-[20px] text-[#121212] font-bold text-[24px]">
+                <div className="selected-categroy-title-section flex">
+                    <p className="translate-y-[4px] text-[#121212] font-semibold lg:text-[24px] text-[18px]">
                         Book By Category
                     </p>
                 </div>
-                <div className="books-listing-title-buttons-section">
+                <div className="flex justify-between">
                     <div 
                     onClick={handleViewAll}
                     className="view-all-button">
@@ -49,7 +49,7 @@ export const CategorySection = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="scroll-button-section">
+                    <div className="flex lg:block hidden">
                         <div className="scroll-button">
                             <img
                                 className="left-scroll-button-image"
@@ -67,14 +67,14 @@ export const CategorySection = () => {
                     </div>
                 </div>
             </div>
-            <div className="h-[185px] flex justify-between whitespace-nowrap mt-[20px]">
+            <div className="lg:h-[185px] lg:flex grid grid-cols-2 justify-between whitespace-nowrap mt-[20px]">
                 {categoryItems.map((cat) => {
                     const isActive = category === cat.category_;
                     return (
                         <div
                             key={cat.category_}
                             onClick={() => setSelectedCategory(cat.category_)}
-                            className={`overflow-hidden relative font-exo w-[172px] h-[185px] bg-[#F4F4F4]/50 flex-shrink-0 rounded-md transition-transform duration-300 ease-in-out cursor-pointer 
+                            className={`overflow-hidden relative lg:w-[172px] lg:h-[185px] w-[155px] h-[166px] bg-[#F4F4F4]/50 flex-shrink-0 rounded-md transition-transform duration-300 ease-in-out cursor-pointer 
                             ${isActive ? '' : ''} hover:scale-105`}
                         >
                             {/* Grid Book Cover Section with optional opacity layer */}
@@ -108,7 +108,7 @@ export const CategorySection = () => {
 
                             {/* Inactive Category Footer */}
                             {!isActive && (
-                                <div className="absolute bottom-0 w-full h-[47px] bg-[#F4F4F4]/60 bg-opacity-70 flex items-center pl-3 z-10">
+                                <div className="absolute bottom-0 w-full h-[47px] bg-[#F4F4F4]/95 bg-opacity-70 flex gap-[16px] items-center pl-3 z-10">
                                     <p className="text-[#121212] text-[14px] font-semibold z-20">
                                         {cat.category_}
                                     </p>

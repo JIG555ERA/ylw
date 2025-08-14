@@ -1,0 +1,18 @@
+.custom-dashed-border {
+  border-width: .5px;
+  border-style: solid;
+  border-image: repeating-linear-gradient(to right, #D1D1D1 0, #D1D1D1 5px, transparent 5px, transparent 10px) 1;
+}
+
+.scrollbar-2px::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollbar-2px::-webkit-scrollbar-track {
+  background: #F9F9F9;
+}
+
+.scrollbar-2px::-webkit-scrollbar-thumb {
+  background: #064FA4;
+  border-radius: 8px;
+}

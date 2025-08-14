@@ -10,6 +10,12 @@ import ProductPage from './components/homePage/homePageComponents/productPage/Pr
 import AuthSignUP from './globalComponents/auth/AuthSignUP'
 import AuthLogIN from './globalComponents/auth/AuthLogIN'
 // import './App.css'
+import Publications from './components/publications/Publications'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import PaymentPage from './components/paymentPage/PaymentPage'
+import OrderConfirmation from './components/orderConfirmation/OrderConfirmation'
+
 
 function App() {
   return (
@@ -17,12 +23,14 @@ function App() {
      <Routes>
         <Route path='/' element={<HomePage />} /> 
         <Route path='/categories' element={<CategoryPage />} /> 
-        {/* <Route path='/product' element={<ProductDisplayPage />} />  */}
         <Route path="/liked" element={<LikePage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/product" element={<ProductPage />} />
+        <Route path="/publications" element={<Publications />} />
         <Route path='/auth/signup' element={<AuthSignUP />} />
         <Route path='/auth/login' element={<AuthLogIN />} />
+        <Route path='/payment' element={<PaymentPage />} />
+        <Route path='/order' element={<OrderConfirmation />} />
      </Routes>
     </>
   )

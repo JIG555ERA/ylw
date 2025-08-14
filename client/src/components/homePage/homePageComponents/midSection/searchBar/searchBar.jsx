@@ -51,7 +51,7 @@ export const SearchBar = () => {
   const filteredCards = suggestionSectionCard;
 
   return (
-    <div className="relative w-full">
+    <div className="relative lg:w-full">
       {/* Blur Background Overlay */}
       {active && (
         <div 
@@ -70,13 +70,13 @@ export const SearchBar = () => {
         <div className="flex justify-center items-center w-full">
           <div
             className={`flex h-[50px] ${
-              active ? "w-[1000px] shadow-none" : "w-[300px] shadow-md"
+              active ? "w-[1000px] shadow-none" : "lg:w-[300px] w-[65vw] shadow-md"
             } rounded-full bg-gradient-to-r from-[#F3CD00] to-[#064FA4] transition-all duration-500 items-center justify-center mr-2`}
           >
             <input
               type="text"
               className={`text-sm h-[48px] rounded-full px-5 outline-none text-gray-500 ${
-                active ? "w-[998px]" : "w-[298px]"
+                active ? "w-[998px]" : "lg:w-[298px] w-[65vw]"
               } transition-all duration-500 bg-white`}
               placeholder="Search..."
               value={searchValue}

@@ -16,7 +16,7 @@ export const Navbar = ({active=''}) => {
   ]
 
   return (
-    <div className="w-full h-[85px] flex flex-col items-center justify-evenly  bg-white shadow-xl fixed z-50 ">
+    <div className="w-full h-[85px] lg:flex flex-col items-center justify-evenly  bg-white shadow-xl fixed z-50 hidden">
       {/* Navigation Items */}
       <ul className="w-[1440px] px-[80px] flex justify-between  items-center max-[450px]:hidden">
         {navItems.slice(0,2).map((item, index, array) => (
@@ -50,7 +50,7 @@ export const Navbar = ({active=''}) => {
         <a href="/">
           <div className="flex justify-center items-center mx-12">
             <img
-              className="h-auto w-auto"
+              className="h-auto w-auto "
               src={bookStoreLogo}
               alt="Book Store Logo"
             />

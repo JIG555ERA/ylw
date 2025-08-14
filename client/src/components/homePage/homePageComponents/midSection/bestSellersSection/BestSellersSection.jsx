@@ -4,6 +4,7 @@ import img02 from '../../../../../assets/bookCoverPages/coverPage02.svg'
 import img03 from '../../../../../assets/bookCoverPages/coverPage03.svg'
 import ImageSection from '../../../../../globalComponents/ImageSection'
 import bestSellerBg from '../../../../../assets/backgroundImages/bestSellerBg.svg'
+import bestSellerPhoneBg from '../../../../../assets/backgroundImages/bestSellerPhoneBg.svg'
 
 
 const BestSellersSection = () => {
@@ -16,46 +17,46 @@ const BestSellersSection = () => {
 
     return (
         <div
-        className='w-full h-[460px] pt-[60px] flex flex-col relative'>
+        className='w-full h-[460px] pt-[60px] flex flex-col relative font-[Poppins]'>
             <div
             className='w-full h-[460px] absolute z-0 '>
                 <img 
-                className="w-[100vw] h-[460px]"
+                className="w-[100vw] lg:h-[460px]"
                 src={bestSellerBg} alt="" />
             </div>
             <div
             className='flex mx-auto flex-col relative'>
                 <h1
-                className='text-[32px] font-semibold text-[#121212] text-center'>
+                className='lg:text-[32px] text-[24px] font-semibold text-[#121212] text-center'>
                     Bestsellers
                 </h1>
                 <p
-                className='font-normal text-[#8C8C8C] text-[18px] text-center'>
-                    YLW brings a special bestseller collection for you
+                className='font-normal text-[#8C8C8C] lg:text-[18px] text-[16px] text-center lg:mt-[0px] mt-[8px]'>
+                    YLW brings a special bestseller <span className='block sm:inline'></span> collection for you
                 </p>
             </div>
             <div
-            className='w-[1280px] h-[225px] mx-auto flex justify-between mt-[40px] relative'>
+            className='lg:w-[1280px] lg:h-[225px] w-full h-[180px] mx-auto grid grid-cols-1 lg:flex justify-between mt-[40px] relative'>
                 {trendingBooks.map((book, index, array) => (
                     <div
                     key={book.id}
-                    className='w-[360px] h-[225px] flex '>
+                    className='lg:w-[360px] lg:h-[225px] w-[300px] h-[180px] flex '>
                         <div
-                        className='h-[225px] flex justify-center items-center w-[180px]'>
+                        className='lg:h-[225px] h-[180px] flex justify-center items-center w-[180px]'>
                             <div
-                            className='h-[210px] w-[150px] aspect-[3/4] mx-auto'>
+                            className='lg:h-[210px] lg:w-[150px] w-[130px] aspect-[3/4] mx-auto'>
                                 <ImageSection bookCoverPage={book.bookCoverPage} />
                             </div>
                         </div>
                         <div
-                        className='w-[180px] h-full flex flex-col justify-between py-8'>
+                        className='lg:w-[180px] w-[150px] h-full flex flex-col justify-between lg:py-8 py-6 lg:translate-y-[0px] translate-y-[-8px]'>
                             <p
-                            className='text-[14px] font-semibold text-[#064FA4]'>
+                            className='text-[14px] font-semibold text-[#064FA4] line-clamp-1'>
                                 {book.bookTitle}
                             </p>
 
                             <p
-                            className='text-[14px] font-semibold text-[#8C8C8C]'>
+                            className='text-[14px] font-semibold text-[#8C8C8C] line-clamp-1'>
                                 {book.bookAuthor}
                             </p>
 
@@ -70,7 +71,7 @@ const BestSellersSection = () => {
                             </p>
 
                             <div
-                            className='w-[170px] h-[37px] border-2 border-[#064FA4]  flex justify-center items-center rounded-[18px] mt-[10px]'>
+                            className='lg:w-[170px] w-[104px] lg:h-[37px] h-[33px] border-1 border-[#064FA4] flex justify-center items-center rounded-[18px] mt-[10px]'>
                                 <p
                                 className='text-[#064FA4] text-[14px] font-semibold '>
                                     Add to Cart

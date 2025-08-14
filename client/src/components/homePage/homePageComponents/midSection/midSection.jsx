@@ -6,17 +6,19 @@ import BestSellersSection from "./bestSellersSection/BestSellersSection";
 import BestSellersListing from "./bestSellersListing/BestSellersListing";
 import FictionCollection from "./fictionCollection/FictionCollection";
 import BookByAuthorsSection from "./bookByAuthorsSection/BookByAuthorsSection";
+import BooksByPublications from "./booksByPublications/BooksByPublications";
 
 export const MidSection = () => {
     return (
         <div className="main-section bg-[#F9F9F9]">
             <BestSellersSection />
             <CategorySection />
+            <BookByAuthorsSection />
             <BestSellersListing />
             <FictionCollection />
             <BookListings />
+            <BooksByPublications />
             {/* <AuthorSection /> */}
-            <BookByAuthorsSection />
         </div>
     )
 }

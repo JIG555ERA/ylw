@@ -46,11 +46,11 @@ const BookCard = ({ book }) => {
   };
 
   return (
-    <div className="block group relative w-[210px] h-[350px] mt-[40px] font-[Poppins]">
+    <div className="block group relative lg:w-[210px] lg:h-[350px] w-[156px] h-[275px] mt-[40px] font-[Poppins]">
 
       {/* ✅ Gradient Overlay */}
       <div
-        className="absolute  w-[210px] h-[350px] inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity p-3 duration-1000 delay-100 ease-in-out z-0 [background-image] "
+        className="absolute  lg:w-[210px] lg:h-[350px] w-[156px] h-[275px] inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity p-3 duration-1000 delay-100 ease-in-out z-0 [background-image] "
         style={{
           backgroundImage: gradient,
         }}
@@ -70,25 +70,25 @@ const BookCard = ({ book }) => {
 
         {/* Like icon */}
         <img
-          className="h-[24px] w-[24px] text-[#064FA4] translate-x-[150px]"
+          className="lg:h-[24px] lg:w-[24px] w-[14px] h-[14px] text-[#064FA4] lg:translate-x-[150px] translate-x-[115px]"
           src={likeIcon}
           alt="like"
         />
 
         {/* Book image */}
-        <div className="w-[140px] sm:w-[130px] h-auto aspect-[3/4] mx-auto">
+        <div className="lg:w-[130px] w-[90px] h-auto aspect-[3/4] mx-auto">
           <ImageSection bookCoverPage={book.bookCoverPage} />
         </div>
 
         {/* Book info */}
         <div className="text-sm font-medium space-y-1 text-center flex flex-col justify-center mx-auto ">
-          <p className="text-[#064FA4] text-[16px] font-semibold line-clamp-1">
+          <p className="text-[#064FA4] lg:text-[16px] text-[14px] font-semibold line-clamp-1">
             {book.bookTitle}
           </p>
           <p className="text-[#8C8C8C] text-[14px] font-medium line-clamp-1">
             {book.bookAuthor}
           </p>
-          <p className="text-[#111111] text-[18px] font-medium flex mx-auto">
+          <p className="text-[#111111] lg:text-[18px] text-[16px] font-medium flex mx-auto">
             <p className="font-[Roboto]">₹ {book.bookPrice}</p> 
           </p>
         </div>
@@ -96,7 +96,7 @@ const BookCard = ({ book }) => {
         {/* Add to Cart button */}
         <div
           onClick={handleAddToCart}
-          className="w-[130px] group-hover:w-[170px]  h-[37px] text-[#064FA4] bg-white border border-[#064FA4] font-semibold flex justify-center items-center rounded-[30px] mt-[9px] text-[14px] cursor-pointer group-hover:bg-[#043c7d] group-hover:text-white transition-all duration-1000 ease-in-out mx-auto"
+          className="w-[130px] group-hover:w-[170px] lg:h-[37px] h-[30px] text-[#064FA4] bg-white border border-[#064FA4] font-semibold flex justify-center items-center rounded-[30px] mt-[9px] lg:text-[14px] text-[12px] cursor-pointer group-hover:bg-[#043c7d] group-hover:text-white transition-all duration-1000 ease-in-out mx-auto"
         >
           Add to Cart
         </div>

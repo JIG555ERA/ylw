@@ -3,6 +3,9 @@ import { TopSection } from './topSection/topSection'
 import { MidSection } from './midSection/midSection'
 import { BiChevronLeftCircle } from "react-icons/bi";
 import { BiChevronRightCircle } from "react-icons/bi";
+import PhoneNavBar from './topSection/navBar/PhoneNavBar';
+import Advertisements from '../../../globalComponents/advertisements/Advertisements';
+import BooksByPublications from './midSection/booksByPublications/BooksByPublications';
 
 const HomePage = () => {
 
@@ -26,9 +29,8 @@ const HomePage = () => {
     <div className=''>
         <TopSection />
         <MidSection />
-
-
-        
+        <Advertisements />
+        <PhoneNavBar />
     </div>
   )
 }

@@ -13,7 +13,7 @@ const BookByAuthorsSection = () => {
         {id: 1, name: 'Paulo Coelho', img: author02},
         {id: 2, name: 'Chetan Bhagat', img: author03},
         {id: 3, name: 'Devdutt Pattanaik', img: author04},
-        {id: 4, name: 'Devdutt Pattanaik', img: author04},
+        // {id: 4, name: 'Devdutt Pattanaik', img: author04},
     ]
 
     const handleViewAll = () => {
@@ -21,15 +21,15 @@ const BookByAuthorsSection = () => {
     }    
 
     return (
-        <div className="mx-[80px] mt-[40px] pb-[300px]">
-            <div className="w-full  border-t-[2px] border-dashed border-[#D1D1D1] "/>
+        <div className="lg:mx-[80px] mx-[16px] lg:mt-[40px] mt-[16px] font-[Poppins]">
+            <div className="w-full border-t-[2px] border-dashed border-[#D1D1D1] lg:block hidden"/>
             <div className="books-listing-title-section flex justify-between mt-[30px]">
                 <div className="selected-categroy-title-section">
-                    <p className="translate-y-[20px] text-[24px] text-[#111111] font-semibold">
+                    <p className="translate-y-[4px] lg:text-[24px] text-[18px] text-[#111111] font-semibold">
                         Book by Authors
                     </p>
                 </div>
-                <div className="books-listing-title-buttons-section">
+                <div className="flex justify-between">
                     <div 
                     onClick={handleViewAll}
                     className="view-all-button">
@@ -41,7 +41,7 @@ const BookByAuthorsSection = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="scroll-button-section">
+                    <div className="flex lg:block hidden">
                         <div className="scroll-button">
                             <img
                                 className="left-scroll-button-image"
@@ -59,20 +59,20 @@ const BookByAuthorsSection = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-6 w-full h-[225px] gap-[293px] translate-x-[-12px] mt-[50px]">
+            <div className="grid lg:grid-cols-6 grid-cols-2 w-full lg:h-[225px] lg:gap-[293px] gap-[16px] lg:translate-x-[-12px] mt-[50px]">
                 {authorInfo.map((author, index, array) => (
                     <div
                     key={author.id}
-                    className='w-[200px] h-[225px] flex flex-col'>
+                    className='lg:w-[200px] w-[156px] lg:h-[225px] h-[200px] flex flex-col'>
                         <div
-                        className='w-[200px] h-[200px]'>
+                        className='lg:w-[200px] lg:h-[200px] w-[156px] h-[166px]'>
                             <img 
-                            className='w-[200px] h-[200px] rounded-[12px]'
+                            className='lg:w-[200px] lg:h-[200px] w-[156px] h-[166px] rounded-[12px]'
                             src={author.img} 
                             alt={author.name} />
                         </div>
                         <p
-                        className='mx-auto text-[#121212] font-semibold text-[16px]'>
+                        className='mx-auto text-[#121212] font-semibold text-[16px] mt-[8px]'>
                             {author.name}
                         </p>
                     </div>

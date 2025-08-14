@@ -22,7 +22,7 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 768, min: 0 },
-    items: 1,
+    items: 3,
   },
 };
 
@@ -58,15 +58,15 @@ const Carousel01 = () => {
 
     switch (relativeOffset) {
       case 0:
-        return "h-[260px] opacity-100 ";
+        return "lg:h-[260px] lg:opacity-100 h-[120px]";
       case 1:
-        return "h-[185px] mt-[32px] opacity-70 ";
+        return "lg:h-[185px] lg:mt-[32px] lg:opacity-70 h-[150px]";
       case 2:
-        return "h-[135px] mt-[50px] opacity-50";
+        return "lg:h-[135px] lg:mt-[50px] lg:opacity-50 h-[120px]";
       case 3:
-        return "h-[70px] mt-[80px] opacity-30";
+        return "lg:h-[70px] lg:mt-[80px] lg:opacity-30 h-[120px]";
       default:
-        return "h-[70px] mt-[80px] opacity-30";
+        return "lg:h-[70px] lg:mt-[80px] lg:opacity-30";
     }
   };
 
@@ -77,29 +77,29 @@ const Carousel01 = () => {
 
     switch (relativeOffset) {
       case 0:
-        return "w-[180px] ";
+        return "lg:w-[180px]";
       case 1:
-        return "w-[130px]";
+        return "lg:w-[130px]";
       case 2:
-        return "w-[100px]";
+        return "lg:w-[100px]";
       case 3:
-        return "w-[60px]";
+        return "lg:w-[60px]";
       default:
-        return "w-[60px]";
+        return "lg:w-[60px]";
     }
   };
 
   return (
-    <div className="w-full mx-[80px] h-[615px] flex flex-col items-center rounded-[32px] mt-[140px] bg-gradient-to-br from-pink-100 via-white to-indigo-100 shadow-md">
-      <h1 className="text-[44px] font-semibold text-[#121212] text-center mt-[50px]">
+    <div className="lg:w-[90vw] w-[90vw] mx-[30px] mr-[30px] lg:h-[615px] h-[520px] flex flex-col items-center rounded-[32px] mt-[140px] bg-gradient-to-br from-pink-100 via-white to-indigo-100 shadow-md lg:translate-y-[0px] translate-y-[-140px]">
+      <h1 className="lg:text-[44px] text-[24px] font-semibold text-[#121212] text-center lg:mt-[50px] mt-[30px]">
         Your Literary World
       </h1>
 
-      <div className="w-full flex justify-center mt-[40px]">
+      <div className="w-full flex justify-center lg:mt-[40px] mt-[30px]">
         <SearchBar />
       </div>
 
-      <div className="w-[80vw] h-[345px] mx-auto  pointer-events-none">
+      <div className="w-[80vw] lg:h-[345px] mx-auto  pointer-events-none lg:translate-y-[0px] translate-y-[50px]">
         <Carousel
           ref={carouselRef}
           autoPlay={true}
@@ -119,7 +119,7 @@ const Carousel01 = () => {
             >
               <div className={`${getWidthClass} aspect-[3/4] ${getHeightClass(index)} transition-all duration-500 ease-in-out`}
             >
-                <ImageSection bookCoverPage={book.bookCoverPage}  />
+                <ImageSection bookCoverPage={book.bookCoverPage} />
               </div>
             </div>
           ))}
