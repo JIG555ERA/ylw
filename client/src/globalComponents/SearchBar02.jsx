@@ -74,7 +74,7 @@ const SearchBar02 = ({ searchQuery, onSearchChange, onSearchClick, books = [], a
   };
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto">
+    <div className="relative w-full max-w-3xl mx-auto ">
       <form onSubmit={handleSearchSubmit} className="relative group">
         <div className="relative">
           <div
@@ -84,13 +84,13 @@ const SearchBar02 = ({ searchQuery, onSearchChange, onSearchClick, books = [], a
           ></div>
 
           <div
-            className="relative bg-white/75 backdrop-blur-xl rounded-2xl border border-white/30 shadow-2xl transition-all duration-300 hover:shadow-3xl cursor-pointer"
+            className="lg:w-full w-[85vw] lg:mx-0 mx-2 relative bg-white/75 lg:h-auto h-15 flex  items-center backdrop-blur-xl rounded-2xl border border-white/30 shadow-2xl transition-all duration-300 hover:shadow-3xl cursor-pointer"
             onClick={handleClick}
           >
-            <div className="flex items-center p-2">
+            <div className="flex lg:justify-between items-center p-2 w-full">
               <div className="flex items-center justify-center w-14 h-14 ml-2">
                 <div
-                  className={`w-12 h-12 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center transition-all duration-300 ${
+                  className={`lg:w-12 lg:h-12 h-8 w-8 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center transition-all duration-300 lg:translate-x-[0px] translate-x-[-4px] ${
                     isFocused ? "scale-110 shadow-lg" : "scale-100"
                   }`}
                 >
@@ -106,14 +106,14 @@ const SearchBar02 = ({ searchQuery, onSearchChange, onSearchClick, books = [], a
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 placeholder={searchSuggestions[currentPlaceholder]}
-                className="flex-1 border-0 bg-transparent text-lg px-4 py-6 placeholder:text-muted-foreground/70 focus:outline-none transition-all duration-300 cursor-pointer"
+                className="flex-1 border-0 bg-transparent lg:text-lg text-md lg:px-4 px-2 lg:py-6 py-3 placeholder:text-muted-foreground/70 focus:outline-none transition-all duration-300 cursor-pointer"
               />
 
               <button
                 type="submit"
-                className="mr-2 bg-gradient-to-r from-purple-400 to-pink-400 text-white border-0 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 px-8 py-3 rounded-2xl flex items-center"
+                className="mr-2 bg-gradient-to-r from-purple-400 to-pink-400 text-white border-0 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 lg:px-8 px-1 lg:py-3 py-1 rounded-2xl flex lg:text-lg text-sm items-center lg:translate-x-[0px] translate-x-[-60px]"
               >
-                <Sparkles className="h-4 w-4 mr-2" />
+                <Sparkles className="h-4 w-4 lg:mr-2 mr-1 lg:text-xl" />
                 Search
               </button>
             </div>

@@ -49,7 +49,7 @@ export const CategorySection = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="flex lg:block hidden">
+                    <div className="lg:flex hidden">
                         <div className="scroll-button">
                             <img
                                 className="left-scroll-button-image"
