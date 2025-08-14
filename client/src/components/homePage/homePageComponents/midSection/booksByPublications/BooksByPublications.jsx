@@ -2,7 +2,83 @@ import React from 'react'
 import { Sparkles, Building2 } from 'lucide-react'
 import PublicationCard from './PublicationCard'
 
-const BooksByPublications = () => {
+const cardContextList = [
+  {
+    publicationName: "Sample Publication",
+    description: "This is a short description for the publication. It gives a brief overview of the content and theme.",
+    tags: ["Literary Fiction", "Children Fiction", "Children's Book"],
+    books: 2500,
+    readers: 56000,
+    averageRating: 4.2,
+    establishedAt: 1992,
+  },
+  {
+    publicationName: "Tech World Press",
+    description: "A hub for cutting-edge technology news, innovations, and thought-provoking articles.",
+    tags: ["Technology", "Innovation", "AI & Robotics"],
+    books: 3400,
+    readers: 120000,
+    averageRating: 4.7,
+    establishedAt: 2005,
+  },
+  {
+    publicationName: "Nature Chronicles",
+    description: "Dedicated to the wonders of nature, wildlife conservation, and environmental awareness.",
+    tags: ["Nature", "Wildlife", "Conservation"],
+    books: 1800,
+    readers: 89000,
+    averageRating: 4.5,
+    establishedAt: 1985,
+  },
+  {
+    publicationName: "Global Travel Stories",
+    description: "Explore fascinating travel destinations, cultures, and unique adventures worldwide.",
+    tags: ["Travel", "Culture", "Adventure"],
+    books: 2100,
+    readers: 75000,
+    averageRating: 4.3,
+    establishedAt: 2010,
+  },
+  {
+    publicationName: "Healthy Living Journal",
+    description: "Your daily guide to fitness, wellness, and a balanced lifestyle.",
+    tags: ["Health", "Fitness", "Nutrition"],
+    books: 2950,
+    readers: 102000,
+    averageRating: 4.6,
+    establishedAt: 2000,
+  },
+  {
+    publicationName: "History & Heritage",
+    description: "A journey through time exploring ancient civilizations, historical events, and artifacts.",
+    tags: ["History", "Heritage", "Culture"],
+    books: 1600,
+    readers: 65000,
+    averageRating: 4.4,
+    establishedAt: 1975,
+  },
+  {
+    publicationName: "Science Frontier",
+    description: "Breaking down complex scientific concepts into engaging and understandable content.",
+    tags: ["Science", "Research", "Education"],
+    books: 3100,
+    readers: 97000,
+    averageRating: 4.8,
+    establishedAt: 1998,
+  },
+  {
+    publicationName: "Culinary Wonders",
+    description: "Delicious recipes, cooking techniques, and food culture from around the world.",
+    tags: ["Cooking", "Recipes", "Food Culture"],
+    books: 2700,
+    readers: 83000,
+    averageRating: 4.5,
+    establishedAt: 2008,
+  }
+];
+
+
+const BooksByPublications = ({}) => {
     return (
         <div
         className='w-full h-auto'>
@@ -20,8 +96,14 @@ const BooksByPublications = () => {
                     </div>
                 </div>
                 {/* cards */}
-                <div>
-                    <PublicationCard />
+                <div className='w-full h-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 lg:gap-[24px] md:gap-[16px] mt-[24px]'>
+                   
+                   {cardContextList.map((card) => (
+                    <div>
+                        <PublicationCard context={card} />
+                    </div>
+                   ))}
+                   
                 </div>
             </div>
         </div>

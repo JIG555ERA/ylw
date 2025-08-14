@@ -184,7 +184,7 @@ const Carousel02 = () => {
       </div>
 
       {/* Carousel */}
-      <div className="w-[80vw] lg:h-[345px] mx-auto pointer-events-none lg:translate-y-[50px] translate-y-[50px]">
+      <div className="w-[80vw] lg:h-[345px] mx-auto pointer-events-none lg:translate-y-[30px] translate-y-[50px]">
         <Slider {...settings}>
           {booksData.map((book, index) => (
             <div key={book.id} className="flex justify-center items-start px-2 gap-[20px]">
