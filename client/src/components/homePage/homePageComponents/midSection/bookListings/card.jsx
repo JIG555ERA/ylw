@@ -86,7 +86,7 @@ const BookCard = ({ book }) => {
             {book.bookTitle}
           </p>
           <p className="text-[#8C8C8C] text-[14px] font-medium line-clamp-1">
-            {book.bookAuthor}
+            {book.bookAuthor} HEL
           </p>
           <p className="text-[#111111] lg:text-[18px] text-[16px] font-medium flex mx-auto">
             <p className="font-[Roboto]">₹ {book.bookPrice}</p> 

@@ -5,16 +5,17 @@ import author03 from '../../../../../assets/authorImages/author03.svg'
 import author04 from '../../../../../assets/authorImages/author07.jpeg'
 import leftScrollButton from '../../../../../assets/icons/leftScrollButton.svg'
 import rightScrollButton from '../../../../../assets/icons/rightScrollButton.svg'
+import AuthorCard from './AuthorCard'
 
 const BookByAuthorsSection = () => {
 
     const authorInfo = [
-        {id: 0, name: 'Mark Twain', img: author01},
-        {id: 1, name: 'Paulo Coelho', img: author02},
-        {id: 2, name: 'Chetan Bhagat', img: author03},
-        {id: 3, name: 'Devdutt Pattanaik', img: author04},
-        // {id: 4, name: 'Devdutt Pattanaik', img: author04},
+         {id: 0, img: author01, name: 'Sarah Chen', description: "Sarah's parents moved the family back and forth between the United States, Canada, and Taiwan throughout Sarah's childhood, but her mother always made sure that Sarah and her brother continued learning Chinese.", books: 8},
+         {id: 1, img: author02, name: 'Marcus Thompson', description: "Marcus Thompson is a contemporary fiction writer known for his sharp storytelling and deep character explorations. His works often blend emotional depth with real-world themes, creating narratives that resonate with readers across generations.", books: 8},
+         {id: 2, img: author03, name: 'Elena Rodriguez', description: "Elena Rodriguez is a passionate storyteller whose novels celebrate culture, identity, and human connection. With a flair for weaving rich settings and heartfelt emotions, her writing transports readers into worlds both familiar and new.", books: 8},
+         {id: 3, img: author04, name: 'Dr. Adien Kumar', description: "Dr. Adien Kumar is an acclaimed author and researcher who bridges science and storytelling. His works combine academic insight with accessible prose, inspiring readers to explore knowledge, philosophy, and the human spirit.", books: 8},
     ]
+    
 
     const handleViewAll = () => {
 
@@ -26,7 +27,7 @@ const BookByAuthorsSection = () => {
             <div className="books-listing-title-section flex justify-between mt-[30px]">
                 <div className="selected-categroy-title-section">
                     <p className="translate-y-[4px] lg:text-[24px] text-[18px] text-[#111111] font-semibold">
-                        Book by Authors
+                        Book by Authors 
                     </p>
                 </div>
                 <div className="flex justify-between">
@@ -59,23 +60,9 @@ const BookByAuthorsSection = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid lg:grid-cols-6 grid-cols-2 w-full lg:h-[225px] lg:gap-[293px] gap-[16px] lg:translate-x-[-12px] mt-[50px]">
+            <div className="lg:flex grid grid-cols-2 w-full lg:justify-between lg:h-[500px] lg:gap-[32px] gap-[16px] lg:translate-x-[-12px] mt-[50px]">
                 {authorInfo.map((author, index, array) => (
-                    <div
-                    key={author.id}
-                    className='lg:w-[200px] w-[156px] lg:h-[225px] h-[200px] flex flex-col'>
-                        <div
-                        className='lg:w-[200px] lg:h-[200px] w-[156px] h-[166px]'>
-                            <img 
-                            className='lg:w-[200px] lg:h-[200px] w-[156px] h-[166px] rounded-[12px]'
-                            src={author.img} 
-                            alt={author.name} />
-                        </div>
-                        <p
-                        className='mx-auto text-[#121212] font-semibold text-[16px] mt-[8px]'>
-                            {author.name}
-                        </p>
-                    </div>
+                    <AuthorCard context={author} />
                 ))}
             </div>
         </div>

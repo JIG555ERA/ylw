@@ -20,6 +20,7 @@ import img01 from '../../assets/bookCoverPages/coverPage01.svg'
 import img02 from '../../assets/bookCoverPages/coverPage02.svg'
 import img03 from '../../assets/bookCoverPages/coverPage03.svg'
 import bookStoreLogo from '../../assets/logos/bookStoreLogo.svg'
+import NewsLetter from "../../globalComponents/NewsLetter";
 
 // Mock Data
 const mockOrder = {
@@ -141,7 +142,7 @@ const OrderConfirmation = ({ onBackToShop }) => {
                 />
               </div>
       </a>
-      <div className="lg:py-[100px] pt-[24px] pb-[120px] lg:px-[80px] px-[16px]">
+      <div className="lg:py-[130px] pt-[24px] pb-[120px] lg:px-[120px] px-[16px]">
         {/* Back Button */}
       <a href="/">
         <button
@@ -407,26 +408,26 @@ const OrderConfirmation = ({ onBackToShop }) => {
         <div className="space-y-6">
           {/* Order Summary */}
           <div className="bg-white p-6 rounded-2xl shadow-md">
-            <h3 className="font-semibold mb-6 flex items-center gap-2">
+            <h3 className="font-medium text-black/80 mb-6 flex items-center gap-2">
               <CreditCard className="h-5 w-5 text-green-500" /> Order Summary
             </h3>
             <div className="space-y-2">
-              <div className="flex justify-between">
-                <span>Item Total</span>
+              <div className="flex justify-between text-[14px]">
+                <span className="text-[#7C7C7C]">Item Total</span>
                 <span><span className="font-[Roboto]">₹</span>{totalPrice}</span>
               </div>
-              <div className="flex justify-between">
-                <span>Discount</span>
+              <div className="flex justify-between text-[14px]">
+                <span className="text-[#7C7C7C] ">Discount</span>
                 <span className="text-green-400"><span className="font-[Roboto] ">- ₹</span>{totalPrice - discountedPrice}</span>
               </div>
-              <div className="flex justify-between">
-                <span>Delivery Charges</span>
+              <div className="flex justify-between text-[14px]">
+                <span className="text-[#7C7C7C] ">Delivery Charges</span>
                 <span><span className="font-[Roboto]">₹</span>{deliveryCharges}</span>
               </div>
               <hr />
-              <div className="flex justify-between font-bold text-lg">
+              <div className="flex justify-between font-medium text-black/80 text-lg ">
                 <span>Total Amount</span>
-                <span><span className="font-[Roboto]">₹</span>{discountedPrice + deliveryCharges}</span>
+                <span className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-400 bg-clip-text text-transparent"><span className="font-[Roboto]">₹</span>{discountedPrice + deliveryCharges}</span>
               </div>
             </div>
             <p className="mt-4 text-sm text-gray-500">Payment Method</p>
@@ -442,18 +443,18 @@ const OrderConfirmation = ({ onBackToShop }) => {
           </div>
 
           {/* Shipping Address */}
-          <div className="bg-white p-6 rounded-2xl shadow-md">
-            <h3 className="font-semibold mb-4 flex items-center gap-2">
+          <div className="bg-white p-6 rounded-2xl shadow-md text-black/80">
+            <h3 className="font-medium mb-4 flex items-center gap-2">
               <MapPin className="h-5 w-5 text-orange-500" /> Shipping Address
             </h3>
             <p className="font-medium">{mockOrder.shippingAddress.name}</p>
-            <p>{mockOrder.shippingAddress.address}</p>
-            <p>
+            <p className="text-[14px] text-[#7C7C7C]/60">{mockOrder.shippingAddress.address}</p>
+            <p className="text-[14px] text-[#7C7C7C]/60">
               {mockOrder.shippingAddress.city},{" "}
               {mockOrder.shippingAddress.state} {mockOrder.shippingAddress.zipCode}
             </p>
-            <p>{mockOrder.shippingAddress.phone}</p>
-            <div className="mt-4 p-3 bg-green-50 rounded-lg flex items-center gap-2">
+            <p className="text-[14px] text-[#7C7C7C]/60">{mockOrder.shippingAddress.phone}</p>
+            <div className="mt-4 p-3 bg-gradient-to-r from-white via-green-50 to-green-100 rounded-xl flex items-center gap-2">
               <Truck className="h-4 w-4 text-green-600" />
               <span className="text-sm font-medium text-green-600">
                 Estimated Delivery: {mockOrder.estimatedDelivery}
@@ -463,10 +464,10 @@ const OrderConfirmation = ({ onBackToShop }) => {
 
           {/* Support */}
           <div className="bg-white p-6 rounded-2xl shadow-md">
-            <h3 className="font-semibold mb-4 flex items-center gap-2">
+            <h3 className="font-medium text-black/75 mb-4 flex items-center gap-2">
               <MessageCircle className="h-5 w-5 text-blue-500" /> Need Help?
             </h3>
-            <p className="text-sm text-gray-500 mb-4">
+            <p className="text-sm text-[#7C7C7C]/60 mb-4">
               Have questions about your order? Our support team is here to help.
             </p>
             <button className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white py-2 rounded-3xl shadow hover:shadow-lg transition cursor-pointer">
@@ -502,6 +503,7 @@ const OrderConfirmation = ({ onBackToShop }) => {
           ))}
         </div>
       </div>
+      <NewsLetter />
       </div>
       <PhoneNavBar />
     </div>

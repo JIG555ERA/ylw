@@ -7,6 +7,7 @@ import BestSellersListing from "./bestSellersListing/BestSellersListing";
 import FictionCollection from "./fictionCollection/FictionCollection";
 import BookByAuthorsSection from "./bookByAuthorsSection/BookByAuthorsSection";
 import BooksByPublications from "./booksByPublications/BooksByPublications";
+import NewsLetter from "../../../../globalComponents/NewsLetter";
 
 export const MidSection = () => {
     return (
@@ -18,6 +19,7 @@ export const MidSection = () => {
             <FictionCollection />
             <BookListings />
             <BooksByPublications />
+            <NewsLetter />
             {/* <AuthorSection /> */}
         </div>
     )
