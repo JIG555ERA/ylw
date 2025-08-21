@@ -302,10 +302,10 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
                                               }}
                                             />
                                             <div className="flex justify-between mt-4 text-[#444444] text-sm font-medium">
-                                              <span>₹50</span>
-                                              <span className="text-[#000000]">₹{priceRange[0]}</span>
-                                              <span className="text-[#000000]">₹{priceRange[1]}</span>
-                                              <span>₹2,000</span>
+                                              <span className="text-[16px] font-semibold">₹50</span>
+                                              <span className="text-[#7C7C7C] font-normal text-[14px]">₹{priceRange[0]}</span>
+                                              <span className="text-[#7C7C7C] font-normal text-[14px]">₹{priceRange[1]}</span>
+                                              <span className="text-[16px] font-semibold">₹2,000</span>
                                             </div>
                                           </Box>
                                         </div>
@@ -339,10 +339,10 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
                                               }}
                                             />
                                             <div className="flex justify-between mt-4 text-[#444444] text-sm font-medium">
-                                              <span>1880</span>
-                                              <span className="text-[#000000]">{yearRange[0]}</span>
-                                              <span className="text-[#000000]">{yearRange[1]}</span>
-                                              <span>2025</span>
+                                              <span className="text-[16px] font-semibold">1880</span>
+                                              <span className="text-[#7C7C7C] font-normal text-[14px]">{yearRange[0]}</span>
+                                              <span className="text-[#7C7C7C] font-normal text-[14px]">{yearRange[1]}</span>
+                                              <span className="text-[16px] font-semibold">2025</span>
                                             </div>
                                           </Box>
                                         </div>
@@ -387,7 +387,64 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
               </div>
             </div>
           </div>
-          <div className="w-full grid xl:grid-cols-3 2xl:grid-cols-4 grid-cols-2 gap-[16px] lg:pt-[25px] pb-[100px]">
+          <div>
+            {/* Selected Tags Section */}
+            <div className="w-full flex flex-wrap gap-2 mb-4">
+              {[
+                ...categoryFilter
+                  .filter((c) => category[c.categoryId])
+                  .map((c) => ({ section: "Category", name: c.name, id: c.categoryId, type: "category" })),
+                ...authorFilter
+                  .filter((a) => author[a.authorId])
+                  .map((a) => ({ section: "Author", name: a.name, id: a.authorId, type: "author" })),
+                ...publicationFilter
+                  .filter((p) => publication[p.publicationId])
+                  .map((p) => ({ section: "Publication", name: p.name, id: p.publicationId, type: "publication" })),
+              ]
+                .reduce((acc, curr) => {
+                  const existing = acc.find((t) => t.section === curr.section);
+                  if (existing) {
+                    existing.items.push(curr);
+                  } else {
+                    acc.push({ section: curr.section, items: [curr] });
+                  }
+                  return acc;
+                }, [])
+                .map((group) => {
+                  const names = group.items.map((t) => t.name);
+                  let displayNames = names;
+
+                  if (names.length > 2) {
+                    const extraCount = names.length - 2;
+                    displayNames = [...names.slice(0, 2), `+${extraCount}`];
+                  }
+
+                  return (
+                    <div
+                      key={group.section}
+                      className="flex items-center bg-[#EBF4FF] text-[#064FA4] px-3 py-1 rounded-full text-sm font-medium"
+                    >
+                      {group.section}: {displayNames.join(", ")}
+                      <button
+                        onClick={() => {
+                          group.items.forEach((tag) => {
+                            if (tag.type === "category") toggleCategory(tag.id);
+                            if (tag.type === "author") toggleAuthor(tag.id);
+                            if (tag.type === "publication") togglePublication(tag.id);
+                          });
+                        }}
+                        className="ml-2 text-[#064FA4] hover:text-red-500"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  );
+                })}
+            </div>
+
+
+          </div>
+          <div className="w-full grid xl:grid-cols-3 2xl:grid-cols-4 grid-cols-2 gap-[16px] lg:pt-[0px] pb-[100px]">
             {filteredBooks.map((book) => (
               <BookCard key={book.id} book={book} />
             ))}
