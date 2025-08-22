@@ -31,7 +31,7 @@ const BookByAuthorsSection = () => {
                     </p>
                 </div>
                 <div className="flex justify-between">
-                    <div 
+                    {/* <div 
                     onClick={handleViewAll}
                     className="view-all-button">
                         <div
@@ -41,7 +41,7 @@ const BookByAuthorsSection = () => {
                                 View All
                             </p>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="lg:flex hidden">
                         <div className="scroll-button">
                             <img
@@ -60,7 +60,7 @@ const BookByAuthorsSection = () => {
                     </div>
                 </div>
             </div>
-            <div className="lg:flex grid grid-cols-2 w-full lg:justify-between lg:h-[500px] lg:gap-[32px] gap-[16px] lg:translate-x-[-12px] mt-[50px]">
+            <div className="lg:flex grid grid-cols-2 w-full lg:justify-between lg:h-[450px] lg:gap-[32px] gap-[16px] lg:translate-x-[-12px] mt-[50px]">
                 {authorInfo.map((author, index, array) => (
                     <AuthorCard context={author} />
                 ))}

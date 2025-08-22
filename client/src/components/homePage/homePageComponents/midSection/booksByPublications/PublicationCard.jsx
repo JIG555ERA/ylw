@@ -13,7 +13,7 @@ const cardContext = {
 
 const PublicationCard = ({ context = cardContext }) => {
   return (
-    <div className="w-[300px] h-[530px] group relative overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl border-0 bg-white rounded-3xl backdrop-blur-sm hover:backdrop-blur-md cursor-pointer">
+    <div className="w-[300px] h-[500px] group relative overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl border-0 bg-white rounded-3xl backdrop-blur-sm hover:backdrop-blur-md cursor-pointer">
       
       {/* Background Banner */}
       <div className="h-32 relative overflow-hidden">
@@ -43,7 +43,7 @@ const PublicationCard = ({ context = cardContext }) => {
 
         {/* Specialties */}
         <div className="flex flex-wrap justify-center mb-4 gap-2 overflow-x-hidden">
-          {context.tags.map((tag, index) => (
+          {context.tags.slice(0, 2).map((tag, index) => (
             <div
               key={index}
               className="text-xs bg-white/60 border border-gray-100 flex justify-center items-center rounded-2xl px-2 py-1 hover:shadow-md shadow-gray-300 backdrop-blur-sm"
@@ -51,6 +51,11 @@ const PublicationCard = ({ context = cardContext }) => {
               {tag}
             </div>
           ))}
+          <div
+              className="text-xs bg-white/60 border border-gray-100 flex justify-center items-center rounded-2xl px-2 py-1 hover:shadow-md shadow-gray-300 backdrop-blur-sm"
+            >
+              + {context.tags.length - 2}
+          </div>
         </div>
 
         {/* Stats */}

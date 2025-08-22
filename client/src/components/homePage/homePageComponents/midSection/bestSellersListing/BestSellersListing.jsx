@@ -34,7 +34,7 @@ const BestSellersListing = () => {
                     </p>
                 </div>
                 <div className="flex justify-between">
-                    <div 
+                    {/* <div 
                     onClick={handleViewAll}
                     className="view-all-button">
                         <div
@@ -44,7 +44,7 @@ const BestSellersListing = () => {
                                 View All
                             </p>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="lg:flex hidden">
                         <div className="scroll-button">
                             <img

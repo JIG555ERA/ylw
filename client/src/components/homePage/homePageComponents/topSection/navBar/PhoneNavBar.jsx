@@ -15,7 +15,7 @@ const PhoneNavBar = () => {
 
     return (
         <div
-        className='w-full h-[85px] bg-white flex justify-between font-[Poppins] items-center fixed bottom-0 lg:hidden z-50'>
+        className='w-full h-[85px] bg-white flex justify-between font-[Poppins] items-center fixed bottom-0 md:hidden z-50'>
             {navList.map((page, index, array) => (
                 <div
                 key={page.id}

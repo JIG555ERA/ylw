@@ -11,7 +11,7 @@ const context = [
 const AuthorCard = ({ context=context[0] }) => {
     return (
         <div
-        className='md:w-[330px] md:h-[500px] rounded-3xl flex flex-col bg-[#f9f9f9] overflow-hidden md:gap-[20px] group font-[Poppins] shadow hover:shadow-md hover:shadow-gray-300 cursor-pointer'>
+        className='md:w-[330px] md:h-[450px] rounded-3xl flex flex-col bg-[#f9f9f9] overflow-hidden md:gap-[20px] group font-[Poppins] shadow hover:shadow-md hover:shadow-gray-300 cursor-pointer'>
             <div
             className='h-[180px] w-full overflow-hidden'>
                 <img 
@@ -34,11 +34,11 @@ const AuthorCard = ({ context=context[0] }) => {
                 </div>
             </div>
             <div
-            className='w-full flex flex-col lg:px-[24px] h-auto '>
-                <div className='w-full h-[50px] flex text-[#7C7C7C]/60 justify-center items-center gap-[8px] hover:scale-105 translate-y-[-8px]'> 
+            className='w-full flex flex-col lg:px-[24px] h-auto px-[24px]'>
+                {/* <div className='w-full h-[50px] flex text-[#7C7C7C]/60 justify-center items-center gap-[8px] hover:scale-105 translate-y-[-8px]'> 
                     <BookOpen className='w-4 h-4 ' />
                     <p className='text-[16px]'>View Books</p>
-                </div>
+                </div> */}
 
                 <button className="w-full h-8 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-400 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 rounded-2xl flex justify-center items-center gap-[8px] font-medium">
                     <TrendingUp className="w-4 h-4 text-white" /> Explore Books

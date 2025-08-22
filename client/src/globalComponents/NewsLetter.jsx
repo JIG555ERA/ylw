@@ -11,7 +11,7 @@ const NewsLetter = () => {
 
     return (
         <div
-        className='w-full h-auto flex flex-col justify-center items-center font-[Poppins] py-[100px] '>
+        className='w-full h-auto flex flex-col justify-center items-center font-[Poppins] lg:py-[100px] md:py-[60px] py-[24px]'>
             {/* tag */}
             <div className='px-[12px] h-[50px] flex justify-center items-center gap-[8px] rounded-3xl shadow:md hover:shadow-lg  shadow-gray-300 hover:scale-105 cursor-pointer bg-white'>
                 <Sparkles className='w-5 h-5 text-teal-400' />
@@ -29,7 +29,7 @@ const NewsLetter = () => {
             </div>
 
             <div
-            className='md:w-[40vw] h-[50px] flex gap-[20px] mt-[24px]'>
+            className='lg:w-[40vw] md:w-[55vw] h-[50px] flex gap-[20px] mt-[24px]'>
                 <input 
                 onChange={(e) => setEmail(e.target.value)}
                 className='w-full h-[50px] rounded-3xl text-[14px] text-[#7C7C7C]/75 font-medium px-[16px] flex items-center shadow-lg shadow-gray-300 active:border-white border-white border-0'

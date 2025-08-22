@@ -21,7 +21,7 @@ const BestSellersSection = () => {
             <div
             className='w-full h-[460px] absolute z-0 '>
                 <img 
-                className="w-[100vw] lg:h-[460px]"
+                className="w-full bg-cover"
                 src={bestSellerBg} alt="" />
             </div>
             <div
@@ -36,7 +36,7 @@ const BestSellersSection = () => {
                 </p>
             </div>
             <div
-            className='lg:w-[1280px] lg:h-[225px] w-full h-[180px] mx-auto grid grid-cols-1 lg:flex justify-between mt-[40px] relative'>
+            className='lg:h-[225px] w-full lg:px-[80px] md:px-[40px] px-[16px] h-[180px] mx-auto grid grid-cols-1 xl:flex justify-between mt-[40px] relative'>
                 {trendingBooks.map((book, index, array) => (
                     <div
                     key={book.id}

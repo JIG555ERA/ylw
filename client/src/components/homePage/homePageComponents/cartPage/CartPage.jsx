@@ -53,7 +53,7 @@ const CartPage = () => {
             <Navbar active='Cart'/>
 
             <div
-            className='w-full h-full flex justify-between pt-[140px] px-[80px]'>
+            className='w-full h-full flex justify-between pt-[140px] xl:px-[80px] md:px-[40px] px-[16px]'>
                 {/* cart items */}
                 <div
                 className='w-[50vw] h-[370px] bg-white rounded-3xl border-2 border-[#EDEDED] p-[32px] flex flex-col '>

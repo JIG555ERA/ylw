@@ -171,13 +171,13 @@ const Carousel02 = () => {
         {/* <SearchBar /> */}
         <SearchBar02 />
         <div
-        className="w-full h-auto items-center lg:gap-8 flex justify-center mt-8">
+        className="w-full h-auto items-center lg:gap-8 md:gap-6 flex justify-center mt-8">
           {tagContexts.map((badge) => (
             <div
             key={badge.id}
-            className="h-[50px] flex justify-center items-center px-[12px] rounded-3xl bg-white/75 hover:bg-white/90 shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer">
-              <badge.icon className={`lg:w-5 lg:h-5 lg:mr-2 mr-1 ${badge.color}`} />
-              <p className="text-[16px] font-medium">{badge.tagName}</p>
+            className="lg:h-[50px] md:h-[40px] flex justify-center items-center px-[12px] rounded-3xl bg-white/75 hover:bg-white/90 shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer">
+              <badge.icon className={`lg:w-5 md:w-4 lg:h-5 md:h-4 lg:mr-2 mr-1 ${badge.color}`} />
+              <p className="lg:text-[16px] md:text-[14px] font-medium">{badge.tagName}</p>
             </div>
           ))}
         </div>

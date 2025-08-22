@@ -20,7 +20,7 @@ import { booksData0 } from "../../../../globalComponents/booksData";
 import Advertisements from "../../../../globalComponents/advertisements/Advertisements";
 
 export const CategoryPage = ({ collection = "Fiction" }) => {
-  const [openCard, setOpenCard] = useState({});
+  const [openCard, setOpenCard] = useState({ 0: true});
   const [category, setCategory] = useState({});
   const [author, setAuthor] = useState({});
   const [publication, setPublication] = useState({});
@@ -139,7 +139,7 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
           </div>
         </div>
       </div> */}
-      <div className="w-full h-screen lg:px-[80px] px-[16px] grid grid-cols-[325px_1fr] gap-[80px] lg:pt-[140px]">
+      <div className="w-full h-screen lg:px-[80px] px-[16px] grid grid-cols-[325px_1fr] gap-[80px] lg:pt-[140px] md:pt-[120px]">
         
         <div className="hidden sm:block w-[325px] h-full pb-[80px] overflow-y-auto pr-2 overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide">
 
@@ -357,7 +357,7 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
         </div>
 
         <div className="w-full h-full overflow-y-auto pr-2 overflow-scroll [&::-webkit-scrollbar]:hidden scrollbar-hide">
-          <a href="/" className="block lg:hidden w-full py-2">
+          <a href="/" className="block md:hidden w-full py-2">
             <div className="flex justify-center items-center">
               <img
                 src={bookStoreLogo}
@@ -367,7 +367,7 @@ export const CategoryPage = ({ collection = "Fiction" }) => {
             </div>
           </a>
           <div
-          className="block lg:hidden w-full py-3">
+          className="block md:hidden w-full py-3">
             <div
             className="w-full flex justify-between">
               <h1

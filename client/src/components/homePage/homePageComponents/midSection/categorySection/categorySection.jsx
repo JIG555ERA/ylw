@@ -30,7 +30,7 @@ export const CategorySection = () => {
     }
 
     return (
-        <div className="w-full lg:px-[80px] px-[16px] flex flex-col justify-between font-[Poppins] lg:mt-[80px] mt-[300px]">
+        <div className="w-full lg:px-[80px] px-[16px] flex flex-col justify-between font-[Poppins] lg:mt-[90px] mt-[300px]">
             <div className="books-listing-title-section flex justify-between ">
                 <div className="selected-categroy-title-section flex">
                     <p className="translate-y-[4px] text-[#121212] font-semibold lg:text-[24px] text-[18px]">
@@ -38,7 +38,7 @@ export const CategorySection = () => {
                     </p>
                 </div>
                 <div className="flex justify-between">
-                    <div 
+                    {/* <div 
                     onClick={handleViewAll}
                     className="view-all-button">
                         <div
@@ -48,18 +48,18 @@ export const CategorySection = () => {
                                 View All
                             </p>
                         </div>
-                    </div>
-                    <div className="lg:flex hidden">
+                    </div> */}
+                    <div className="xl:flex hidden">
                         <div className="scroll-button">
                             <img
-                                className="left-scroll-button-image"
+                                className=""
                                 src={leftScrollButton}
                                 alt="left scroll"
                             />
                         </div>
                         <div className="scroll-button">
                             <img
-                                className="right-scroll-button-image"
+                                className=""
                                 src={rightScrollButton}
                                 alt="right scroll"
                             />
