@@ -1,44 +1,48 @@
 import React from 'react'
 import { Sparkles, Building2 } from 'lucide-react'
 import PublicationCard from './PublicationCard'
+import penguinRandomHouseLogo from "../../../../../assets/logos/penguinRandomHouse.png"
+import hachetteIndiaLogo from "../../../../../assets/logos/hachetteIndia.png"
 
 const cardContextList = [
   {
-    publicationName: "Sample Publication",
-    description: "This is a short description for the publication. It gives a brief overview of the content and theme.",
+    publicationName: "Penguin Random House ",
+    logo: penguinRandomHouseLogo,
+    description: "Penguin Random House is the international home to more than 300 editorially and creatively independent publishing imprints. Embracing new technologies, and collaborating with authors at every stage of the publishing process—from editorial and design, to sales and marketing, to production and distribution",
     tags: ["Literary Fiction", "Children Fiction", "+2"],
-    books: 2500,
-    readers: 56000,
+    books: 15000,
+    readers: 560000,
     averageRating: 4.2,
-    establishedAt: 1992,
+    establishedAt: 2013,
   },
   {
-    publicationName: "Tech World Press",
-    description: "A hub for cutting-edge technology news, innovations, and thought-provoking articles.",
+    publicationName: "Hachette India",
+    logo: hachetteIndiaLogo,
+    description: "The Hachette Group is the oldest trade publisher in the world, having celebrated 250 years of publishing in 2018. A wide array of books has been published since, ranging from general, literary and commercial fiction, children’s and reference books, as well as non-fiction, covering memoirs, self-help, travel, history, business, popular culture, lifestyle, and sports.",
     tags: ["Technology", "Innovation", "AI & Robotics"],
     books: 3400,
     readers: 120000,
     averageRating: 4.7,
-    establishedAt: 2005,
+    establishedAt: 2008,
   },
-  {
-    publicationName: "Nature Chronicles",
-    description: "Dedicated to the wonders of nature, wildlife conservation, and environmental awareness.",
-    tags: ["Nature", "Wildlife", "Conservation"],
-    books: 1800,
-    readers: 89000,
-    averageRating: 4.5,
-    establishedAt: 1985,
-  },
-  {
-    publicationName: "Global Travel Stories",
-    description: "Explore fascinating travel destinations, cultures, and unique adventures worldwide.",
-    tags: ["Travel", "Culture", "Adventure"],
-    books: 2100,
-    readers: 75000,
-    averageRating: 4.3,
-    establishedAt: 2010,
-  },
+  // {
+  //   publicationName: "Nature Chronicles",
+  //   description: "Dedicated to the wonders of nature, wildlife conservation, and environmental awareness.",
+  //   tags: ["Nature", "Wildlife", "Conservation"],
+  //   books: 1800,
+  //   readers: 89000,
+  //   averageRating: 4.5,
+  //   establishedAt: 1985,
+  // },
+  // {
+  //   publicationName: "Global Travel Stories",
+  //   description: "Explore fascinating travel destinations, cultures, and unique adventures worldwide.",
+  //   tags: ["Travel", "Culture", "Adventure"],
+  //   books: 2100,
+  //   readers: 75000,
+  //   averageRating: 4.3,
+  //   establishedAt: 2010,
+  // },
   // {
   //   publicationName: "Healthy Living Journal",
   //   description: "Your daily guide to fitness, wellness, and a balanced lifestyle.",

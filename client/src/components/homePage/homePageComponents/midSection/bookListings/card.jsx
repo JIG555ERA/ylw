@@ -84,17 +84,18 @@ const BookCard = ({ book }) => {
         </div>
 
         {/* Book info */}
-        <div className="text-sm font-medium space-y-0.5 flex flex-col md:px-[24px] md:translate-y-[-30px]">
+        <div className="text-sm lg:h-[200px] lg:mt-[40px] font-medium space-y-0.5 flex flex-col md:px-[16px] px-[16px]">
           <div
           className="flex ">
-            <p className="text-[#064FA4] lg:text-[16px] text-[14px] font-semibold line-clamp-1 mr-3">
-              {book.bookTitle}
-            </p>
             <div
-            className="flex flex-col">
-              <p className="text-[#111111] lg:text-[18px] text-[16px] font-medium flex">
-                <p className="font-[Roboto] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[18px]">₹ {book.bookPrice}</p> 
+            className="lg:w-[65%]">
+              <p className="text-[#064FA4] lg:text-[16px] text-[14px] font-semibold line-clamp-1 mr-3">
+                {book.bookTitle}
               </p>
+            </div>
+            <div
+            className="flex flex-col lg:w-[60px]">
+              <p className="font-[Roboto] lg:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[18px]">₹ {book.bookPrice}</p> 
               <p
               className="text-[12px] text-[#7C7C7C]/75 line-through">
                 ₹ 1000
@@ -113,7 +114,7 @@ const BookCard = ({ book }) => {
         {/* Add to Cart button */}
         <div
           onClick={handleAddToCart}
-          className="group w-[130px] group-hover:w-[170px] lg:h-[37px] h-[30px] 
+          className="group w-[130px] group-hover:w-[170px] lg:h-[45px] h-[30px] 
                     border border-blue-500 font-semibold flex justify-center items-center 
                     rounded-[30px] translate-y-[-16px] lg:text-[14px] text-[12px] cursor-pointer 
                     transition-all duration-1000 ease-in-out mx-auto 

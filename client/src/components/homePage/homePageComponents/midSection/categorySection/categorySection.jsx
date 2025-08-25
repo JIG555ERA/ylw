@@ -67,7 +67,7 @@ export const CategorySection = () => {
                     </div>
                 </div>
             </div>
-            <div className="lg:h-[185px] lg:flex grid grid-cols-2 justify-between whitespace-nowrap mt-[20px]">
+            <div className="lg:h-[185px] lg:flex grid md:grid-cols-3 grid-cols-2 justify-between whitespace-nowrap mt-[20px]">
                 {categoryItems.map((cat) => {
                     const isActive = category === cat.category_;
                     return (

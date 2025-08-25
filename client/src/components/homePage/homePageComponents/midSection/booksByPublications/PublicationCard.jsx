@@ -3,6 +3,7 @@ import { TrendingUp, BookOpen, Users, Star, Calendar } from "lucide-react";
 
 const cardContext = {
   publicationName: "Sample Publication",
+  logo: "",
   description: "This is a short description for the publication. It gives a brief overview of the content and theme.",
   tags: ["Literary Fiction", "Children Fiction", "Children's Book"],
   books: 2500,
@@ -19,16 +20,24 @@ const PublicationCard = ({ context = cardContext }) => {
       <div className="h-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-80"></div>
         <div className="w-full h-full bg-gray-300 opacity-60"></div>
-        <div className="absolute top-3 right-3 bg-white/90 text-blue-500 px-[8px] rounded-2xl font-semibold text-[14px] shadow-lg">
+        {/* <div className="absolute top-3 right-3 bg-white/90 text-blue-500 px-[8px] rounded-2xl font-semibold text-[14px] shadow-lg">
           ★ Verified
-        </div>
+        </div> */}
       </div>
 
       <div className="relative p-6 -mt-8">
         
         {/* Logo */}
         <div className="w-16 h-16 mx-auto mb-4 rounded-xl overflow-hidden shadow-xl bg-white/90 backdrop-blur-sm border-2 border-white/20 mt-[24px]">
-          <div className="w-full h-full bg-gray-200"></div>
+          {!context.logo && (
+            <div className="w-full h-full bg-gray-200"></div>
+          )}
+          {context.logo && (
+            <img 
+            className="w-full h-full"
+            src={context.logo} 
+            alt={context.logo} />
+          )}
         </div>
 
         {/* Publication Info */}

@@ -60,7 +60,7 @@ const BookByAuthorsSection = () => {
                     </div>
                 </div>
             </div>
-            <div className="lg:flex grid grid-cols-2 w-full lg:justify-between lg:h-[450px] lg:gap-[32px] gap-[16px] lg:translate-x-[-12px] mt-[50px]">
+            <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 w-full lg:justify-between lg:h-[450px] lg:gap-[32px] md:px-0 px-[16px] gap-[16px] lg:translate-x-[-12px] mt-[50px]">
                 {authorInfo.map((author, index, array) => (
                     <AuthorCard context={author} />
                 ))}
