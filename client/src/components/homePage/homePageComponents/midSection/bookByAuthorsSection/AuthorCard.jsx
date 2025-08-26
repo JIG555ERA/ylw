@@ -40,7 +40,7 @@ const AuthorCard = ({ context=context[0] }) => {
                     <p className='text-[16px]'>View Books</p>
                 </div> */}
 
-                <button className="w-full h-8 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-400 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 rounded-2xl flex justify-center items-center gap-[8px] font-medium">
+                <button className="w-full h-8 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-400 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 rounded-2xl flex justify-center items-center gap-[8px] font-medium md:my-[0px] my-[8px]">
                     <TrendingUp className="w-4 h-4 text-white" /> Explore Books
                 </button>
             </div>

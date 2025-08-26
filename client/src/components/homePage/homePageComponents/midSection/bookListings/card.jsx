@@ -54,7 +54,7 @@ const BookCard = ({ book }) => {
       <div className="relative z-10 w-full h-full flex flex-col items-start border-2 border-[#EDEDED] rounded-3xl mx-auto transition-transform duration-1000 delay-100 ease-in-out bg-white">
 
         <div
-        className="w-full h-[250px]  overflow-hidden">
+        className="w-full md:h-[250px] h-[200px]  overflow-hidden">
             {/* Hidden img for color extraction */}
             <img
             ref={imgRef}
@@ -72,42 +72,42 @@ const BookCard = ({ book }) => {
           />
 
           <img
-            className="lg:h-[24px] lg:w-[24px] w-[14px] h-[14px] text-[#064FA4] absolute md:top-4 md:right-4"
+            className="xl:h-[24px] xl:w-[24px] md:w-[20px] md:h-[20px] w-[16px] h-[16px] text-[#064FA4] absolute md:top-4 md:right-4 top-3 right-3"
             src={likeIcon}
             alt="like"
           />
 
           {/* Book image */}
-          <div className="lg:w-[130px] w-[90px] h-auto aspect-[3/4] mx-auto md:mt-6">
+          <div className="lg:w-[130px] w-[90px] h-auto aspect-[3/4] mx-auto md:mt-6 mt-3">
             <ImageSection bookCoverPage={book.bookCoverPage} />
           </div>
         </div>
 
         {/* Book info */}
-        <div className="text-sm lg:h-[200px] lg:mt-[40px] font-medium space-y-0.5 flex flex-col md:px-[16px] px-[16px]">
+        <div className="text-sm md:h-[200px] lg:mt-[40px] font-medium space-y-0.5 flex flex-col md:px-[16px] px-[12px]">
           <div
           className="flex ">
             <div
-            className="lg:w-[65%]">
-              <p className="text-[#064FA4] lg:text-[16px] text-[14px] font-semibold line-clamp-1 mr-3">
+            className="xl:w-[90%] md:w-[65%] w-[75%]">
+              <p className="text-[#064FA4] lg:text-[16px] text-[14px] font-semibold line-clamp-2 mr-3">
                 {book.bookTitle}
               </p>
             </div>
             <div
-            className="flex flex-col lg:w-[60px]">
-              <p className="font-[Roboto] lg:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[18px]">₹ {book.bookPrice}</p> 
+            className="flex flex-col md:w-[60px] w-[50px]">
+              <p className="font-[Roboto] xl:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[16px]">₹ {book.bookPrice}</p> 
               <p
               className="text-[12px] text-[#7C7C7C]/75 line-through">
                 ₹ 1000
               </p>
             </div>
           </div>
-          <p className="text-[#8C8C8C] text-[14px] font-medium line-clamp-1">
+          <p className="text-[#8C8C8C] xl:text-[14px] text-[12px] font-medium line-clamp-1">
             {book.bookAuthor}
           </p>
-          <div className="w-full flex mt-1">
-            <Rating value={4.0} readOnly style={{ maxWidth: 80 }} />
-            <p className="text-[12px] text-[#7C7C7C]/75 ml-1.5">4.6 (1840)</p>
+          <div className="w-full flex md:mt-1 items-center">
+            <Rating value={3.5} readOnly style={{ maxWidth: 80 }} />
+            <p className="xl:text-[12px] text-[10px] text-[#7C7C7C]/75 ml-1.5">4.6 (1840)</p>
           </div>
         </div>
 
@@ -116,9 +116,9 @@ const BookCard = ({ book }) => {
           onClick={handleAddToCart}
           className="group w-[130px] group-hover:w-[170px] lg:h-[45px] h-[30px] 
                     border border-blue-500 font-semibold flex justify-center items-center 
-                    rounded-[30px] translate-y-[-16px] lg:text-[14px] text-[12px] cursor-pointer 
+                    rounded-[30px] xl:translate-y-[-16px] translate-y-[-8px] lg:text-[14px] text-[12px] cursor-pointer 
                     transition-all duration-1000 ease-in-out mx-auto 
-                    bg-white relative overflow-hidden"
+                    bg-white relative overflow-hidden md:mt-[0px] mt-[12px]"
         >
           <span
             className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 

@@ -64,7 +64,7 @@ export const BookListings = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid xl:grid-cols-6 md:grid-cols-4 grid-cols-2 w-full mt-5 lg:gap-12 gap-[16px] lg:translate-x-[-12px]">
+            <div className="grid xl:grid-cols-6 md:grid-cols-4  grid-cols-2 w-full mt-5 lg:gap-12 gap-[16px] lg:translate-x-[-12px]">
                 {booksData.map((book) => (
                     <BookCard key={book.id} book={book} />
                 ))}
