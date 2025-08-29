@@ -94,7 +94,7 @@ const BookCard = ({ book }) => {
               </p>
             </div>
             <div
-            className="flex flex-col md:w-[60px] w-[50px]">
+            className="flex flex-col xl:w-[100px] md:w-[60px] w-[50px]">
               <p className="font-[Roboto] xl:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[16px]">₹ {book.bookPrice}</p> 
               <p
               className="text-[12px] text-[#7C7C7C]/75 line-through">

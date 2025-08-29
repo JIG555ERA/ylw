@@ -5,38 +5,41 @@ import img03 from '../assets/bookCoverPages/coverPage03.svg'
 import img04 from '../assets/bookCoverPages/coverPage04.svg'
 import img05 from '../assets/bookCoverPages/coverPage05.svg'
 import img06 from '../assets/bookCoverPages/coverPage06.svg'
+import img07 from '../assets/bookCoverPages/coverPage07.jpg'
+import img08 from '../assets/bookCoverPages/coverPage08.jpg'
+import img09 from '../assets/bookCoverPages/coverPage09.jpg'
 
 // ===== Book Data =====
 export const booksData0 = [
   {
     id: 0,
     category: "Young Adult",
-    bookCoverPage: img01,
-    bookTitle: "Book Title 1",
-    bookAuthor: "George Orwell",
-    bookPrice: 1363,
+    bookCoverPage: img07,
+    bookTitle: "The Hidden Hindu Triology",
+    bookAuthor: "Akshat Gupta",
+    bookPrice: 513,
     releaseYear: 1889,
-    publication: "Simon & Schuster"
+    publication: "Penguin eBury Press"
   },
   {
     id: 1,
     category: "Romance",
-    bookCoverPage: img05,
-    bookTitle: "Book Title 2",
-    bookAuthor: "William Shakespeare",
-    bookPrice: 1231,
+    bookCoverPage: img08,
+    bookTitle: "World's Best Girlfriend",
+    bookAuthor: "Durjoy Datta",
+    bookPrice: 164,
     releaseYear: 1983,
-    publication: "Taylor & Francis"
+    publication: "Penguin Metro Reads"
   },
   {
     id: 2,
     category: "Mystery",
-    bookCoverPage: img02,
-    bookTitle: "Book Title 3",
-    bookAuthor: "Leo Tolstoy",
-    bookPrice: 1268,
+    bookCoverPage: img09,
+    bookTitle: "Rich Dad Poor Dad : What the Rich Teach Their Kids About Money",
+    bookAuthor: "Robert T. Kiyosaki",
+    bookPrice: 389,
     releaseYear: 1931,
-    publication: "Hachette Book Group"
+    publication: "PLATA PUBLISHING"
   },
   {
     id: 3,
