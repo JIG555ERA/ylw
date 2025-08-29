@@ -8,6 +8,9 @@ import img06 from '../assets/bookCoverPages/coverPage06.svg'
 import img07 from '../assets/bookCoverPages/coverPage07.jpg'
 import img08 from '../assets/bookCoverPages/coverPage08.jpg'
 import img09 from '../assets/bookCoverPages/coverPage09.jpg'
+import img10 from '../assets/bookCoverPages/coverPage10.jpg'
+import img11 from '../assets/bookCoverPages/coverPage11.jpg'
+import img12 from '../assets/bookCoverPages/coverPage12.jpg'
 
 // ===== Book Data =====
 export const booksData0 = [
@@ -44,32 +47,32 @@ export const booksData0 = [
   {
     id: 3,
     category: "Romance",
-    bookCoverPage: img06,
-    bookTitle: "Book Title 4",
-    bookAuthor: "Leo Tolstoy",
-    bookPrice: 887,
+    bookCoverPage: img10,
+    bookTitle: "Ikigai",
+    bookAuthor: "Garcia, Hector, Miralles, Fransec",
+    bookPrice: 375,
     releaseYear: 1936,
-    publication: "Springer Nature"
+    publication: "hutchinson"
   },
   {
     id: 4,
     category: "Young Adult",
-    bookCoverPage: img02,
-    bookTitle: "Book Title 5",
-    bookAuthor: "Rabindranath Tagore",
-    bookPrice: 1284,
+    bookCoverPage: img11,
+    bookTitle: "Atomic Habits",
+    bookAuthor: "James Clear",
+    bookPrice: 546,
     releaseYear: 1989,
-    publication: "Rupa Publications"
+    publication: "Random House Business Books"
   },
   {
     id: 5,
     category: "Romance",
-    bookCoverPage: img02,
-    bookTitle: "Book Title 6",
-    bookAuthor: "Thomas Erikson",
-    bookPrice: 924,
-    releaseYear: 1965,
-    publication: "HarperCollins"
+    bookCoverPage: img12,
+    bookTitle: "WHO MOVED MY CHEESE?",
+    bookAuthor: "Johnson Spencer",
+    bookPrice: 172,
+    releaseYear: 1998,
+    publication: "VERMILION BOOKS"
   },
   {
     id: 6,
