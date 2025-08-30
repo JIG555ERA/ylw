@@ -34,10 +34,26 @@ const AuthorCard = ({ context=context[0] }) => {
                 </div>
             </div>
             <div
-            className='w-full flex flex-col lg:px-[24px] h-auto px-[24px]'>
-                <button className="w-full h-8 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-400 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 rounded-2xl flex justify-center items-center gap-[8px] font-medium md:my-[0px] my-[8px]">
-                    <TrendingUp className="w-4 h-4 text-white" /> Explore Books
-                </button>
+            className="group w-[160px] group-hover:w-[240px] lg:h-[42px] h-[32px] 
+                        border border-blue-500 font-semibold flex justify-center items-center 
+                        rounded-[30px]  translate-y-[-8px] lg:text-[14px] text-[12px] cursor-pointer 
+                        transition-all duration-1000 ease-in-out mx-auto 
+                        bg-white relative overflow-hidden md:mt-[0px] translate "
+            >
+            <span
+                className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
+                        bg-clip-text text-transparent transition-all duration-1000 ease-in-out 
+                        group-hover:text-white group-hover:bg-none flex md:gap-2 gap-1 justify-center items-center"
+            >
+                <TrendingUp className="w-4 h-4 text-blue-400 group-hover:text-white" /> Explore Books
+            </span>
+
+            {/* Hover gradient background overlay */}
+            <div
+                className="absolute inset-0 rounded-[30px] 
+                        bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
+                        opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out -z-10"
+            />
             </div>
             
         </div>

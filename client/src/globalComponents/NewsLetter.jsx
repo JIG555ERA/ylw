@@ -11,7 +11,7 @@ const NewsLetter = () => {
 
     return (
         <div
-        className='w-full h-auto flex flex-col justify-center items-center font-[Poppins] xl:pt-[100px] md:pt-[70px] pt-[40px] pb-[120px]'>
+        className='w-full h-auto flex flex-col justify-center items-center font-[Poppins] xl:pt-[80px] md:pt-[70px] pt-[40px] pb-[100px]'>
             {/* tag */}
             <div className='px-[12px] h-[50px] flex justify-center items-center gap-[8px] rounded-3xl shadow:md hover:shadow-lg  shadow-gray-300 hover:scale-105 cursor-pointer bg-white'>
                 <Sparkles className='w-5 h-5 text-teal-400' />

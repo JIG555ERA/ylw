@@ -84,9 +84,9 @@ const BookCard = ({ book }) => {
         </div>
 
         {/* Book info */}
-        <div className="text-sm md:h-[200px] lg:mt-[40px] font-medium space-y-0.5 flex flex-col md:px-[16px] px-[12px]">
+        <div className="text-sm md:h-[200px] lg:mt-[36px] font-medium space-y-0.5 flex flex-col md:px-[16px] px-[12px]">
           <div
-          className="flex ">
+          className="flex md:mt-[8px] mt-[4px]">
             <div
             className="xl:w-[90%] md:w-[65%] w-[75%]">
               <p className="text-[#064FA4] lg:text-[16px] text-[14px] font-semibold line-clamp-2 mr-3">
@@ -111,7 +111,7 @@ const BookCard = ({ book }) => {
         {/* Add to Cart button */}
         <div
           onClick={handleAddToCart}
-          className="group w-[130px] group-hover:w-[170px] lg:h-[45px] h-[30px] 
+          className="group w-[130px] group-hover:w-[170px] lg:h-[52px] h-[32px] 
                     border border-blue-500 font-semibold flex justify-center items-center 
                     rounded-[30px] xl:translate-y-[-16px] translate-y-[-8px] lg:text-[14px] text-[12px] cursor-pointer 
                     transition-all duration-1000 ease-in-out mx-auto 

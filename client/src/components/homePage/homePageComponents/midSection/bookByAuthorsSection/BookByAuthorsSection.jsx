@@ -7,6 +7,7 @@ import leftScrollButton from '../../../../../assets/icons/leftScrollButton.svg'
 import rightScrollButton from '../../../../../assets/icons/rightScrollButton.svg'
 import AuthorCard from './AuthorCard'
 import './Scrollbar.css'
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 const BookByAuthorsSection = () => {
 
@@ -46,17 +47,26 @@ const BookByAuthorsSection = () => {
             </p>
             <div className="lg:flex hidden gap-3">
             <button
-                onClick={() => handleScroll("left")}
-                className="rounded-full cursor-pointer w-[40px] h-[40px] "
-            >
-                <img src={leftScrollButton} alt="left scroll" className='bg-cover w-full h-full' />
-            </button>
-            <button
-                onClick={() => handleScroll("right")}
-                className="rounded-full cursor-pointer w-[40px] h-[40px]"
-            >
-                <img src={rightScrollButton} alt="right scroll " className='bg-cover w-full h-full' />
-            </button>
+                        onClick={() => handleScroll("left")}
+                        className="relative rounded-full cursor-pointer w-[40px] h-[40px] border-2 border-gray-500 flex justify-center items-center overflow-hidden group hover:border-white"
+                      >
+                        {/* Gradient overlay */}
+                        <span className="absolute inset-0 bg-gradient-to-r from-blue-300 via-blue-500 to-purple-300 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
+            
+                        {/* Icon */}
+                        <IoIosArrowBack className="relative z-10 w-8 h-8 font-semibold mr-1 text-gray-700 group-hover:text-white transition-colors duration-300" />
+                      </button>
+            
+                      <button
+                        onClick={() => handleScroll("right")}
+                        className="relative rounded-full cursor-pointer w-[40px] h-[40px] border-2 border-gray-500 flex justify-center items-center overflow-hidden group hover:border-white"
+                      >
+                        {/* Gradient overlay */}
+                        <span className="absolute inset-0 bg-gradient-to-r from-blue-300 via-blue-500 to-purple-300 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
+            
+                        {/* Icon */}
+                        <IoIosArrowForward className="relative z-10 w-8 h-8 font-semibold ml-1 text-gray-700 group-hover:text-white transition-colors duration-300" />
+                      </button>
             </div>
         </div>
 
