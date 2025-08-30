@@ -48,7 +48,7 @@ const BookCard = ({ book }) => {
   };
 
   return (
-    <div className="block group relative lg:w-[210px] lg:h-[370px] w-[156px] h-[275px] mt-[40px] font-[Poppins] group">
+    <div className="block group relative lg:w-[210px] lg:h-[370px] w-[156px] h-[275px] lg:mt-[32px] md:mt-[24px] mt-[16px] font-[Poppins] group">
 
       {/* ✅ Main Card Content */}
       <div className="relative z-10 w-full h-full flex flex-col items-start border-2 border-[#EDEDED] rounded-3xl mx-auto transition-transform duration-1000 delay-100 ease-in-out bg-white">
@@ -94,12 +94,9 @@ const BookCard = ({ book }) => {
               </p>
             </div>
             <div
-            className="flex flex-col xl:w-[100px] md:w-[60px] w-[50px]">
+            className="flex flex-col md:w-[80px] top-8 right-6">
               <p className="font-[Roboto] xl:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[16px]">₹ {book.bookPrice}</p> 
-              <p
-              className="text-[12px] text-[#7C7C7C]/75 line-through">
-                ₹ 1000
-              </p>
+              <p className="text-[12px] text-[#7C7C7C]/75 line-through"><span className="font-[Roboto]">₹</span> 1000</p>
             </div>
           </div>
           <p className="text-[#8C8C8C] xl:text-[14px] text-[12px] font-medium line-clamp-1">

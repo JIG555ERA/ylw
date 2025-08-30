@@ -90,11 +90,11 @@ const SearchBar02 = ({ searchQuery, onSearchChange, onSearchClick, books = [], a
             <div className="flex lg:justify-between items-center p-2 w-full">
               <div className="flex items-center justify-center w-14 h-14 ml-2">
                 <div
-                  className={`lg:w-12 lg:h-12 h-8 w-8 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center transition-all duration-300 lg:translate-x-[0px] translate-x-[-4px] ${
+                  className={`lg:w-12 lg:h-12 h-8 w-8 rounded-full bg-gradient-to-r bg-white flex items-center justify-center transition-all duration-300 lg:translate-x-[0px] translate-x-[-4px] ${
                     isFocused ? "scale-110 shadow-lg" : "scale-100"
                   }`}
                 >
-                  <Search className="h-5 w-5 text-white" />
+                  <Search className="h-[32px] w-[32px] text-[#444444]" />
                 </div>
               </div>
 
@@ -111,10 +111,10 @@ const SearchBar02 = ({ searchQuery, onSearchChange, onSearchClick, books = [], a
 
               <button
                 type="submit"
-                className="mr-2 bg-gradient-to-r from-purple-400 to-pink-400 text-white border-0 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 lg:px-8 px-1 lg:py-3 py-1 rounded-2xl flex lg:text-lg text-sm items-center lg:translate-x-[0px] translate-x-[-60px]"
+                className="mr-2 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 text-white border-0 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 lg:px-8 px-1 lg:py-3 py-1 rounded-2xl flex lg:text-lg text-sm items-center lg:translate-x-[0px] translate-x-[-60px] font-semibold"
               >
-                <Sparkles className="h-4 w-4 lg:mr-2 mr-1 lg:text-xl" />
-                Search
+                {/* <Sparkles className="h-4 w-4 lg:mr-2 mr-1 lg:text-xl" /> */}
+                <p className="text-[20px]">Search</p>
               </button>
             </div>
           </div>

@@ -30,11 +30,11 @@ export const CategorySection = () => {
     }
 
     return (
-        <div className="w-full lg:px-[80px] px-[16px] flex flex-col justify-between font-[Poppins] lg:mt-[90px] mt-[300px]">
+        <div className="w-full lg:px-[80px] px-[16px] flex flex-col justify-between font-[Poppins] xl:mt-[90px] mt-[480px]">
             <div className="books-listing-title-section flex justify-between ">
                 <div className="selected-categroy-title-section flex">
-                    <p className="translate-y-[4px] text-[#121212] font-semibold lg:text-[24px] text-[18px]">
-                        Book By Category
+                    <p className="text-[#121212] font-semibold lg:text-[32px] text-[24px] md:mt-[28px]">
+                        Books By Category
                     </p>
                 </div>
                 <div className="flex justify-between">
@@ -74,7 +74,7 @@ export const CategorySection = () => {
                         <div
                             key={cat.category_}
                             onClick={() => setSelectedCategory(cat.category_)}
-                            className={`overflow-hidden relative lg:w-[172px] lg:h-[185px] w-[155px] h-[166px] bg-[#F4F4F4]/50 flex-shrink-0 rounded-md transition-transform duration-300 ease-in-out cursor-pointer 
+                            className={`overflow-hidden relative lg:w-[172px] lg:h-[185px] w-[155px] h-[166px] bg-gradient-to-br from-blue-100 via-white to-purple-100 hover:shadow-md hover:scale-105 hover:shadow-gray-300 flex-shrink-0 rounded-md transition-transform duration-300 ease-in-out cursor-pointer 
                             ${isActive ? '' : ''} hover:scale-105`}
                         >
                             {/* Grid Book Cover Section with optional opacity layer */}
@@ -108,7 +108,7 @@ export const CategorySection = () => {
 
                             {/* Inactive Category Footer */}
                             {!isActive && (
-                                <div className="absolute bottom-0 w-full h-[47px] bg-[#F4F4F4]/95 bg-opacity-70 flex gap-[16px] items-center pl-3 z-10">
+                                <div className="absolute bottom-0 w-full h-[47px] bg-[#F4F4F4]/75 bg-opacity-70 flex gap-[16px] items-center pl-3 z-10">
                                     <p className="text-[#121212] text-[14px] font-semibold z-20">
                                         {cat.category_}
                                     </p>

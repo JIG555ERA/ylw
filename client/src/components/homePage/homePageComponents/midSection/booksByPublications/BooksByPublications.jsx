@@ -87,7 +87,7 @@ const BooksByPublications = ({}) => {
         <div
         className='w-full h-auto'>
             <div
-            className='lg:px-[80px] md:px-[40px] px-[16px] flex flex-col items-center justify-center bg-gradient-to-br from-purple-100 via-white to-blue-100 lg:py-[100px] md:py-[60px] py-[24px]'>
+            className='lg:px-[80px] md:px-[40px] mt-[24px] px-[16px] flex flex-col items-center justify-center bg-gradient-to-br from-purple-100 via-white to-blue-100 lg:py-[80px] md:py-[60px] py-[24px]'>
                 {/* description & tags */}
                 <div
                 className='flex flex-col w-full justify-center items-center'>

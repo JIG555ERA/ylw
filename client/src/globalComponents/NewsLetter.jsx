@@ -29,17 +29,17 @@ const NewsLetter = () => {
             </div>
 
             <div
-            className='lg:w-[40vw] md:w-[55vw] md:h-[50px] flex md:flex-row flex-col gap-[20px] mt-[24px] w-full px-[16px] items-center'>
+            className='lg:w-[40vw] md:w-[55vw] md:h-[58px] h-[50px] flex md:flex-row flex-col gap-[20px] mt-[24px] w-full px-[16px] items-center'>
                 <input 
                 onChange={(e) => setEmail(e.target.value)}
-                className='w-full h-[50px] rounded-3xl text-[14px] text-[#7C7C7C]/75 font-medium px-[16px] flex items-center shadow-lg shadow-gray-300 active:border-white border-white border-0'
+                className='w-full focus:outline-gray-200 border-2  h-[58px] rounded-3xl text-[16px] text-[#7C7C7C]/75 font-medium md:px-[18px] px-[16px] flex items-center shadow-lg shadow-gray-300 active:border-white border-white '
                 type="email"
                 placeholder='Enter your email address'
                 value={email}
                 />
 
                 <button
-                className='px-[12px] h-[50px] w-[150px] rounded-2xl bg-gradient-to-br md:mx-auto from-blue-300 via-blue-500 to-purple-400 flex justify-center items-center gap-[8px] cursor-pointer '
+                className='md:px-[18px] px-[12px] md:h-[58px] h-[58px] w-[150px] rounded-2xl bg-gradient-to-br md:mx-auto from-blue-300 via-blue-500 to-purple-400 flex justify-center items-center gap-[8px] cursor-pointer hover:scale-105 hover:shadow-gray-300 hover:shadow-md'
                 onClick={handleSubmit}>
                     <Mail className='md:w-4.5 md:h-4.5 w-4 h-4 text-white font-semibold' />
                     <p className='text-white font-medium md:text-[16px] text-[14px]'>Subscribe</p>
