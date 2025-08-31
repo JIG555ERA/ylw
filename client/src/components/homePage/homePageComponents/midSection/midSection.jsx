@@ -16,9 +16,9 @@ export const MidSection = () => {
             <BestSellersSection />
             <CategorySection />
             <BookByAuthorsSection />
-            <BooksListing sectionName={"Bestseller"} /> 
-            <BooksListing sectionName={"Best of fiction collection"} /> 
-            <BooksListing sectionName={"Best of non-fiction collection"} /> 
+            <BooksListing sectionName={"Bestseller"} collection={"horror"} /> 
+            <BooksListing sectionName={"Best of fiction collection"} collection={"fiction"}/> 
+            <BooksListing sectionName={"Best of non-fiction collection"} collection={"non-fiction"} /> 
             <BooksByPublications />
             <NewsLetter />
             {/* <AuthorSection /> */}

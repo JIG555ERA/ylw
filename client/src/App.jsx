@@ -16,6 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 import PaymentPage from './components/paymentPage/PaymentPage'
 import OrderConfirmation from './components/orderConfirmation/OrderConfirmation'
 import NotFound from './globalComponents/notFound/NotFound'
+import Fetcher from './globalComponents/fetcher'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path='/auth/login' element={<AuthLogIN />} />
         <Route path='/payment' element={<PaymentPage />} />
         <Route path='/order' element={<OrderConfirmation />} />
+        <Route path='/fetch' element={<Fetcher />} />
         <Route path='/*' element={<NotFound />} />
      </Routes>
     </>

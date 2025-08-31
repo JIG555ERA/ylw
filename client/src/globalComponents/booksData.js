@@ -12,6 +12,20 @@ import img10 from '../assets/bookCoverPages/coverPage10.jpg'
 import img11 from '../assets/bookCoverPages/coverPage11.jpg'
 import img12 from '../assets/bookCoverPages/coverPage12.jpg'
 
+import axios from "axios";
+
+export const booksDataFetcher = async ({collection}) => {
+  try {
+    const response = await axios.get(
+      `https://www.googleapis.com/books/v1/volumes?q=${collection}`
+    );
+    return response.data.items;
+  } catch (error) {
+    console.error("Error fetching books:", error.message);
+    return [];
+  }
+};
+
 // ===== Book Data =====
 export const booksData0 = [
   {
