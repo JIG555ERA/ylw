@@ -94,7 +94,7 @@ const BookCard = ({ book }) => {
               </p>
             </div>
             <div
-            className="flex flex-col md:w-[80px] top-8 right-6">
+            className="flex flex-col md:w-[80px] top-[8px] right-[8px]">
               <p className="font-[Roboto] xl:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[16px]">₹ {book.bookPrice}</p> 
               <p className="text-[12px] text-[#7C7C7C]/75 line-through"><span className="font-[Roboto]">₹</span> 1000</p>
             </div>
@@ -115,7 +115,7 @@ const BookCard = ({ book }) => {
                     border border-blue-500 font-semibold flex justify-center items-center 
                     rounded-[30px] xl:translate-y-[-16px] translate-y-[-8px] lg:text-[14px] text-[12px] cursor-pointer 
                     transition-all duration-1000 ease-in-out mx-auto 
-                    bg-white relative overflow-hidden md:mt-[0px] mt-[12px]"
+                    bg-white relative overflow-hidden md:mt-[0px] mt-[12px] hover:shadow-md hover:shadow-gray-400 hover:scale-105"
         >
           <span
             className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
