@@ -88,15 +88,15 @@ const BookCard = ({ book }) => {
           <div
           className="flex md:mt-[8px] mt-[4px]">
             <div
-            className="xl:w-[90%] md:w-[65%] w-[75%]">
+            className="xl:w-[55%] md:w-[45%] w-[75%]">
               <p className="text-[#064FA4] lg:text-[16px] text-[14px] font-semibold line-clamp-2 mr-3">
                 {book.bookTitle}
               </p>
             </div>
             <div
-            className="flex flex-col md:w-[80px] top-[8px] right-[8px]">
+            className="flex flex-col md:w-[100px] w-[75px] top-[8px] right-[8px]">
               <p className="font-[Roboto] xl:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[16px]">₹ {book.bookPrice}</p> 
-              <p className="text-[12px] text-[#7C7C7C]/75 line-through"><span className="font-[Roboto]">₹</span> 1000</p>
+              <p className="text-[12px] text-[#7C7C7C]/75 line-through"><span className="font-[Roboto]">₹</span> {Math.round(book.bookPrice + book.bookPrice/10)}</p>
             </div>
           </div>
           <p className="text-[#8C8C8C] xl:text-[14px] text-[12px] font-medium line-clamp-1">
@@ -111,9 +111,9 @@ const BookCard = ({ book }) => {
         {/* Add to Cart button */}
         <div
           onClick={handleAddToCart}
-          className="group w-[130px] group-hover:w-[170px] lg:h-[52px] h-[32px] 
+          className="group w-[130px] group-hover:w-[170px] xl:h-[52px] md:h-[40px] h-[32px] 
                     border border-blue-500 font-semibold flex justify-center items-center 
-                    rounded-[30px] xl:translate-y-[-16px] translate-y-[-8px] lg:text-[14px] text-[12px] cursor-pointer 
+                    rounded-[30px] xl:translate-y-[-16px] md:translate-y-[-12px] translate-y-[-8px] lg:text-[14px] text-[12px] cursor-pointer 
                     transition-all duration-1000 ease-in-out mx-auto 
                     bg-white relative overflow-hidden md:mt-[0px] mt-[12px] hover:shadow-md hover:shadow-gray-400 hover:scale-105"
         >

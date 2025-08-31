@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import BookCard from "../bookListings/card";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import { booksDataFetcher } from "../../../../../globalComponents/booksData.js";
+import { booksData0, booksDataFetcher } from "../../../../../globalComponents/booksData.js";
 import "./Scrollbar.css";
 
 const BooksListing = ({ sectionName, collection }) => {
@@ -64,27 +64,40 @@ const BooksListing = ({ sectionName, collection }) => {
         ref={scrollRef}
         className="flex overflow-x-auto scrollbar-1px lg:gap-6 md:gap-4 gap-2 scroll-smooth lg:pb-[20px] md:pb-[16px] pb-[12px]"
       >
-        {books.map((book, index) => {
-        const formattedBook = {
-          id: index,
-          category: book.volumeInfo.categories?.[0] || "Unknown",
-          bookCoverPage: book.volumeInfo.imageLinks?.thumbnail || "", // image
-          bookTitle: book.volumeInfo.title || "Untitled",
-          bookAuthor: book.volumeInfo.authors?.join(", ") || "Unknown Author",
-          bookPrice: Math.round(book.saleInfo?.listPrice?.amount || 0),
-          releaseYear: book.volumeInfo.publishedDate
-            ? book.volumeInfo.publishedDate.slice(0, 4)
-            : "Unknown",
-          publication: book.volumeInfo.publisher || "Unknown Publisher",
-        };
-        
+        {/* {books.map((book, index) => {
+          const formattedBook = {
+            id: index,
+            category: book.volumeInfo.categories?.[0] || "Unknown",
+            bookCoverPage: book.volumeInfo.imageLinks.smallThumbnail || "", // image
+            bookTitle: book.volumeInfo.title || "Untitled",
+            bookAuthor: book.volumeInfo.authors?.join(", ") || "Unknown Author",
+            bookPrice: Math.round(book.saleInfo?.listPrice?.amount || 0),
+            releaseYear: book.volumeInfo.publishedDate
+              ? book.volumeInfo.publishedDate.slice(0, 4)
+              : "Unknown",
+            publication: book.volumeInfo.publisher || "Unknown Publisher",
+          };
+          
+          
+          return (
+            <div key={formattedBook.id} className="min-w-[180px] flex-shrink-0">
+              <BookCard book={formattedBook} />
+            </div>
+          );
 
-        return (
-          <div key={formattedBook.id} className="min-w-[180px] flex-shrink-0">
-            <BookCard book={formattedBook} />
-          </div>
-        );
-      })}
+          
+
+        })} */}
+
+        {booksData0.map((booksData) => {
+          const formattedBook0 = booksData
+
+          return (
+            <div key={formattedBook0.id} className="min-w-[180px] flex-shrink-0">
+              <BookCard book={formattedBook0} />
+            </div>
+          )
+        })}
       </div>
     </div>
   );
