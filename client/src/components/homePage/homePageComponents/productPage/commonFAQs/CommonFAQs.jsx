@@ -30,10 +30,10 @@ const CommonFAQs = () => {
             key={item.id}
             className='w-full h-auto mt-[10px] bg-white flex flex-col px-[20px] py-[20px]'
           >
-            <h1 className='text-[32px] font-bold text-[#3C3C43]/50'>{item.no}</h1>
+            <h1 className='text-[32px] font-bold '>{item.no}</h1>
 
             <div className='w-full justify-between flex items-center cursor-pointer' onClick={() => toggleItem(item.id)}>
-              <h1 className='text-[20px] text-[#000000] font-bold'>{item.question}</h1>
+              <h1 className='text-[20px] text-[#000000] font-semibold'>{item.question}</h1>
               <img src={openItems[item.id] ? closeIcon : openIcon} alt="toggle icon" />
             </div>
 

@@ -142,7 +142,7 @@ const OrderConfirmation = ({ onBackToShop }) => {
                 />
               </div>
       </a>
-      <div className="lg:py-[130px] pt-[24px] pb-[120px] lg:px-[120px] px-[16px]">
+      <div className="lg:py-[130px] pt-[24px] pb-[120px] xl:px-[120px] md:px-[80px] px-[16px]">
         {/* Back Button */}
       <a href="/">
         <button
@@ -173,8 +173,9 @@ const OrderConfirmation = ({ onBackToShop }) => {
         <div className="lg:col-span-2 space-y-6">
           {/* Order Timeline */}
           <div className="bg-white p-6 rounded-2xl shadow-md">
-            <h3 className="font-semibold mb-6 flex items-center gap-2">
-              <Clock className="h-5 w-5 text-blue-500" /> Delivery Timeline
+            <h3 className="font-semibold mb-6 flex items-center gap-2 text-[18px]">
+              {/* <Clock className="h-5 w-5 text-blue-500" />  */}
+              Delivery Timeline
             </h3>
             <div className="space-y-4">
               {[
@@ -300,7 +301,7 @@ const OrderConfirmation = ({ onBackToShop }) => {
               ))}
             </div> */}
              <h1
-                    className='text-[#000000] text-[16px] font-semibold pl-2'>
+                    className='text-[18px] font-semibold pl-2'>
                         Order Items <span>(</span>{totalItems}<span>)</span>
                     </h1>
 
@@ -408,52 +409,98 @@ const OrderConfirmation = ({ onBackToShop }) => {
         <div className="space-y-6">
           {/* Order Summary */}
           <div className="bg-white p-6 rounded-2xl shadow-md">
-            <h3 className="font-medium text-black/80 mb-6 flex items-center gap-2">
-              <CreditCard className="h-5 w-5 text-green-500" /> Order Summary
+            <h3 className="text-[18px] font-semibold mb-6 flex items-center gap-2">
+              {/* <CreditCard className="h-5 w-5 text-green-500" /> */}
+               Order Summary
             </h3>
             <div className="space-y-2">
               <div className="flex justify-between text-[14px]">
                 <span className="text-[#7C7C7C]">Item Total</span>
-                <span><span className="font-[Roboto]">₹</span>{totalPrice}</span>
+                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>{totalPrice}</span>
               </div>
               <div className="flex justify-between text-[14px]">
                 <span className="text-[#7C7C7C] ">Discount</span>
-                <span className="text-green-400"><span className="font-[Roboto] ">- ₹</span>{totalPrice - discountedPrice}</span>
+                <span className="text-green-400 text-[18px] font-semibold"><span className="font-[Roboto] ">- ₹</span>{totalPrice - discountedPrice}</span>
               </div>
-              <div className="flex justify-between text-[14px]">
+              <div className="flex justify-between text-[14px] pb-[16px]">
                 <span className="text-[#7C7C7C] ">Delivery Charges</span>
-                <span><span className="font-[Roboto]">₹</span>{deliveryCharges}</span>
+                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>{deliveryCharges}</span>
               </div>
-              <hr />
+              <hr className="bg-[#EFEFEF] border-t-2 border-[#E9E9E9]"/>
               <div className="flex justify-between font-medium text-black/80 text-lg ">
-                <span>Total Amount</span>
-                <span className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-400 bg-clip-text text-transparent"><span className="font-[Roboto]">₹</span>{discountedPrice + deliveryCharges}</span>
+                <span className=" text-[14px]">Total Amount</span>
+                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>{discountedPrice + deliveryCharges}</span>
               </div>
             </div>
-            <p className="mt-4 text-sm text-gray-500">Payment Method</p>
-            <p className="font-medium">{mockOrder.paymentMethod}</p>
+           <div
+           className="flex justify-between items-center mt-4">
+             <p className="text-[14px] text-gray-500">Payment Method</p>
+            <p className="font-medium text-[14px]">{`XXXX 1234 (Visa)`}</p>
+           </div>
             <div className="flex gap-2 mt-4">
-              <button className="flex-1 border px-3 py-2 flex items-center justify-center text-sm cursor-pointer hover:bg-amber-100 transition-all duration-300 delay-100 rounded-3xl">
-                <Download className="h-4 w-4 mr-2" /> Invoice
-              </button>
-              <button className="flex-1 border px-3 py-2 flex items-center justify-center text-sm cursor-pointer hover:bg-amber-100 transition-all duration-300 delay-100 rounded-3xl">
-                <Share2 className="h-4 w-4 mr-2" /> Share
-              </button>
+              <div
+                className="group w-[200px] group-hover:w-[200px] md:h-[40px] h-[32px] 
+                          border border-blue-500 font-semibold flex justify-center items-center 
+                          rounded-[30px] lg:text-[14px] text-[12px] cursor-pointer 
+                          transition-all duration-1000 ease-in-out mx-auto 
+                          bg-white relative overflow-hidden md:mt-[0px] mt-[12px] hover:shadow-md hover:shadow-gray-400 hover:scale-105"
+              >
+                <span
+                  className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
+                            bg-clip-text text-transparent transition-all duration-1000 ease-in-out 
+                            group-hover:text-white group-hover:bg-none flex gap-2 justify-center items-center"
+                >
+                  <Download className="text-blue-400 group-hover:text-white h-4.5 w-4.5"/> Invoice
+                </span>
+
+                {/* Hover gradient background overlay */}
+                <div
+                  className="absolute inset-0 rounded-[30px] 
+                            bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
+                            opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out -z-10"
+                />
+              </div>
+              <div
+                className="group w-[200px] group-hover:w-[200px] md:h-[40px] h-[32px] 
+                          border border-blue-500 font-semibold flex justify-center items-center 
+                          rounded-[30px] lg:text-[14px] text-[12px] cursor-pointer 
+                          transition-all duration-1000 ease-in-out mx-auto 
+                          bg-white relative overflow-hidden md:mt-[0px] mt-[12px] hover:shadow-md hover:shadow-gray-400 hover:scale-105"
+              >
+                <span
+                  className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
+                            bg-clip-text text-transparent transition-all duration-1000 ease-in-out 
+                            group-hover:text-white group-hover:bg-none flex gap-2 justify-center items-center"
+                >
+                  <Share2 className="text-blue-400 group-hover:text-white h-4.5 w-4.5"/> Share
+                </span>
+
+                {/* Hover gradient background overlay */}
+                <div
+                  className="absolute inset-0 rounded-[30px] 
+                            bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
+                            opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out -z-10"
+                />
+              </div>
             </div>
           </div>
 
           {/* Shipping Address */}
           <div className="bg-white p-6 rounded-2xl shadow-md text-black/80">
-            <h3 className="font-medium mb-4 flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-orange-500" /> Shipping Address
+            <h3 className="font-semibold text-[18px] mb-4 flex items-center gap-2">
+              {/* <MapPin className="h-5 w-5 text-orange-500" />  */}
+              Shipping and Contact Details
             </h3>
             <p className="font-medium">{mockOrder.shippingAddress.name}</p>
-            <p className="text-[14px] text-[#7C7C7C]/60">{mockOrder.shippingAddress.address}</p>
-            <p className="text-[14px] text-[#7C7C7C]/60">
+              
+            <div
+            className="flex text-[16px] text-[#7C7C7C]">
+              {mockOrder.shippingAddress.address}
+
               {mockOrder.shippingAddress.city},{" "}
               {mockOrder.shippingAddress.state} {mockOrder.shippingAddress.zipCode}
-            </p>
-            <p className="text-[14px] text-[#7C7C7C]/60">{mockOrder.shippingAddress.phone}</p>
+            </div>
+            <p className="text-[16px] mt-1 ">{`+91 80973 15130`}</p>
             <div className="mt-4 p-3 bg-gradient-to-r from-white via-green-50 to-green-100 rounded-xl flex items-center gap-2">
               <Truck className="h-4 w-4 text-green-600" />
               <span className="text-sm font-medium text-green-600">
@@ -464,8 +511,9 @@ const OrderConfirmation = ({ onBackToShop }) => {
 
           {/* Support */}
           <div className="bg-white p-6 rounded-2xl shadow-md">
-            <h3 className="font-medium text-black/75 mb-4 flex items-center gap-2">
-              <MessageCircle className="h-5 w-5 text-blue-500" /> Need Help?
+            <h3 className="font-semibold text-[18px] mb-4 flex items-center gap-2">
+              {/* <MessageCircle className="h-5 w-5 text-blue-500" />  */}
+              Need Help?
             </h3>
             <p className="text-sm text-[#7C7C7C]/60 mb-4">
               Have questions about your order? Our support team is here to help.

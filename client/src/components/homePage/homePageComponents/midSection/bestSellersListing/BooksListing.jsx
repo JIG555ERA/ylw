@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import BookCard from "../bookListings/card";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { booksData0, booksDataFetcher } from "../../../../../globalComponents/booksData.js";
-import "./Scrollbar.css";
+// import "./Scrollbar.css";
 
 const BooksListing = ({ sectionName, collection }) => {
   const scrollRef = useRef(null);
@@ -31,10 +31,10 @@ const BooksListing = ({ sectionName, collection }) => {
   }, []); // ✅ only runs once
 
   return (
-    <div className="lg:mx-[80px] md:mx-[40px] mx-[16px] lg:mt-[28px] md:mt-[24px] mt-[16px] font-[Poppins]">
+    <div className="lg:mx-[80px] md:mx-[40px] mx-[16px] lg:mt-[64px] md:mt-[24px] mt-[16px] font-[Poppins]">
       <div className="w-full border-t-[2px] border-dashed border-[#D1D1D1] lg:block hidden" />
 
-      <div className="books-listing-title-section flex justify-between md:mt-[24px] mt-[16px]">
+      <div className="books-listing-title-section flex justify-between md:mt-[64px] mt-[16px]">
         <p className=" lg:text-[32px] text-[24px] text-[#111111] font-semibold">
           {sectionName}
         </p>
@@ -42,19 +42,19 @@ const BooksListing = ({ sectionName, collection }) => {
           {/* Left scroll */}
           <button
             onClick={() => handleScroll("left")}
-            className="relative rounded-full cursor-pointer w-[40px] h-[40px] border-2 border-gray-500 flex justify-center items-center overflow-hidden group hover:border-white"
+            className="relative rounded-full cursor-pointer w-[40px] h-[40px] border-2 border-blue-400 flex justify-center items-center overflow-hidden group hover:border-white"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-blue-300 via-blue-500 to-purple-300 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
-            <IoIosArrowBack className="relative z-10 w-8 h-8 font-semibold mr-1 text-gray-700 group-hover:text-white transition-colors duration-300" />
+            <IoIosArrowBack className="relative z-10 w-8 h-8 font-semibold mr-1 text-blue-400 group-hover:text-white transition-colors duration-300" />
           </button>
 
           {/* Right scroll */}
           <button
             onClick={() => handleScroll("right")}
-            className="relative rounded-full cursor-pointer w-[40px] h-[40px] border-2 border-gray-500 flex justify-center items-center overflow-hidden group hover:border-white"
+            className="relative rounded-full cursor-pointer w-[40px] h-[40px] border-2 border-blue-400 flex justify-center items-center overflow-hidden group hover:border-white"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-blue-300 via-blue-500 to-purple-300 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
-            <IoIosArrowForward className="relative z-10 w-8 h-8 font-semibold ml-1 text-gray-700 group-hover:text-white transition-colors duration-300" />
+            <IoIosArrowForward className="relative z-10 w-8 h-8 font-semibold ml-1 text-blue-400 group-hover:text-white transition-colors duration-300" />
           </button>
         </div>
       </div>
@@ -62,7 +62,7 @@ const BooksListing = ({ sectionName, collection }) => {
       {/* Scrollable container */}
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto scrollbar-1px lg:gap-6 md:gap-4 gap-2 scroll-smooth lg:pb-[20px] md:pb-[16px] pb-[12px]"
+        className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden scrollbar-hide lg:gap-6 md:gap-4 gap-2 scroll-smooth lg:pb-[20px] md:pb-[16px] pb-[12px]"
       >
         {/* {books.map((book, index) => {
           const formattedBook = {
