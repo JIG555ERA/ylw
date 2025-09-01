@@ -49,7 +49,7 @@ export const CategorySection = () => {
                             </p>
                         </div>
                     </div> */}
-                    <div className="xl:flex hidden">
+                    {/* <div className="xl:flex hidden">
                         <div className="scroll-button">
                             <img
                                 className=""
@@ -64,7 +64,7 @@ export const CategorySection = () => {
                                 alt="right scroll"
                             />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="lg:h-[185px] lg:flex grid md:grid-cols-3 grid-cols-2 justify-between whitespace-nowrap mt-[20px]">

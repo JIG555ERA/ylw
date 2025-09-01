@@ -7,6 +7,7 @@ import { SearchBar } from "../../midSection/searchBar/searchBar";
 import ColorThief from "colorthief";
 import SearchBar02 from "../../../../../globalComponents/SearchBar02";
 import { TrendingUp, Sparkles, Badge } from "lucide-react";
+import GradientText from "../../../../../globalComponents/GradientText";
 
 import img01 from '../../../../../assets/bookCoverPages/coverPage01.svg';
 import img02 from '../../../../../assets/bookCoverPages/coverPage02.svg';
@@ -162,8 +163,10 @@ const Carousel02 = () => {
       // }}
     >
       {/* Title */}
-      <h1 className="lg:text-[52px] text-[24px] font-bold bg-clip-text bg-gradient-to-br from-purple-600 via-pink-400 to-purple-600 text-transparent text-center">
-        Your Literary World
+      <h1 className="xl:text-[56px] md:text-[44px] text-[24px] font-extrabold text-center">
+        <GradientText>
+          Your Literary World
+        </GradientText>
       </h1>
 
       {/* Search Bar */}

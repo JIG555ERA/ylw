@@ -16,10 +16,12 @@ import "slick-carousel/slick/slick-theme.css";
 import PaymentPage from './components/paymentPage/PaymentPage'
 import OrderConfirmation from './components/orderConfirmation/OrderConfirmation'
 import NotFound from './globalComponents/notFound/NotFound'
+import CustomCursor from './globalComponents/CustomCursor'
 
 function App() {
   return (
     <>
+     {/* <CustomCursor /> */}
      <Routes>
         <Route path='/' element={<HomePage />} /> 
         <Route path='/categories' element={<CategoryPage />} /> 

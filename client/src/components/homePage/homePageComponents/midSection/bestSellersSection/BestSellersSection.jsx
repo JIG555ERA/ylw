@@ -19,7 +19,7 @@ const BestSellersSection = () => {
 
     return (
         <div
-        className='w-full xl:h-[420px] h-[320px] pt-[60px] flex flex-col justify-between relative font-[Poppins]'>
+        className='w-full xl:h-[420px] h-[320px] flex flex-col justify-evenly md:pt-0 relative font-[Poppins]'>
             <div
             className='w-full h-[460px] absolute z-0 '>
                 <img 
