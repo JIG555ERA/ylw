@@ -100,7 +100,7 @@ const BooksByPublications = ({}) => {
                     </div>
                 </div>
                 {/* cards */}
-                <div className='w-full h-auto grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-[24px] gap-[16px] mt-[24px] mx-auto'>
+                <div className='w-full h-auto grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-[24px] gap-[16px] mt-[24px] mx-auto'>
                    
                    {cardContextList.map((card) => (
                     <div

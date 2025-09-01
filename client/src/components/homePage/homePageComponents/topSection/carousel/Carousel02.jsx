@@ -156,7 +156,7 @@ const Carousel02 = () => {
 
   return (
     <div
-      className="w-full lg:h-screen h-[520px] items-center  mt-[80px] xl:py-[50px]  lg:py-[40px] lg:translate-y-[0px] translate-y-[-140px] opacity-100 bg-gradient-to-br from-blue-100 via-white to-purple-100 flex flex-col justify-between"
+      className="w-full 2xl:h-screen lg:h-[780px] md:h-[680px] h-[520px] items-center  mt-[80px] xl:py-[50px]  md:py-[40px]  xl:translate-y-[0px] md:translate-y-[-100px] translate-y-[-140px] opacity-100 bg-gradient-to-br from-blue-100 via-white to-purple-100 flex flex-col justify-between"
       // style={{
       //   transition: "background 0.8s ease-in-out",
       //   background: `linear-gradient(to right, rgba(${colors[0].join(",")}, 0.3), rgba(${colors[1].join(",")}, 0.3))`,
