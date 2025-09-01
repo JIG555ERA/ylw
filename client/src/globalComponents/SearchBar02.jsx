@@ -122,7 +122,7 @@ const SearchBar02 = ({
                       setShowSuggestions(false);
                     }, 200)
                   }
-                  className="w-full border-0 bg-transparent xl:text-[24px] text-[20px] px-2 lg:px-4 py-3 lg:py-6 placeholder-transparent focus:outline-none"
+                  className="w-full border-0 bg-transparent xl:text-[20px] md:text-[16px] px-2 lg:px-4 py-3 lg:py-6 placeholder-transparent focus:outline-none"
                 />
 
                 {/* Rolling placeholder */}
