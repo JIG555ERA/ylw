@@ -17,6 +17,11 @@ import BooksCategory from './booksCategory/BooksCategory'
 import AboutAuthor from './aboutAuthor/AboutAuthor'
 import AboutPublication from './aboutPublication/AboutPublication'
 import CommonFAQs from './commonFAQs/CommonFAQs'
+import BooksListing from '../../homePageComponents/midSection/bestSellersListing/BooksListing.jsx'
+import {CategorySection} from '../../homePageComponents/midSection/categorySection/categorySection.jsx'
+import {booksData0} from '../../../../globalComponents/booksData.js'
+import NewsLetter from '../../../../globalComponents/NewsLetter.jsx'
+import LikeMark from '../../../../globalComponents/LikeMark.jsx'
 
 const ProductPage = () => {
 
@@ -51,13 +56,13 @@ const ProductPage = () => {
                     <ImageSection bookCoverPage={booksData[1].bookCoverPage} />
                 </div>
                 <div
-                className='w-full h-[470px] flex  flex-col items-start text-[42px] font-semibold  py-[25px] ml-[20px]'>
+                className='w-full h-[470px] flex  flex-col items-start lg:text-[32px] text-[24px] font-semibold  py-[25px] ml-[20px]'>
                     <h1>{booksData[1].bookTitle}</h1>
                     <div
                     className='flex h-auto justify-center items-center'>
                         <h1
-                        className='text-[28px] font-semibold flex'>
-                            <p className='font-[Roboto]'>₹ {booksData[1].discountedPrice}</p> 
+                        className='text-[24px] font-semibold flex bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent'>
+                            <p className=''><span className='font-[Roboto]'>₹</span>{booksData[1].discountedPrice}</p> 
                         </h1>
                         <h1
                         className='text-[18px] font-normal stroke-1 text-[#7D7D7D] ml-[10px] line-through flex '>
@@ -108,34 +113,55 @@ const ProductPage = () => {
                         </p>
                     </div>
                     <div
-                    className='flex mt-[15px] h-auto justify-center items-center'>
+                    className='flex mt-[32px] h-auto justify-center items-center'>
                         <a 
                         className=''
                         href="">
                             <div
-                            className='w-[190px] h-[50px] bg-[#064FA4] rounded-[18px] flex justify-center items-center'>
-                                <p className='text-white text-[16px] font-semibold'>Add to cart</p>
+                            className="group w-[160px] xl:h-[45px] md:h-[40px] h-[32px] 
+                                        border border-blue-500 font-semibold flex justify-center items-center 
+                                        rounded-[30px] lg:text-[14px] text-[12px] cursor-pointer 
+                                        transition-all duration-1000 ease-in-out mx-auto 
+                                        bg-white relative overflow-hidden md:mt-[0px] mt-[36px] hover:shadow-md hover:shadow-gray-400 hover:scale-105"
+                            >
+                            <span
+                                className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
+                                        bg-clip-text text-transparent transition-all duration-1000 ease-in-out 
+                                        group-hover:text-white group-hover:bg-none"
+                            >
+                                Add to Cart
+                            </span>
+
+                            {/* Hover gradient background overlay */}
+                            <div
+                                className="absolute inset-0 rounded-[30px] 
+                                        bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
+                                        opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out -z-10"
+                            />
                             </div>
                         </a>
-                        <a 
-                        className='rounded-[12px] border-[#EDEDED] shadow-md bg-white w-[60px] h-[50px] flex justify-center items-center ml-[30px]'
-                        href="">
-                            <img 
-                            className=''
-                            src={heartIcon01} 
-                            alt="" />
-                        </a>
+                        <div 
+                        className='rounded-[12px] border-[#EDEDED] shadow-md  bg-white w-[60px] h-[50px] flex justify-center items-center ml-[30px]'
+                        >
+                           <LikeMark />
+                        </div>
 
                     </div>
                 </div>
             </div>
-            <SimilarToBook context={booksData[1].bookTitle}/>
-            <SimilarToAuthor context={booksData[1].bookAuthor}/>
-            <SimilarToCollection context={`${booksData[1].tags[0]} collection`} />
-            <BooksCategory />
+            <div
+            className='px-[1px] overflow-hidden w-full'>
+                <BooksListing sectionName={`Similar to ${booksData[1].bookTitle}`} />
+                <BooksListing sectionName={`Most of ${booksData[1].bookAuthor}`} />
+                <BooksListing sectionName={`Best of ${booksData[1].tags[0]} collection`} />
+            </div>
+            <div className="w-[90vw] border-t-2 border-dashed border-[#D1D1D1] hidden lg:block translate-y-[64px]" />
+
+            <CategorySection />
             <AboutAuthor context={booksData[1].aboutAuthor}/>
             <AboutPublication context={booksData[1].aboutAuthor}/>
             <CommonFAQs />
+            <NewsLetter />
         
         </div>
     )

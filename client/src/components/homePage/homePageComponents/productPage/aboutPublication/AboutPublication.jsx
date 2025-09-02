@@ -6,7 +6,7 @@ const AboutPublication = ({context=""}) => {
         className='w-full h-auto flex flex-col px-[80px] mt-[40px]'>
             <div className="w-full  border-t-[2px] border-dashed border-[#D1D1D1] "/>
             <h1
-            className='text-[24px] font-semibold text-[#121212] mt-[30px]'>
+            className='lg:text-[32px] text-[24px] font-semibold text-[#121212] mt-[30px]'>
                 About publication
             </h1>
             <p

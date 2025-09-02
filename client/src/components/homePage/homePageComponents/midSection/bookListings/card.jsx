@@ -4,6 +4,7 @@ import likeIcon from "../../../../../assets/displayIcons/heartIcon.svg";
 import ColorThief from "colorthief";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import LikeMark from "../../../../../globalComponents/LikeMark";
 
 const BookCard = ({ book }) => {
   const [colors, setColors] = useState([
@@ -71,11 +72,16 @@ const BookCard = ({ book }) => {
             }}
           />
 
-          <img
+          {/* <img
             className="xl:h-[24px] xl:w-[24px] md:w-[20px] md:h-[20px] w-[16px] h-[16px] text-[#064FA4] absolute md:top-4 md:right-4 top-3 right-3"
             src={likeIcon}
             alt="like"
-          />
+          /> */}
+
+          <div
+          className="absolute md:top-4 md:right-4 top-3 right-3 w-auto h-auto">
+            <LikeMark />
+          </div>
 
           {/* Book image */}
           <div className="lg:w-[130px] w-[90px] h-auto aspect-[3/4] mx-auto md:mt-6 mt-3">
@@ -84,24 +90,28 @@ const BookCard = ({ book }) => {
         </div>
 
         {/* Book info */}
-        <div className="text-sm md:h-[200px] lg:mt-[36px] font-medium space-y-0.5 flex flex-col md:px-[16px] px-[12px]">
+        <div className="text-sm md:h-[200px] lg:mt-[36px] font-medium space-y-0.5 flex flex-col mx-auto md:px-[16px] px-[12px]">
           <div
           className="flex md:mt-[8px] mt-[4px]">
             <div
-            className="xl:w-[55%] md:w-[45%] w-[75%]">
-              <p className="text-[#064FA4] lg:text-[16px] text-[14px] font-semibold line-clamp-2 mr-3">
-                {book.bookTitle}
-              </p>
+            className="flex ">
+              <div
+              className="flex flex-col w-[65%]">
+                <p className="text-[#064FA4] lg:text-[16px] text-[14px] font-semibold line-clamp-2 mr-3">
+                  {book.bookTitle}
+                </p>
+                <p className="text-[#8C8C8C] xl:text-[14px] text-[12px] font-medium line-clamp-1">
+                  {book.bookAuthor}
+                </p>
+              </div>
+               <div
+                className="flex flex-col w-[35%]">
+                  <p className="font-[Roboto] xl:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[16px]">₹{book.bookPrice}</p> 
+                  <p className="text-[12px] ml-[12px] text-[#7C7C7C]/75 line-through"><span className="font-[Roboto]">₹</span>{Math.round(book.bookPrice + book.bookPrice/10)}</p>
+                </div>
             </div>
-            <div
-            className="flex flex-col md:w-[100px] w-[75px] top-[8px] right-[8px]">
-              <p className="font-[Roboto] xl:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[16px]">₹ {book.bookPrice}</p> 
-              <p className="text-[12px] text-[#7C7C7C]/75 line-through"><span className="font-[Roboto]">₹</span> {Math.round(book.bookPrice + book.bookPrice/10)}</p>
-            </div>
+           
           </div>
-          <p className="text-[#8C8C8C] xl:text-[14px] text-[12px] font-medium line-clamp-1">
-            {book.bookAuthor}
-          </p>
           <div className="w-full flex md:mt-1 items-center">
             <Rating value={3.5} readOnly style={{ maxWidth: 80 }} />
             <p className="xl:text-[12px] text-[10px] text-[#7C7C7C]/75 ml-1.5">4.6 (1840)</p>

@@ -7,6 +7,9 @@ import img04 from '../../../../../assets/bookCoverPages/coverPage04.svg'
 import leftScrollButton from '../../../../../assets/icons/leftScrollButton.svg'
 import rightScrollButton from '../../../../../assets/icons/rightScrollButton.svg'
 
+// ✅ Import your card
+import CategoryCard from "./CategoryCard";
+
 export const CategorySection = () => {
     const [category, setSelectedCategory] = useState();
 
@@ -19,15 +22,50 @@ export const CategorySection = () => {
     ];
 
     const booksData = [
-        { id: 0, bookCoverPage: img01 },
-        { id: 1, bookCoverPage: img02 },
-        { id: 2, bookCoverPage: img03 },
-        { id: 3, bookCoverPage: img04 },
+        { id: 0, title: "Book 1", author: "Author 1", image: img01 },
+        { id: 1, title: "Book 2", author: "Author 2", image: img02 },
+        { id: 2, title: "Book 3", author: "Author 3", image: img03 },
+        { id: 3, title: "Book 4", author: "Author 4", image: img04 },
     ];
 
-    const handleViewAll = () => {
-
-    }
+    // ✅ Extended category config
+    const categoryConfig = [
+        {
+            name: "Fiction",
+            color: "from-pastel-pink to-vibrant-pink",
+            accent: "vibrant-pink",
+            icon: "📚",
+            description: "Immerse yourself in captivating stories"
+        },
+        {
+            name: "Non Fiction",
+            color: "from-pastel-blue to-vibrant-blue",
+            accent: "vibrant-blue",
+            icon: "🔍",
+            description: "Discover facts and real-world insights"
+        },
+        {
+            name: "Romance",
+            color: "from-pastel-purple to-vibrant-purple",
+            accent: "vibrant-purple",
+            icon: "💕",
+            description: "Fall in love with heartwarming tales"
+        },
+        {
+            name: "Young Adult",
+            color: "from-pastel-green to-vibrant-green",
+            accent: "vibrant-green",
+            icon: "🌱",
+            description: "Stories for teens and young adults"
+        },
+        {
+            name: "Featured",
+            color: "from-pastel-orange to-vibrant-orange",
+            accent: "vibrant-orange",
+            icon: "⭐",
+            description: "Highlighted must-read picks"
+        }
+    ];
 
     return (
         <div className="w-full lg:px-[80px] px-[16px] flex flex-col justify-between font-[Poppins] xl:mt-[90px] mt-[480px]">
@@ -38,85 +76,21 @@ export const CategorySection = () => {
                     </p>
                 </div>
                 <div className="flex justify-between">
-                    {/* <div 
-                    onClick={handleViewAll}
-                    className="view-all-button">
-                        <div
-                        className="view-all-button0">
-                            <p
-                            className="view-all-text">
-                                View All
-                            </p>
-                        </div>
-                    </div> */}
-                    {/* <div className="xl:flex hidden">
-                        <div className="scroll-button">
-                            <img
-                                className=""
-                                src={leftScrollButton}
-                                alt="left scroll"
-                            />
-                        </div>
-                        <div className="scroll-button">
-                            <img
-                                className=""
-                                src={rightScrollButton}
-                                alt="right scroll"
-                            />
-                        </div>
-                    </div> */}
+                    {/* Buttons/icons can go here */}
                 </div>
             </div>
-            <div className="lg:h-[185px] lg:flex grid md:grid-cols-3 grid-cols-2 justify-between whitespace-nowrap mt-[20px]">
-                {categoryItems.map((cat) => {
-                    const isActive = category === cat.category_;
-                    return (
-                        <div
-                            key={cat.category_}
-                            onClick={() => setSelectedCategory(cat.category_)}
-                            className={`overflow-hidden relative lg:w-[172px] lg:h-[185px] w-[155px] h-[166px] bg-gradient-to-br from-blue-100 via-white to-purple-100 hover:shadow-md hover:scale-105 hover:shadow-gray-300 flex-shrink-0 rounded-md transition-transform duration-300 ease-in-out cursor-pointer 
-                            ${isActive ? '' : ''} hover:scale-105`}
-                        >
-                            {/* Grid Book Cover Section with optional opacity layer */}
-                            <div className="relative h-full">
-                                {isActive && (
-                                    <div className="" />
-                                )}
 
-                                <div className="grid grid-cols-2 grid-rows-2 gap-[4px] p-[8px] h-full z-0 relative">
-                                    {booksData.map((book, idx) => (
-                                        <div key={idx} className="mx-auto w-[65px] h-full flex items-center justify-center">
-                                            <ImageSection bookCoverPage={book.bookCoverPage} />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Active Overlay */}
-                            {/* {isActive && (
-                                <div className="absolute inset-0 flex items-center justify-center z-20 bg-white/90">
-                                    <img
-                                        src="../src/assets/icons/checkCircleIcon.svg"
-                                        alt="check"
-                                        className="w-6 h-6 "
-                                    />
-                                    <p className="font-semibold text-[20px] text-[#064FA4] text-center">
-                                        {cat.category_}
-                                    </p>
-                                </div>
-                            )} */}
-
-                            {/* Inactive Category Footer */}
-                            {!isActive && (
-                                <div className="absolute bottom-0 w-full h-[47px] bg-[#F4F4F4]/75 bg-opacity-70 flex gap-[16px] items-center pl-3 z-10">
-                                    <p className="text-[#121212] text-[14px] font-semibold z-20">
-                                        {cat.category_}
-                                    </p>
-                                </div>
-                            )}
-                        </div>
-                    );
-                })}
+            {/* ✅ Category Cards */}
+            <div className="xl:h-[540px] lg:flex grid md:grid-cols-3 grid-cols-2 justify-between overflow-x-scroll overflow-hidden xl:gap-6 md:gap-4 gap-2 [&::-webkit-scrollbar]:hidden scrollbar-hide whitespace-nowrap mt-[20px]">
+                {categoryConfig.map((cat, index) => (
+                    <CategoryCard
+                        key={index}
+                        category={cat}
+                        books={booksData}
+                        count={booksData.length}
+                        onClick={() => setSelectedCategory(cat.name)}
+                    />
+                ))}
             </div>
         </div>
     );

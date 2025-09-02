@@ -62,7 +62,7 @@ const BooksListing = ({ sectionName, collection }) => {
       {/* Scrollable container */}
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden scrollbar-hide lg:gap-6 md:gap-4 gap-2 scroll-smooth lg:pb-[20px] md:pb-[16px] pb-[12px]"
+        className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden scrollbar-hide lg:gap-6 md:gap-4 gap-2 scroll-smooth "
       >
         {/* {books.map((book, index) => {
           const formattedBook = {
