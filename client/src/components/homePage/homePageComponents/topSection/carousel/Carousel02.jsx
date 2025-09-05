@@ -180,7 +180,7 @@ const Carousel02 = () => {
           <div
             key={badge.id}
             className={`lg:h-[50px] h-[40px] flex justify-center items-center px-[12px] rounded-3xl bg-white/75 hover:bg-white/90 shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer
-            ${index === 2 ? "w-full sm:w-auto justify-center" : ""}`}
+            ${index === 2 ? "w-auto sm:w-auto justify-center" : ""}`}
           >
             <badge.icon
               className={`lg:w-5 md:w-4 lg:h-5 md:h-4 lg:mr-2 mr-1 h-4 ${badge.color}`}
