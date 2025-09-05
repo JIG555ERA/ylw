@@ -81,7 +81,7 @@ export const CategorySection = () => {
             </div>
 
             {/* ✅ Category Cards */}
-            <div className="xl:h-[540px] flex justify-between overflow-x-scroll overflow-hidden xl:gap-6 md:gap-4 gap-3 [&::-webkit-scrollbar]:hidden scrollbar-hide whitespace-nowrap mt-[20px]">
+            <div className="h-[540px] flex justify-between overflow-x-scroll overflow-hidden xl:gap-6 md:gap-4 gap-3 [&::-webkit-scrollbar]:hidden scrollbar-hide whitespace-nowrap mt-[20px]">
                 {categoryConfig.map((cat, index) => (
                     <CategoryCard
                         key={index}

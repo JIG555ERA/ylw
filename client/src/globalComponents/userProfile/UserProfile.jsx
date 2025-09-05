@@ -43,7 +43,7 @@ export function UserProfile({ isOpen, onClose, bookmarks, onRemoveBookmark }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex">
+    <div className="fixed inset-0 z-50 flex overflow-y-auto">
       {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -59,10 +59,20 @@ export function UserProfile({ isOpen, onClose, bookmarks, onRemoveBookmark }) {
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className="relative ml-auto w-full max-w-6xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-2xl flex flex-col md:flex-row"
+        className={`
+          relative ml-auto w-full max-w-6xl shadow-2xl flex flex-col md:flex-row
+          bg-white md:bg-white/95 md:dark:bg-gray-900/95 md:backdrop-blur-lg
+        `}
       >
         {/* Sidebar Navigation */}
-        <div className="w-full md:w-80 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-b md:border-b-0 md:border-r border-gray-200/50 dark:border-gray-700/50 p-4 md:p-6">
+        <div
+          className={`
+            w-full md:w-80 border-b md:border-b-0 md:border-r 
+            border-gray-200 dark:border-gray-700 
+            p-4 md:p-6 
+            bg-white md:bg-white/80 md:dark:bg-gray-800/80 md:backdrop-blur-sm
+          `}
+        >
           {/* Header */}
           <div className="flex items-center justify-between mb-6 md:mb-8">
             <div>
@@ -75,7 +85,7 @@ export function UserProfile({ isOpen, onClose, bookmarks, onRemoveBookmark }) {
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-700/80 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+              className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
             >
               <X className="h-5 w-5 text-gray-600 dark:text-gray-400" />
             </button>
@@ -140,7 +150,7 @@ export function UserProfile({ isOpen, onClose, bookmarks, onRemoveBookmark }) {
         </div>
 
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col bg-white md:bg-transparent">
           <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden">
             <motion.div
               key={activeSection}
