@@ -11,7 +11,7 @@ const NewsLetter = () => {
 
     return (
         <div
-        className='w-full h-auto flex flex-col justify-center items-center font-[Poppins] xl:pt-[80px] md:pt-[70px] pt-[40px] pb-[100px]'>
+        className='w-full h-auto flex flex-col justify-center items-center font-[Poppins] xl:pt-[80px] md:pt-[70px] pt-[40px] pb-[120px]'>
             {/* tag */}
             <div className='px-[12px] h-[50px] flex justify-center items-center gap-[8px] rounded-3xl shadow:md hover:shadow-lg  shadow-gray-300 hover:scale-105 cursor-pointer bg-white'>
                 <Sparkles className='w-5 h-5 text-teal-400' />
@@ -29,7 +29,7 @@ const NewsLetter = () => {
             </div>
 
             <div
-            className='lg:w-[40vw] md:w-[55vw] md:h-[58px] h-[50px] flex md:flex-row flex-col gap-[20px] mt-[24px] w-full px-[16px] items-center'>
+            className='lg:w-[40vw] md:w-[55vw] md:h-[58px] h-[120px] flex md:flex-row flex-col gap-[20px] mt-[24px] w-full px-[16px] items-center'>
                 <input 
                 onChange={(e) => setEmail(e.target.value)}
                 className='w-full focus:outline-gray-200 border-2  h-[58px] rounded-3xl text-[16px] text-[#7C7C7C]/75 font-medium md:px-[18px] px-[16px] flex items-center shadow-lg shadow-gray-300 active:border-white border-white '

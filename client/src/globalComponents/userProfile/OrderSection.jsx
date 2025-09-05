@@ -64,7 +64,7 @@ const mockOrders = [
     id: "3",
     orderNumber: "ORD-2024-003",
     date: "2024-01-18",
-    status: "shipped",
+    status: "delivered",
     total: 22.99,
     items: [
       {
@@ -93,7 +93,7 @@ export function OrdersSection() {
     switch (status) {
       case "delivered":
         return <CheckCircle className="h-4 w-4" />;
-      case "shipped":
+      case "failed":
         return <Truck className="h-4 w-4" />;
       case "in-progress":
         return <Clock className="h-4 w-4" />;
@@ -106,8 +106,8 @@ export function OrdersSection() {
     switch (status) {
       case "delivered":
         return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400";
-      case "shipped":
-        return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400";
+      case "failed":
+        return "bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400";
       case "in-progress":
         return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400";
       default:
@@ -202,14 +202,14 @@ export function OrdersSection() {
                   </p>
                 </div>
                 <div className="text-right font-semibold">
-                  ${item.price.toFixed(2)}
+                  <span className="font-[Roboto]">₹</span>{item.price.toFixed(2)}
                 </div>
               </div>
             ))}
           </div>
           <div className="border-t mt-6 pt-4 flex justify-between font-semibold">
             <span>Total</span>
-            <span>${selectedOrder.total.toFixed(2)}</span>
+            <span><span className="font-[Roboto]">₹</span>{selectedOrder.total.toFixed(2)}</span>
           </div>
         </Card>
       </div>
@@ -235,7 +235,7 @@ export function OrdersSection() {
           <span className="font-medium">Filter Orders</span>
         </div>
         <div className="flex flex-wrap gap-2">
-          {["all", "delivered", "in-progress", "shipped", "processing"].map(
+          {["all", "delivered", "in-progress", "failed"].map(
             (filter) => (
               <Button
                 key={filter}
@@ -314,7 +314,7 @@ export function OrdersSection() {
                     {order.items.length !== 1 ? "s" : ""}
                   </p>
                   <p className="font-semibold">
-                    Total: ${order.total.toFixed(2)}
+                    Total: <span className="font-[Roboto]">₹</span>{order.total.toFixed(2)}
                   </p>
                 </div>
               </div>

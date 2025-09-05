@@ -36,7 +36,7 @@ const AuthorCard = ({ context=context[0] }) => {
             <div
             className="group w-[160px] group-hover:w-[240px] lg:h-[42px] h-[32px] 
                         border border-blue-500 font-semibold flex justify-center items-center 
-                        rounded-[30px]  translate-y-[-8px] lg:text-[14px] text-[12px] cursor-pointer 
+                        rounded-[30px]  translate-y-[0px] lg:text-[14px] text-[12px] cursor-pointer 
                         transition-all duration-1000 ease-in-out mx-auto 
                         bg-white relative overflow-hidden md:mt-[0px] translate "
             >

@@ -127,13 +127,13 @@ const PaymentSection = () => {
             transition={{ delay: index * 0.1 }}
             className={`relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 hover:shadow-lg ${
               method.isPrimary
-                ? "border-vibrant-purple/50 shadow-lg ring-2 ring-vibrant-purple/20"
+                ? "border-purple-400 shadow-lg ring-1 border-[2px] ring-purple-400"
                 : "border-gray-200/50 dark:border-gray-700/50"
             }`}
           >
             {/* Primary Badge */}
             {method.isPrimary && (
-              <Badge className="absolute -top-2 -right-2 bg-gradient-to-r from-vibrant-purple to-vibrant-pink text-white">
+              <Badge className="absolute -top-3 -right-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-1">
                 <Star className="h-3 w-3 mr-1" />
                 Primary
               </Badge>
@@ -158,7 +158,7 @@ const PaymentSection = () => {
                 </div>
               </div>
             ) : (
-              <div className="bg-gradient-to-br from-vibrant-green to-vibrant-emerald rounded-xl p-4 mb-4 text-white shadow-lg">
+              <div className="bg-gradient-to-br from-green-300 to-green-600 rounded-xl p-4 mb-4 text-white shadow-lg">
                 <div className="flex justify-between items-start mb-6">
                   <div className="text-white/80 text-sm">{method.name}</div>
                   <Smartphone className="h-6 w-6" />
@@ -215,7 +215,7 @@ const PaymentSection = () => {
               variant="outline"
               className="h-20 flex flex-col gap-2 hover:bg-purple-50 hover:border-purple-200 dark:hover:bg-purple-900/20"
             >
-              <CreditCard className="h-6 w-6 text-vibrant-purple" />
+              <CreditCard className="h-6 w-6 text-purple-700" />
               <span>Add Credit/Debit Card</span>
             </Button>
 
@@ -236,7 +236,7 @@ const PaymentSection = () => {
             >
               Cancel
             </Button>
-            <Button className="flex-1 bg-gradient-to-r from-vibrant-purple to-vibrant-pink">
+            <Button className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500">
               Continue
             </Button>
           </div>
@@ -259,7 +259,7 @@ const PaymentSection = () => {
                 Automatically save new payment methods for faster checkout
               </p>
             </div>
-            <div className="w-12 h-6 bg-vibrant-purple rounded-full relative cursor-pointer">
+            <div className="w-12 h-6 bg-purple-700 rounded-full relative cursor-pointer">
               <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5 transition-transform duration-200"></div>
             </div>
           </div>
@@ -273,7 +273,7 @@ const PaymentSection = () => {
                 Receive detailed payment receipts via email
               </p>
             </div>
-            <div className="w-12 h-6 bg-vibrant-purple rounded-full relative cursor-pointer">
+            <div className="w-12 h-6 bg-purple-700 rounded-full relative cursor-pointer">
               <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5 transition-transform duration-200"></div>
             </div>
           </div>

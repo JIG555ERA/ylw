@@ -16,15 +16,15 @@ export const Navbar = ({ active = "" }) => {
   const navItems = [
     { name: "Home", icon: homeIcon, selectedIcon: "selectedHomeIcon", link: `/` },
     { name: "Categories", icon: categoryIcon, selectedIcon: "selectedCategoryIcon", link: `/categories` },
-    { name: "Liked", icon: heartIcon, selectedIcon: "selectedFavouriteIcon", link: `/liked` },
+    // { name: "Liked", icon: heartIcon, selectedIcon: "selectedFavouriteIcon", link: `/liked` },
     { name: "Cart", icon: cartIcon, selectedIcon: "selectedUserProfileIcon", link: `/cart` },
   ];
 
   return (
     <>
-      <div className="w-full h-[85px] md:flex flex-col items-center justify-evenly bg-white shadow-xl fixed z-50 hidden">
+      <div className="w-full h-[85px] md:flex flex-col items-center justify-center bg-white shadow-xl fixed z-50 hidden">
         {/* Navigation Items */}
-        <ul className="xl:w-[1440px] md:w-[100vw] lg:px-[80px] px-[60px] flex justify-evenly items-center max-[450px]:hidden">
+        <ul className="xl:w-[1440px] md:w-[100vw] lg:px-[80px] px-[60px] flex justify-between items-center max-[450px]:hidden">
           {/* Left nav items */}
           {navItems.slice(0, 2).map((item) => (
             <a key={item.name} href={item.link}>
@@ -48,7 +48,7 @@ export const Navbar = ({ active = "" }) => {
 
           {/* Logo Section */}
           <a href="/">
-            <div className="flex justify-center items-center mx-12">
+            <div className="flex justify-center items-center xl:mx-12 md:mx-6">
               <img
                 className="h-auto w-auto"
                 src={bookStoreLogo}
@@ -81,7 +81,7 @@ export const Navbar = ({ active = "" }) => {
           {/* Profile Icon (Triggers L2 Drawer) */}
           <li
             onClick={() => setIsProfileOpen(true)}
-            className="flex absolute z-60 right-[140px] items-center cursor-pointer transition-all duration-300 ease-in-out text-[#8C8C8C] py-2.5 font-normal hover:text-[#121212]"
+            className="flex  items-center cursor-pointer transition-all duration-300 ease-in-out text-[#8C8C8C] py-2.5 font-normal hover:text-[#121212]"
           >
             <CircleUserRound className="h-6 w-6 text-blue-400"/>
             <p className="ml-1.5">Profile</p>

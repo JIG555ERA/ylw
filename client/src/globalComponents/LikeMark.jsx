@@ -55,10 +55,10 @@ const LikeMark = () => {
 
       {/* Bookmark Icons */}
       {!like ? (
-        <LuBookmark className="h-7 w-7 text-gray-400 hover:scale-105 transition-transform" />
+        <LuBookmark className="lg:h-7 lg:w-7 md:h-6 md:w-6 h-5 w-5 text-gray-400 hover:scale-105 transition-transform" />
       ) : (
         <div className="relative inline-flex">
-          <FaBookmark className="h-7 w-7 text-blue-400 hover:scale-105 transition-transform" />
+          <FaBookmark className="lg:h-7 lg:w-7 md:h-6 md:w-6 h-5 w-5 text-blue-400 hover:scale-105 transition-transform" />
           <TiTick className="absolute inset-0 m-auto w-4 h-4 translate-y-[-2px] text-white" />
         </div>
       )}

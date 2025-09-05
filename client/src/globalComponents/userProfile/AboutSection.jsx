@@ -41,17 +41,17 @@ const AboutSection = () => {
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
-          About BookHaven
+          About Your Literary World
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Your trusted companion in the journey of literary discovery, connecting readers with extraordinary books since 2020.
+          Your trusted companion in the journey of literary discovery, connecting readers with extraordinary books since 2025.
         </p>
       </div>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-pastel-purple/30 via-pastel-pink/20 to-pastel-blue/30 rounded-3xl p-8 mb-8 border border-white/20">
+      <div className="bg-gradient-to-br from-purple-100/50 via-pink-50/50 to-blue-100/50 rounded-3xl p-8 mb-8 border border-white/20">
         <div className="text-center">
-          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-vibrant-purple to-vibrant-pink rounded-2xl flex items-center justify-center shadow-lg">
+          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
             <BookOpen className="h-10 w-10 text-white" />
           </div>
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -77,8 +77,8 @@ const AboutSection = () => {
               transition={{ delay: index * 0.1 }}
               className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 text-center border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300"
             >
-              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-br from-vibrant-purple/20 to-vibrant-pink/20 rounded-xl flex items-center justify-center">
-                <Icon className="h-6 w-6 text-vibrant-purple" />
+              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-br from-[#a25ee1]/10 to-[#d455b1]/10 rounded-xl flex items-center justify-center">
+                <Icon className="h-6 w-6 text-purple-700" />
               </div>
               <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
                 {stat.value}
@@ -98,7 +98,7 @@ const AboutSection = () => {
         </h3>
         <div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
-            Founded in 2020 by a team of passionate readers and tech enthusiasts, BookHaven started with a simple 
+            Founded in 2025 by a team of passionate readers and tech enthusiasts, BookHaven started with a simple 
             vision: to create the most delightful book shopping experience on the internet. What began as a small 
             online bookstore has evolved into a comprehensive literary ecosystem.
           </p>
@@ -132,8 +132,8 @@ const AboutSection = () => {
                 className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-vibrant-purple/20 to-vibrant-pink/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Icon className="h-6 w-6 text-vibrant-purple" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#a25ee1]/10 to-[#d455b1]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Icon className="h-6 w-6 text-purple-700" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white mb-2">

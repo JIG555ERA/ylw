@@ -79,7 +79,7 @@ const BookCard = ({ book }) => {
           /> */}
 
           <div
-          className="absolute md:top-4 md:right-4 top-3 right-3 w-auto h-auto">
+          className="absolute md:top-3 md:right-3 top-2.5 right-2.5 w-auto h-auto">
             <LikeMark />
           </div>
 

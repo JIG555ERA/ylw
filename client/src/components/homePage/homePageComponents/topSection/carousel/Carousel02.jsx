@@ -156,7 +156,7 @@ const Carousel02 = () => {
 
   return (
     <div
-      className="w-full 2xl:h-screen lg:h-[780px] md:h-[680px] h-[520px] items-center  mt-[80px] xl:py-[50px]  md:py-[40px]  xl:translate-y-[0px] md:translate-y-[-100px] translate-y-[-140px] opacity-100 bg-gradient-to-br from-blue-100 via-white to-purple-100 flex flex-col justify-between"
+      className="w-full 2xl:h-screen lg:h-[780px] md:h-[680px] h-[520px] items-center  mt-[80px] xl:py-[50px]  md:py-[40px]  xl:translate-y-[0px] md:translate-y-[-100px] translate-y-[-90px] opacity-100 bg-gradient-to-br from-blue-100 via-white to-purple-100 flex flex-col md:justify-between justify-evenly px-[16px] mx-auto"
       // style={{
       //   transition: "background 0.8s ease-in-out",
       //   background: `linear-gradient(to right, rgba(${colors[0].join(",")}, 0.3), rgba(${colors[1].join(",")}, 0.3))`,
@@ -174,13 +174,20 @@ const Carousel02 = () => {
         {/* <SearchBar /> */}
       <SearchBar02 />
       <div
-      className="w-full h-auto items-center lg:gap-8 md:gap-6 flex justify-center">
-        {tagContexts.map((badge) => (
+        className="w-full h-auto items-center lg:gap-8 md:gap-6 gap-3 flex flex-wrap justify-center"
+      >
+        {tagContexts.map((badge, index) => (
           <div
-          key={badge.id}
-          className="lg:h-[50px] md:h-[40px] flex justify-center items-center px-[12px] rounded-3xl bg-white/75 hover:bg-white/90 shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer">
-            <badge.icon className={`lg:w-5 md:w-4 lg:h-5 md:h-4 lg:mr-2 mr-1 ${badge.color}`} />
-            <p className="lg:text-[16px] md:text-[14px] font-medium">{badge.tagName}</p>
+            key={badge.id}
+            className={`lg:h-[50px] h-[40px] flex justify-center items-center px-[12px] rounded-3xl bg-white/75 hover:bg-white/90 shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer
+            ${index === 2 ? "w-full sm:w-auto justify-center" : ""}`}
+          >
+            <badge.icon
+              className={`lg:w-5 md:w-4 lg:h-5 md:h-4 lg:mr-2 mr-1 h-4 ${badge.color}`}
+            />
+            <p className="lg:text-[16px] md:text-[14px] text-[14px] font-medium">
+              {badge.tagName}
+            </p>
           </div>
         ))}
       </div>

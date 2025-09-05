@@ -79,7 +79,7 @@ export function ProfileSection() {
       {/* Personal Information */}
       <div className="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 mb-6 border border-gray-200/50 dark:border-gray-700/50">
         <div className="flex items-center gap-2 mb-6">
-          <User className="h-5 w-5 text-purple-500" />
+          {/* <User className="h-5 w-5 text-purple-500" /> */}
           <h3 className="text-lg font-medium text-gray-900 dark:text-white">Personal Information</h3>
         </div>
 
@@ -98,14 +98,14 @@ export function ProfileSection() {
           <div>
             <Label htmlFor="email">Email Address</Label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              {/* <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" /> */}
               <Input
                 id="email"
                 type="email"
                 value={isEditing ? editedData.email : userData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
                 disabled={!isEditing}
-                className="mt-2 pl-10"
+                className="mt-2 pl-3"
               />
             </div>
           </div>
@@ -113,13 +113,13 @@ export function ProfileSection() {
           <div>
             <Label htmlFor="phone">Phone Number</Label>
             <div className="relative">
-              <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              {/* <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" /> */}
               <Input
                 id="phone"
                 value={isEditing ? editedData.phone : userData.phone}
                 onChange={(e) => handleInputChange("phone", e.target.value)}
                 disabled={!isEditing}
-                className="mt-2 pl-10"
+                className="mt-2 pl-3"
               />
             </div>
           </div>
@@ -129,7 +129,7 @@ export function ProfileSection() {
       {/* Address Information */}
       <div className="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 mb-6 border border-gray-200/50 dark:border-gray-700/50">
         <div className="flex items-center gap-2 mb-6">
-          <MapPin className="h-5 w-5 text-purple-500" />
+          {/* <MapPin className="h-5 w-5 text-purple-500" /> */}
           <h3 className="text-lg font-medium text-gray-900 dark:text-white">Address Information</h3>
         </div>
 
