@@ -17,6 +17,7 @@ import PaymentPage from './components/paymentPage/PaymentPage'
 import OrderConfirmation from './components/orderConfirmation/OrderConfirmation'
 import NotFound from './globalComponents/notFound/NotFound'
 import CustomCursor from './globalComponents/CustomCursor'
+import Cart from '../src/components/homePage/homePageComponents/cartPage/NewCartPage'
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path='/' element={<HomePage />} /> 
         <Route path='/categories' element={<CategoryPage />} /> 
         <Route path="/liked" element={<LikePage />} />
-        <Route path="/cart" element={<CartPage />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/publications" element={<Publications />} />
         <Route path='/auth/signup' element={<AuthSignUP />} />

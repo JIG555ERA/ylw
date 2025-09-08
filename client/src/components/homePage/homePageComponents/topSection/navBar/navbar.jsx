@@ -22,7 +22,7 @@ export const Navbar = ({ active = "" }) => {
 
   return (
     <>
-      <div className="w-full h-[85px] md:flex flex-col items-center justify-center bg-white shadow-xl fixed z-50 hidden">
+      <div className="w-full h-[85px] md:flex flex-col items-center justify-center bg-white shadow-xl fixed top-0 right-0 left-0 z-50 hidden">
         {/* Navigation Items */}
         <ul className="xl:w-[1440px] md:w-[100vw] lg:px-[80px] px-[60px] flex justify-between items-center max-[450px]:hidden">
           {/* Left nav items */}
