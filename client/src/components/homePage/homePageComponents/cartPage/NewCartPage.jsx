@@ -21,6 +21,63 @@ import { motion, AnimatePresence } from "motion/react";
 import { Navbar } from "../topSection/navBar/navbar";
 import PhoneNavBar from "../topSection/navBar/PhoneNavBar";
 import bookStoreLogo from '../../../../assets/logos/bookStoreLogo.svg'
+import ShinyText from "../../../../globalComponents/shinyText/ShinyText";
+
+const mockOrder = {
+  orderId: "BV-2024-001234",
+  orderDate: "January 15, 2024",
+  estimatedDelivery: "January 20-22, 2024",
+  status: "confirmed",
+  items: [
+    {
+      book: {
+        id: 1,
+        title: "The Midnight Library",
+        author: "Matt Haig",
+        price: 14.99,
+        originalPrice: 19.99,
+        rating: 4.5,
+        reviewCount: 1250,
+        category: "Fiction",
+        language: "English",
+        image:
+          "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=600&fit=crop",
+        isNew: true,
+        isOnSale: true,
+      },
+      quantity: 1,
+    },
+    {
+      book: {
+        id: 2,
+        title: "Atomic Habits",
+        author: "James Clear",
+        price: 16.99,
+        rating: 4.8,
+        reviewCount: 2340,
+        category: "Self-Help",
+        language: "English",
+        image:
+          "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400&h=600&fit=crop",
+        isNew: false,
+      },
+      quantity: 2,
+    },
+  ],
+  subtotal: 48.97,
+  shipping: 5.99,
+  tax: 4.4,
+  total: 59.36,
+  paymentMethod: "•••• •••• •••• 1234 (Visa)",
+  shippingAddress: {
+    name: "Sarah Johnson",
+    address: "123 Library Street, Apt 4B",
+    city: "Booktown",
+    state: "Reading State",
+    zipCode: "12345",
+    phone: "+1 (555) 123-4567",
+  },
+};
 
 /* -------------------------
    MOCK DATA
@@ -35,7 +92,7 @@ const mockCartItems = [
     quantity: 1,
     image: "https://via.placeholder.com/120x160.png?text=Atomic+Habits",
     category: "Self-help",
-    language: "EN",
+    language: "English",
   },
   {
     id: 2,
@@ -46,7 +103,7 @@ const mockCartItems = [
     quantity: 2,
     image: "https://via.placeholder.com/120x160.png?text=Pragmatic+Programmer",
     category: "Programming",
-    language: "EN",
+    language: "English",
   },
   {
     id: 3,
@@ -57,7 +114,7 @@ const mockCartItems = [
     quantity: 1,
     image: "https://via.placeholder.com/120x160.png?text=Norwegian+Wood",
     category: "Fiction",
-    language: "JP (EN)",
+    language: "English",
   },
 ];
 
@@ -412,6 +469,7 @@ export default function Cart() {
               <div className="p-8 text-center border rounded-lg">
                 <ShoppingCart className="mx-auto h-12 w-12 text-gray-400" />
                 <p className="mt-4 text-gray-600">Your cart is empty — start adding books!</p>
+
               </div>
             )}
 
@@ -437,12 +495,12 @@ export default function Cart() {
                   </div>
 
                   <div className="flex items-center justify-between mt-4">
-                    <div className="flex items-center gap-2">
-                      <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 flex items-center justify-center cursor-pointer">
+                    <div className="flex items-center gap-2 bg-gradient-to-br  from-blue-300 via-blue-500 to-purple-300 rounded-2xl justify-evenly">
+                      <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="h-8 w-10  flex items-center justify-center cursor-pointer">
                         <Minus className="h-5 w-5 text-white" />
                       </button>
-                      <div className="w-10 text-center bg-gradient-to-br from-blue-300 via-blue-500 to-purple-500 bg-clip-text text-transparent text-[24px] font-normal">{item.quantity}</div>
-                      <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 flex items-center justify-center cursor-pointer">
+                      <div className="w-2 text-center text-[24px] text-white font-normal">{item.quantity}</div>
+                      <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="h-8 w-10 rounded-lg  flex items-center justify-center cursor-pointer">
                         <Plus className="h-5 w-5 text-white" />
                       </button>
                     </div>
@@ -459,18 +517,42 @@ export default function Cart() {
           </div>
 
           {/* Shipping address */}
-          <div className="bg-white/60 dark:bg-gray-800/60 p-4 rounded-2xl shadow-gray-300 shadow-md">
+          {/* <div className="bg-white/60 dark:bg-gray-800/60 p-4 rounded-2xl shadow-gray-300 shadow-md">
             <h4 className="font-semibold flex items-center gap-2"><MapPin className="h-4 w-4" /> Delivery Address</h4>
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">Flat no 3, Shreyas, 1st floor, 180 Madam Cama Road, Nariman Point, Mumbai, Maharashtra 400020</p>
             <p className="text-sm text-orange-600 mt-2">Estimate delivery: 2-3 hours</p>
-          </div>
+          </div> */}
         </div>
 
         {/* Right - summary */}
         <aside className="sticky top-20 space-y-4 mt-[75px]">
+          {/* Shipping Address */}
+          <div className="bg-white p-6 rounded-2xl shadow-md text-black/80">
+            <h3 className="font-semibold text-[18px] mb-4 flex items-center gap-2">
+              {/* <MapPin className="h-5 w-5 text-orange-500" />  */}
+              Delivery Address
+            </h3>
+            <p className="font-medium">{mockOrder.shippingAddress.name}</p>
+              
+            <div
+            className="flex text-[16px] text-[#7C7C7C]">
+              {mockOrder.shippingAddress.address}
+
+              {mockOrder.shippingAddress.city},{" "}
+              {mockOrder.shippingAddress.state} {mockOrder.shippingAddress.zipCode}
+            </div>
+            <p className="text-[16px] mt-1 ">{`+91 80973 15130`}</p>
+            <p className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent text-[16px] mt-[12px] md:text-[20px] font-semibold">Estimate delivery: 2-3 hours</p>
+            {/* <ShinyText 
+                  text="Estimate delivery: 2-3 hours" 
+                  disabled={false} 
+                  speed={5} 
+                  className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent text-[16px] mt-[12px] md:text-[20px] font-semibold" 
+                /> */}
+          </div>
           <div className="bg-white/90 dark:bg-gray-800/80 p-4 rounded-2xl shadow-md shadow-gray-300">
             {/* Coupon input */}
-            <div className="flex gap-2 mb-3">
+            {/* <div className="flex gap-2 mb-3">
               <input
                 value={couponCode}
                 onChange={(e) => setCouponCode(e.target.value)}
@@ -491,27 +573,30 @@ export default function Cart() {
                   <button onClick={handleRemoveCoupon} className="text-green-700">Remove</button>
                 </div>
               </div>
-            )}
+            )} */}
 
             {/* Price breakdown */}
-            <div className="mt-4 space-y-2">
-              <div className="flex justify-between text-sm">
-                <span>Items ({cartItems.length})</span>
-                <span>₹{subtotal.toFixed(2)}</span>
+            <div className="space-y-2">
+              <h3 className="text-[18px] font-semibold mb-6 flex items-center gap-2">
+              {/* <CreditCard className="h-5 w-5 text-green-500" /> */}
+               Order Summary
+            </h3>
+              <div className="flex justify-between text-[14px]">
+                <span className="text-[#7C7C7C]">Item Total</span>
+                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>565</span>
               </div>
-              {discount > 0 && (
-                <div className="flex justify-between text-sm text-green-600">
-                  <span>Discount</span>
-                  <span>- ₹{discount.toFixed(2)}</span>
-                </div>
-              )}
-              <div className="flex justify-between text-sm">
-                <span>Delivery</span>
-                <span>{deliveryCharges === 0 ? "FREE" : `$${deliveryCharges.toFixed(2)}`}</span>
+              <div className="flex justify-between text-[14px]">
+                <span className="text-[#7C7C7C] ">Discount</span>
+                <span className="text-green-400 text-[18px] font-semibold"><span className="font-[Roboto] ">- ₹</span>450</span>
               </div>
-              <div className="flex justify-between mt-3 font-semibold text-lg border-t pt-3">
-                <span>Amount to pay</span>
-                <span>₹{total.toFixed(2)}</span>
+              <div className="flex justify-between text-[14px] pb-[16px]">
+                <span className="text-[#7C7C7C] ">Delivery Charges</span>
+                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>30</span>
+              </div>
+              <hr className="bg-[#EFEFEF] border-t-2 border-[#E9E9E9]"/>
+              <div className="flex justify-between font-medium text-black/80 text-lg ">
+                <span className=" text-[14px]">Total Amount</span>
+                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>480</span>
               </div>
             </div>
 
@@ -521,14 +606,14 @@ export default function Cart() {
           </div>
 
           {/* Gift + security */}
-          <div className="bg-white/90 dark:bg-gray-800/80 p-4 rounded-2xl shadow-gray-300 shadow-md text-sm">
+          {/* <div className="bg-white/90 dark:bg-gray-800/80 p-4 rounded-2xl shadow-gray-300 shadow-md text-sm">
             <div className="flex items-center gap-2 mb-2">
               <Gift className="h-4 w-4 text-pink-500" /> <span>Mark this as a gift</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-gray-600">
               <CreditCard className="h-4 w-4" /> <span>Secure payment • 256-bit encryption</span>
             </div>
-          </div>
+          </div> */}
         </aside>
       </div>
 

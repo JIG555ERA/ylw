@@ -50,7 +50,7 @@ export function ProfileSection() {
       </div>
 
       {/* Profile Photo */}
-      <div className="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 mb-6 border border-gray-200/50 dark:border-gray-700/50">
+      {/* <div className="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 mb-6 border border-gray-200/50 dark:border-gray-700/50">
         <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Profile Photo</h3>
         <div className="flex items-center gap-6">
           <div className="relative group">
@@ -74,7 +74,7 @@ export function ProfileSection() {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Personal Information */}
       <div className="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 mb-6 border border-gray-200/50 dark:border-gray-700/50">

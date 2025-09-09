@@ -104,11 +104,16 @@ const BookCard = ({ book }) => {
                   {book.bookAuthor}
                 </p>
               </div>
-               <div
-                className="flex flex-col w-[35%]">
-                  <p className="font-[Roboto] xl:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[16px]">₹{book.bookPrice}</p> 
-                  <p className="text-[12px] ml-[12px] text-[#7C7C7C]/75 line-through"><span className="font-[Roboto]">₹</span>{Math.round(book.bookPrice + book.bookPrice/10)}</p>
+               <div className="relative ml-auto flex flex-col items-end text-right">
+                  <p className="font-[Roboto] xl:text-[18px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent font-semibold text-[16px]">
+                    ₹{book.bookPrice}
+                  </p>
+                  <p className="text-[12px] text-[#7C7C7C]/75 line-through">
+                    <span className="font-[Roboto]">₹</span>
+                    {Math.round(book.bookPrice + book.bookPrice / 10)}
+                  </p>
                 </div>
+
             </div>
            
           </div>
