@@ -19,6 +19,8 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Navbar } from "../topSection/navBar/navbar";
+import PhoneNavBar from "../topSection/navBar/PhoneNavBar";
+import bookStoreLogo from '../../../../assets/logos/bookStoreLogo.svg'
 
 /* -------------------------
    MOCK DATA
@@ -380,8 +382,18 @@ export default function Cart() {
       <div className="max-w-6xl mx-auto p-6">
         <Navbar active="cart" />
       </div>
+      {/* Mobile-only logo */}
+            <a href="/" className="block lg:hidden w-full ">
+              <div className="flex justify-center items-center">
+                <img
+                  src={bookStoreLogo}
+                  alt="Book Store Logo"
+                  className="h-[72px] w-auto" // Adjust size as needed
+                />
+              </div>
+            </a>
 
-      <div className="max-w-6xl mx-auto p-6 py-[100px] grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto p-6 md:py-[100px] pt-[40px] pb-[120px] grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Left - items */}
         <div className="md:col-span-2 space-y-6">
           <header className="flex items-center gap-4">
@@ -542,6 +554,7 @@ export default function Cart() {
           </motion.div>
         )}
       </AnimatePresence>
+      <PhoneNavBar />
     </div>
   );
 }
