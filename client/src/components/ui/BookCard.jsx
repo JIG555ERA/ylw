@@ -67,10 +67,10 @@ export function BookCard({ book, index = 0, onRemove }) {
           {book.originalPrice && book.originalPrice > book.price ? (
             <>
               <span className="font-semibold text-gray-900 dark:text-white">
-                ${book.price.toFixed(2)}
+                ₹{book.price.toFixed(2)}
               </span>
               <span className="text-sm text-gray-500 line-through">
-                ${book.originalPrice.toFixed(2)}
+                ₹{book.originalPrice.toFixed(2)}
               </span>
               <Badge variant="outline" className="text-xs text-vibrant-red border-vibrant-red">
                 {Math.round(((book.originalPrice - book.price) / book.originalPrice) * 100)}% off
@@ -78,7 +78,7 @@ export function BookCard({ book, index = 0, onRemove }) {
             </>
           ) : (
             <span className="font-semibold text-gray-900 dark:text-white">
-              ${book.price.toFixed(2)}
+              ₹{book.price.toFixed(2)}
             </span>
           )}
         </div>
