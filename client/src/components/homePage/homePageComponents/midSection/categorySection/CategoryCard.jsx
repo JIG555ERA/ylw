@@ -22,7 +22,7 @@ export default function CategoryCard({ category, books = [], count = 0, onClick 
           relative bg-white/80 dark:bg-white/10 backdrop-blur-lg rounded-2xl p-6
           border border-white/20 dark:border-white/10 shadow-lg
           transition-all duration-500 cursor-pointer overflow-hidden
-          h-[500px] w-[300px] flex flex-col
+          h-[500px] md:mt-[20px] w-[300px] flex flex-col
           ${isHovered ? "scale-105 shadow-2xl" : "hover:shadow-xl"}
         `}
         onClick={onClick}

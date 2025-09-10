@@ -32,36 +32,36 @@ export const CategorySection = () => {
     const categoryConfig = [
         {
             name: "Fiction",
-            color: "from-pastel-pink to-vibrant-pink",
-            accent: "vibrant-pink",
+            color: "from-pink-50 to-pink-200",
+            accent: "pink-100",
             icon: "📚",
             description: "Immerse yourself in captivating stories"
         },
         {
             name: "Non Fiction",
-            color: "from-pastel-blue to-vibrant-blue",
-            accent: "vibrant-blue",
+            color: "from-blue-50 to-blue-200",
+            accent: "blue-100",
             icon: "🔍",
             description: "Discover facts and real-world insights"
         },
         {
             name: "Romance",
-            color: "from-pastel-purple to-vibrant-purple",
-            accent: "vibrant-purple",
+            color: "from-purple-50 to-purple-200",
+            accent: "purple-100",
             icon: "💕",
             description: "Fall in love with heartwarming tales"
         },
         {
             name: "Young Adult",
-            color: "from-pastel-green to-vibrant-green",
-            accent: "vibrant-green",
+            color: "from-green-50 to-green-200",
+            accent: "green-100",
             icon: "🌱",
             description: "Stories for teens and young adults"
         },
         {
             name: "Featured",
-            color: "from-pastel-orange to-vibrant-orange",
-            accent: "vibrant-orange",
+            color: "from-orange-50 to-orange-200",
+            accent: "orange-100",
             icon: "⭐",
             description: "Highlighted must-read picks"
         }
@@ -81,7 +81,7 @@ export const CategorySection = () => {
             </div>
 
             {/* ✅ Category Cards */}
-            <div className="h-[540px] flex justify-between overflow-x-scroll overflow-hidden xl:gap-6 md:gap-4 gap-3 [&::-webkit-scrollbar]:hidden scrollbar-hide whitespace-nowrap mt-[20px]">
+            <div className="md:h-[560px] h-[540px] flex justify-between overflow-x-scroll overflow-hidden xl:gap-6 md:gap-4 gap-3 [&::-webkit-scrollbar]:hidden scrollbar-hide whitespace-nowrap mt-[20px]">
                 {categoryConfig.map((cat, index) => (
                     <CategoryCard
                         key={index}

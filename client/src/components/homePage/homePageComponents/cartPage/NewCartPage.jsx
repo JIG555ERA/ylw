@@ -22,6 +22,7 @@ import { Navbar } from "../topSection/navBar/navbar";
 import PhoneNavBar from "../topSection/navBar/PhoneNavBar";
 import bookStoreLogo from '../../../../assets/logos/bookStoreLogo.svg'
 import ShinyText from "../../../../globalComponents/shinyText/ShinyText";
+import ImageSection from "../../../../globalComponents/ImageSection";
 
 const mockOrder = {
   orderId: "BV-2024-001234",
@@ -260,10 +261,10 @@ function SwipeToPayButton({ total, onComplete }) {
           {isCompleted ? "Redirecting..." : "Drag the button to complete payment — secure checkout"}
         </div>
 
-        <div className="flex items-center justify-center gap-2 text-xs text-gray-600 mt-1">
+        {/* <div className="flex items-center justify-center gap-2 text-xs text-gray-600 mt-1">
           <CreditCard className="h-4 w-4" />
           <span>256-bit SSL secured</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -475,7 +476,9 @@ export default function Cart() {
 
             {cartItems.map((item) => (
               <motion.div key={item.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex gap-4 p-4 bg-white/60 dark:bg-gray-800/60 rounded-2xl shadow-md shadow-gray-200 hover:scale-102 hover:shadow-gray-300 hover:shadow-lg">
-                <img src={item.image} alt={item.title} className="w-24 h-32 object-cover rounded-lg shadow-sm" />
+                {/* <div className="lg:w-[130px] w-[90px] h-auto aspect-[3/4] mx-auto md:mt-6 mt-3">
+                  <ImageSection bookCoverPage={book.bookCoverPage} />
+                </div> */}
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
                     <div>
