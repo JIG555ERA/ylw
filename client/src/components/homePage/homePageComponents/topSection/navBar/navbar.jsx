@@ -8,10 +8,12 @@ import { CircleUserRound } from 'lucide-react';
 
 import { UserProfile } from "../../../../../globalComponents/userProfile/UserProfile"
 import { sampleBook } from "../../../../../globalComponents/userProfile/Book.js";
+import { useCart } from "../../../../../globalComponents/CartContext";
 
 export const Navbar = ({ active = "" }) => {
   const [activePage, setActivePage] = useState(active);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const { cartItems } = useCart();
 
   const navItems = [
     { name: "Home", icon: homeIcon, selectedIcon: "selectedHomeIcon", link: `/` },
@@ -58,25 +60,26 @@ export const Navbar = ({ active = "" }) => {
           </a>
 
           {/* Right nav items */}
-          {navItems.slice(2).map((item) => (
-            <a key={item.name} href={item.link}>
-              <li
-                className={`flex items-center justify-between cursor-pointer transition-all duration-300 ease-in-out ${
-                  activePage === item.name
-                    ? "text-[#121212] font-semibold text-base rounded-md animate-slide-in py-2.5"
-                    : "text-[#8C8C8C] py-2.5 font-normal"
-                }`}
-                onClick={() => setActivePage(item.name)}
-              >
-                <img
-                  className="mr-2 h-[24px] w-[24px]"
-                  src={item.icon}
-                  alt={`${item.name} Icon`}
-                />
-                <p>{item.name}</p>
-              </li>
-            </a>
-          ))}
+        {navItems.slice(2).map((item) => (
+          <a key={item.name} href={item.link} className="relative">
+            <li
+              className={`flex items-center cursor-pointer transition-all duration-300 ${
+                activePage === item.name ? "text-[#121212] font-semibold" : "text-[#8C8C8C]"
+              }`}
+              onClick={() => setActivePage(item.name)}
+            >
+              <img className="mr-2 h-[24px] w-[24px]" src={item.icon} alt={item.name} />
+              <p>{item.name}</p>
+            </li>
+
+            {/* ✅ Cart Count Badge */}
+            {item.name === "Cart" && cartItems.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs font-semibold rounded-full px-1.5 py-0.5">
+                {cartItems.length}
+              </span>
+            )}
+          </a>
+        ))}
 
           {/* Profile Icon (Triggers L2 Drawer) */}
           <li

@@ -18,24 +18,27 @@ import OrderConfirmation from './components/orderConfirmation/OrderConfirmation'
 import NotFound from './globalComponents/notFound/NotFound'
 import CustomCursor from './globalComponents/CustomCursor'
 import Cart from '../src/components/homePage/homePageComponents/cartPage/NewCartPage'
+import { CartProvider } from './globalComponents/CartContext'
 
 function App() {
   return (
     <>
      {/* <CustomCursor /> */}
-     <Routes>
-        <Route path='/' element={<HomePage />} /> 
-        <Route path='/categories' element={<CategoryPage />} /> 
-        <Route path="/liked" element={<LikePage />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/product" element={<ProductPage />} />
-        <Route path="/publications" element={<Publications />} />
-        <Route path='/auth/signup' element={<AuthSignUP />} />
-        <Route path='/auth/login' element={<AuthLogIN />} />
-        <Route path='/payment' element={<PaymentPage />} />
-        <Route path='/order' element={<OrderConfirmation />} />
-        <Route path='/*' element={<NotFound />} />
-     </Routes>
+     <CartProvider >
+      <Routes>
+          <Route path='/' element={<HomePage />} /> 
+          <Route path='/categories' element={<CategoryPage />} /> 
+          <Route path="/liked" element={<LikePage />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route path="/publications" element={<Publications />} />
+          <Route path='/auth/signup' element={<AuthSignUP />} />
+          <Route path='/auth/login' element={<AuthLogIN />} />
+          <Route path='/payment' element={<PaymentPage />} />
+          <Route path='/order' element={<OrderConfirmation />} />
+          <Route path='/*' element={<NotFound />} />
+      </Routes>
+    </CartProvider>
     </>
   )
 }
