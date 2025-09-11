@@ -1,4 +1,3 @@
-// globalComponents/CartContext.jsx
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
@@ -6,15 +5,13 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  // ✅ Load from localStorage
+  // Load from localStorage
   useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-      setCartItems(JSON.parse(storedCart));
-    }
+    const stored = localStorage.getItem("cart");
+    if (stored) setCartItems(JSON.parse(stored));
   }, []);
 
-  // ✅ Save to localStorage
+  // Save to localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
@@ -25,7 +22,7 @@ export const CartProvider = ({ children }) => {
       if (exists) {
         return prev.map((item) =>
           item.id === book.id
-            ? { ...item, quantity: Math.min(3, (item.quantity || 1) + 1) }
+            ? { ...item, quantity: Math.min((item.quantity || 1) + 1, 3) }
             : item
         );
       }
@@ -33,25 +30,23 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const removeFromCart = (bookId) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== bookId));
+  const updateQuantity = (id, newQty) => {
+    setCartItems((prev) =>
+      newQty <= 0
+        ? prev.filter((item) => item.id !== id) // auto remove
+        : prev.map((item) =>
+            item.id === id ? { ...item, quantity: Math.min(newQty, 3) } : item
+          )
+    );
   };
 
-  const updateQuantity = (bookId, newQuantity) => {
-    setCartItems((prev) =>
-      prev
-        .map((item) =>
-          item.id === bookId
-            ? { ...item, quantity: Math.max(0, Math.min(3, newQuantity)) }
-            : item
-        )
-        .filter((item) => item.quantity > 0) // auto-remove if 0
-    );
+  const removeFromCart = (id) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, updateQuantity }}
+      value={{ cartItems, addToCart, updateQuantity, removeFromCart }}
     >
       {children}
     </CartContext.Provider>

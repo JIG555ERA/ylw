@@ -23,53 +23,16 @@ import PhoneNavBar from "../topSection/navBar/PhoneNavBar";
 import bookStoreLogo from '../../../../assets/logos/bookStoreLogo.svg'
 import ShinyText from "../../../../globalComponents/shinyText/ShinyText";
 import ImageSection from "../../../../globalComponents/ImageSection";
+import { useCart } from "../../../../globalComponents/CartContext";
 
+/* -------------------------
+   MOCK ORDER & COUPONS (kept for UI / shipping address / coupons)
+   ------------------------- */
 const mockOrder = {
   orderId: "BV-2024-001234",
   orderDate: "January 15, 2024",
   estimatedDelivery: "January 20-22, 2024",
   status: "confirmed",
-  items: [
-    {
-      book: {
-        id: 1,
-        title: "The Midnight Library",
-        author: "Matt Haig",
-        price: 14.99,
-        originalPrice: 19.99,
-        rating: 4.5,
-        reviewCount: 1250,
-        category: "Fiction",
-        language: "English",
-        image:
-          "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=600&fit=crop",
-        isNew: true,
-        isOnSale: true,
-      },
-      quantity: 1,
-    },
-    {
-      book: {
-        id: 2,
-        title: "Atomic Habits",
-        author: "James Clear",
-        price: 16.99,
-        rating: 4.8,
-        reviewCount: 2340,
-        category: "Self-Help",
-        language: "English",
-        image:
-          "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400&h=600&fit=crop",
-        isNew: false,
-      },
-      quantity: 2,
-    },
-  ],
-  subtotal: 48.97,
-  shipping: 5.99,
-  tax: 4.4,
-  total: 59.36,
-  paymentMethod: "•••• •••• •••• 1234 (Visa)",
   shippingAddress: {
     name: "Sarah Johnson",
     address: "123 Library Street, Apt 4B",
@@ -80,55 +43,16 @@ const mockOrder = {
   },
 };
 
-/* -------------------------
-   MOCK DATA
-   ------------------------- */
-const mockCartItems = [
-  {
-    id: 1,
-    title: "Atomic Habits",
-    author: "James Clear",
-    price: 12.99,
-    originalPrice: 19.99,
-    quantity: 1,
-    image: "https://via.placeholder.com/120x160.png?text=Atomic+Habits",
-    category: "Self-help",
-    language: "English",
-  },
-  {
-    id: 2,
-    title: "The Pragmatic Programmer",
-    author: "Andrew Hunt",
-    price: 29.99,
-    originalPrice: 39.99,
-    quantity: 2,
-    image: "https://via.placeholder.com/120x160.png?text=Pragmatic+Programmer",
-    category: "Programming",
-    language: "English",
-  },
-  {
-    id: 3,
-    title: "Norwegian Wood",
-    author: "Haruki Murakami",
-    price: 8.5,
-    originalPrice: null,
-    quantity: 1,
-    image: "https://via.placeholder.com/120x160.png?text=Norwegian+Wood",
-    category: "Fiction",
-    language: "English",
-  },
-];
-
 const mockCoupons = [
   {
     id: "1",
     code: "TRYNEW",
     title: "TRYNEW",
-    description: "Save $12 on this order!",
+    description: "Save big on this order!",
     discount: 60,
     discountType: "percentage",
-    minimumOrder: 19.99,
-    maxDiscount: 12,
+    minimumOrder: 199,
+    maxDiscount: 120,
     isActive: true,
     color: "from-vibrant-orange to-vibrant-red",
   },
@@ -136,10 +60,10 @@ const mockCoupons = [
     id: "2",
     code: "APAYFEST",
     title: "APAYFEST",
-    description: "Get upto $10 cashback using Amazon Pay Balance",
-    discount: 10,
+    description: "Get upto ₹100 cashback using Amazon Pay Balance",
+    discount: 100,
     discountType: "fixed",
-    minimumOrder: 50,
+    minimumOrder: 500,
     isActive: true,
     color: "from-vibrant-blue to-vibrant-indigo",
   },
@@ -150,15 +74,15 @@ const mockCoupons = [
     description: "Get 20% off on your first order",
     discount: 20,
     discountType: "percentage",
-    minimumOrder: 10,
-    maxDiscount: 5,
+    minimumOrder: 100,
+    maxDiscount: 200,
     isActive: true,
     color: "from-vibrant-green to-vibrant-emerald",
   },
 ];
 
 /* -------------------------
-   HELPER: SwipeToPayButton (inline)
+   SwipeToPayButton (same experience as your original)
    ------------------------- */
 function SwipeToPayButton({ total, onComplete }) {
   const [isCompleted, setIsCompleted] = useState(false);
@@ -217,7 +141,7 @@ function SwipeToPayButton({ total, onComplete }) {
               ) : (
                 <>
                   <div className="text-sm">Swipe to Pay</div>
-                  <div className="text-xs opacity-90"><span className="font-[Roboto]">₹</span>{total.toFixed(2)}</div>
+                  <div className="text-xs opacity-90"><span className="font-[Roboto]">₹</span>{Number(total || 0).toFixed(2)}</div>
                 </>
               )}
             </motion.div>
@@ -260,18 +184,13 @@ function SwipeToPayButton({ total, onComplete }) {
         <div className="text-center text-xs text-gray-500 mt-2">
           {isCompleted ? "Redirecting..." : "Drag the button to complete payment — secure checkout"}
         </div>
-
-        {/* <div className="flex items-center justify-center gap-2 text-xs text-gray-600 mt-1">
-          <CreditCard className="h-4 w-4" />
-          <span>256-bit SSL secured</span>
-        </div> */}
       </div>
     </div>
   );
 }
 
 /* -------------------------
-   INLINE CouponSection overlay (complete)
+   CouponSection overlay (keeps original UI + uses cart total)
    ------------------------- */
 function CouponSection({ open, onClose, coupons = [], cartTotal = 0, onSelectCoupon, appliedCoupon }) {
   if (!open) return null;
@@ -279,7 +198,7 @@ function CouponSection({ open, onClose, coupons = [], cartTotal = 0, onSelectCou
   const eligible = coupons.filter((c) => cartTotal >= c.minimumOrder);
   const ineligible = coupons.filter((c) => cartTotal < c.minimumOrder);
 
-  const formatDiscount = (c) => (c.discountType === "percentage" ? `${c.discount}% OFF` : `$${c.discount} OFF`);
+  const formatDiscount = (c) => (c.discountType === "percentage" ? `${c.discount}% OFF` : `₹${c.discount} OFF`);
   const getDiscountAmt = (c) => {
     if (c.discountType === "percentage") {
       const disc = (cartTotal * c.discount) / 100;
@@ -304,7 +223,7 @@ function CouponSection({ open, onClose, coupons = [], cartTotal = 0, onSelectCou
           </button>
           <div>
             <h3 className="text-lg font-semibold">Apply Coupon</h3>
-            <p className="text-sm text-gray-600">Cart total: <span className="font-[Roboto]">₹</span>{cartTotal.toFixed(2)}</p>
+            <p className="text-sm text-gray-600">Cart total: <span className="font-[Roboto]">₹</span>{Number(cartTotal || 0).toFixed(2)}</p>
           </div>
         </div>
 
@@ -375,24 +294,26 @@ function CouponSection({ open, onClose, coupons = [], cartTotal = 0, onSelectCou
    MAIN PAGE
    ------------------------- */
 export default function Cart() {
-  const [cartItems, setCartItems] = useState(mockCartItems);
+  // pull live cart from context
+  const { cartItems, updateQuantity, removeFromCart } = useCart();
+
+  // local UI state
   const [couponCode, setCouponCode] = useState("");
   const [appliedCoupon, setAppliedCoupon] = useState(null);
   const [showCoupons, setShowCoupons] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
 
-  // quantity
-  const updateQuantity = (id, qty) => {
-    setCartItems((prev) => prev.map((it) => (it.id === id ? { ...it, quantity: Math.max(1, qty) } : it)));
-  };
+  // safe subtotal (use bookPrice schema; fallback to price if exists)
+  const subtotal = (cartItems || []).reduce((s, it) => {
+    const price = Number(it?.bookPrice ?? it?.price ?? 0);
+    const qty = Number(it?.quantity ?? 0);
+    return s + price * qty;
+  }, 0);
 
-  // remove
-  const removeItem = (id) => setCartItems((prev) => prev.filter((it) => it.id !== id));
+  // delivery rule (adjust as you prefer)
+  const deliveryCharges = subtotal > 500 ? 0 : 30;
 
-  // safe subtotal
-  const subtotal = (cartItems || []).reduce((s, it) => s + it.price * it.quantity, 0);
-  const deliveryCharges = subtotal > 25 ? 0 : 3;
-
+  // coupon calculation
   const calculateDiscount = (coupon) => {
     if (!coupon) return 0;
     if (coupon.discountType === "percentage") {
@@ -406,6 +327,7 @@ export default function Cart() {
   const discount = calculateDiscount(appliedCoupon);
   const total = Math.max(0, subtotal - discount + deliveryCharges);
 
+  // coupon handlers
   const handleApplyCoupon = () => {
     const found = mockCoupons.find((c) => c.code.toLowerCase() === couponCode.trim().toLowerCase());
     if (found && found.isActive && subtotal >= found.minimumOrder) {
@@ -414,7 +336,6 @@ export default function Cart() {
       setShowConfetti(true);
       setTimeout(() => setShowConfetti(false), 2500);
     } else {
-      // tiny inline feedback (kept simple for this patch)
       alert("Coupon invalid or minimum not reached.");
     }
   };
@@ -431,7 +352,8 @@ export default function Cart() {
   const handleRemoveCoupon = () => setAppliedCoupon(null);
 
   const handleCheckout = () => {
-    alert("Proceed to checkout — total: $" + total.toFixed(2));
+    // Replace this with real checkout flow
+    alert("Proceed to checkout — total: ₹" + Number(total || 0).toFixed(2));
   };
 
   return (
@@ -440,16 +362,17 @@ export default function Cart() {
       <div className="max-w-6xl mx-auto p-6">
         <Navbar active="cart" />
       </div>
+
       {/* Mobile-only logo */}
-            <a href="/" className="block lg:hidden w-full ">
-              <div className="flex justify-center items-center">
-                <img
-                  src={bookStoreLogo}
-                  alt="Book Store Logo"
-                  className="h-[72px] w-auto" // Adjust size as needed
-                />
-              </div>
-            </a>
+      <a href="/" className="block lg:hidden w-full ">
+        <div className="flex justify-center items-center">
+          <img
+            src={bookStoreLogo}
+            alt="Book Store Logo"
+            className="h-[72px] w-auto"
+          />
+        </div>
+      </a>
 
       <div className="max-w-6xl mx-auto p-6 md:py-[100px] pt-[40px] pb-[120px] grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Left - items */}
@@ -470,136 +393,105 @@ export default function Cart() {
               <div className="p-8 text-center border rounded-lg">
                 <ShoppingCart className="mx-auto h-12 w-12 text-gray-400" />
                 <p className="mt-4 text-gray-600">Your cart is empty — start adding books!</p>
-
               </div>
             )}
 
-            {cartItems.map((item) => (
-              <motion.div key={item.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex gap-4 p-4 bg-white/60 dark:bg-gray-800/60 rounded-2xl shadow-md shadow-gray-200 hover:scale-102 hover:shadow-gray-300 hover:shadow-lg">
-                {/* <div className="lg:w-[130px] w-[90px] h-auto aspect-[3/4] mx-auto md:mt-6 mt-3">
-                  <ImageSection bookCoverPage={book.bookCoverPage} />
-                </div> */}
-                <div className="flex-1">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="font-semibold text-lg line-clamp-1">{item.title}</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{item.author}</p>
-                      <div className="flex gap-2 mt-2">
-                        <span className="px-2 py-0.5 text-xs bg-orange-100 text-orange-800 rounded-full">{item.category}</span>
-                        <span className="px-2 py-0.5 text-xs bg-blue-100 text-blue-800 rounded-full">{item.language}</span>
-                        <span className="px-2 py-0.5 text-xs bg-green-100 text-green-800 rounded-full">Paperback</span>
+            {cartItems.map((item) => {
+              const price = Number(item?.bookPrice ?? item?.price ?? 0);
+              const qty = Number(item?.quantity ?? 0);
+
+              return (
+                <motion.div key={item.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex gap-4 p-4 bg-white/60 dark:bg-gray-800/60 rounded-2xl shadow-md shadow-gray-200 hover:scale-102 hover:shadow-gray-300 hover:shadow-lg">
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="font-semibold text-lg line-clamp-1">{item.bookTitle}</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">{item.bookAuthor}</p>
+                        <div className="flex gap-2 mt-2">
+                          <span className="px-2 py-0.5 text-xs bg-orange-100 text-orange-800 rounded-full">{item.category}</span>
+                          {/* if you have language field */}
+                          {item.language && <span className="px-2 py-0.5 text-xs bg-blue-100 text-blue-800 rounded-full">{item.language}</span>}
+                          <span className="px-2 py-0.5 text-xs bg-green-100 text-green-800 rounded-full">Paperback</span>
+                        </div>
+                      </div>
+
+                      <div className="text-right">
+                        <div className="font-semibold">₹{price.toFixed(2)}</div>
+                        {item.originalPrice && <div className="text-xs text-gray-500 line-through"><span className="font-[Roboto]">₹</span>{Number(item.originalPrice).toFixed(2)}</div>}
                       </div>
                     </div>
 
-                    <div className="text-right">
-                      <div className="font-semibold">₹{item.price.toFixed(2)}</div>
-                      {item.originalPrice && <div className="text-xs text-gray-500 line-through"><span className="font-[Roboto]">₹</span>{item.originalPrice.toFixed(2)}</div>}
+                    <div className="flex items-center justify-between mt-4">
+                      <div className="flex items-center gap-2 bg-gradient-to-br  from-blue-300 via-blue-500 to-purple-300 rounded-2xl justify-evenly">
+                        <button
+                          onClick={() => updateQuantity(item.id, qty - 1)}
+                          className="h-8 w-10  flex items-center justify-center cursor-pointer"
+                        >
+                          <Minus className="h-5 w-5 text-white" />
+                        </button>
+                        <div className="w-2 text-center text-[24px] text-white font-normal">{qty}</div>
+                        <button
+                          onClick={() => updateQuantity(item.id, qty + 1)}
+                          disabled={qty >= 3}
+                          className={`h-8 w-10 rounded-lg  flex items-center justify-center cursor-pointer ${qty >= 3 ? "opacity-50 cursor-not-allowed" : ""}`}
+                        >
+                          <Plus className="h-5 w-5 text-white" />
+                        </button>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <button onClick={() => removeFromCart(item.id)} className="text-red-500 p-2 rounded hover:bg-red-50">
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </div>
                     </div>
                   </div>
-
-                  <div className="flex items-center justify-between mt-4">
-                    <div className="flex items-center gap-2 bg-gradient-to-br  from-blue-300 via-blue-500 to-purple-300 rounded-2xl justify-evenly">
-                      <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="h-8 w-10  flex items-center justify-center cursor-pointer">
-                        <Minus className="h-5 w-5 text-white" />
-                      </button>
-                      <div className="w-2 text-center text-[24px] text-white font-normal">{item.quantity}</div>
-                      <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="h-8 w-10 rounded-lg  flex items-center justify-center cursor-pointer">
-                        <Plus className="h-5 w-5 text-white" />
-                      </button>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <button onClick={() => removeItem(item.id)} className="text-red-500 p-2 rounded hover:bg-red-50">
-                        <Trash2 className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
-
-          {/* Shipping address */}
-          {/* <div className="bg-white/60 dark:bg-gray-800/60 p-4 rounded-2xl shadow-gray-300 shadow-md">
-            <h4 className="font-semibold flex items-center gap-2"><MapPin className="h-4 w-4" /> Delivery Address</h4>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">Flat no 3, Shreyas, 1st floor, 180 Madam Cama Road, Nariman Point, Mumbai, Maharashtra 400020</p>
-            <p className="text-sm text-orange-600 mt-2">Estimate delivery: 2-3 hours</p>
-          </div> */}
         </div>
 
         {/* Right - summary */}
         <aside className="sticky top-20 space-y-4 mt-[75px]">
           {/* Shipping Address */}
           <div className="bg-white p-6 rounded-2xl shadow-md text-black/80">
-            <h3 className="font-semibold text-[18px] mb-4 flex items-center gap-2">
-              {/* <MapPin className="h-5 w-5 text-orange-500" />  */}
-              Delivery Address
-            </h3>
+            <h3 className="font-semibold text-[18px] mb-4 flex items-center gap-2">Delivery Address</h3>
             <p className="font-medium">{mockOrder.shippingAddress.name}</p>
-              
-            <div
-            className="flex text-[16px] text-[#7C7C7C]">
+            <div className="flex text-[16px] text-[#7C7C7C]">
               {mockOrder.shippingAddress.address}
-
               {mockOrder.shippingAddress.city},{" "}
               {mockOrder.shippingAddress.state} {mockOrder.shippingAddress.zipCode}
             </div>
-            <p className="text-[16px] mt-1 ">{`+91 80973 15130`}</p>
+            <p className="text-[16px] mt-1 ">{mockOrder.shippingAddress.phone}</p>
             <p className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent text-[16px] mt-[12px] md:text-[20px] font-semibold">Estimate delivery: 2-3 hours</p>
-            {/* <ShinyText 
-                  text="Estimate delivery: 2-3 hours" 
-                  disabled={false} 
-                  speed={5} 
-                  className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 bg-clip-text text-transparent text-[16px] mt-[12px] md:text-[20px] font-semibold" 
-                /> */}
           </div>
+
           <div className="bg-white/90 dark:bg-gray-800/80 p-4 rounded-2xl shadow-md shadow-gray-300">
-            {/* Coupon input */}
-            {/* <div className="flex gap-2 mb-3">
-              <input
-                value={couponCode}
-                onChange={(e) => setCouponCode(e.target.value)}
-                placeholder="Enter coupon code"
-                className="flex-1 px-3 py-2 rounded-lg border"
-              />
-              <button onClick={handleApplyCoupon} className="px-3 py-2 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 text-white rounded-lg">Apply</button>
-            </div>
-            <button onClick={() => setShowCoupons(true)} className="text-sm text-blue-600">View all coupons</button>
-
-            {appliedCoupon && (
-              <div className="mt-3 p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="font-medium text-green-800 dark:text-green-300">{appliedCoupon.code} applied</div>
-                    <div className="text-sm text-green-600">You saved <span className="font-[Roboto]">₹</span>{discount.toFixed(2)}</div>
-                  </div>
-                  <button onClick={handleRemoveCoupon} className="text-green-700">Remove</button>
-                </div>
-              </div>
-            )} */}
-
-            {/* Price breakdown */}
+            {/* Coupon / Price breakdown */}
             <div className="space-y-2">
-              <h3 className="text-[18px] font-semibold mb-6 flex items-center gap-2">
-              {/* <CreditCard className="h-5 w-5 text-green-500" /> */}
-               Order Summary
-            </h3>
+              <h3 className="text-[18px] font-semibold mb-6 flex items-center gap-2">Order Summary</h3>
+
               <div className="flex justify-between text-[14px]">
                 <span className="text-[#7C7C7C]">Item Total</span>
-                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>565</span>
+                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>{subtotal.toFixed(2)}</span>
               </div>
+
               <div className="flex justify-between text-[14px]">
                 <span className="text-[#7C7C7C] ">Discount</span>
-                <span className="text-green-400 text-[18px] font-semibold"><span className="font-[Roboto] ">- ₹</span>450</span>
+                <span className="text-green-400 text-[18px] font-semibold"><span className="font-[Roboto] ">- ₹</span>{discount.toFixed(2)}</span>
               </div>
+
               <div className="flex justify-between text-[14px] pb-[16px]">
                 <span className="text-[#7C7C7C] ">Delivery Charges</span>
-                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>30</span>
+                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>{deliveryCharges}</span>
               </div>
+
               <hr className="bg-[#EFEFEF] border-t-2 border-[#E9E9E9]"/>
+
               <div className="flex justify-between font-medium text-black/80 text-lg ">
                 <span className=" text-[14px]">Total Amount</span>
-                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>480</span>
+                <span className="text-[18px] font-semibold"><span className="font-[Roboto]">₹</span>{total.toFixed(2)}</span>
               </div>
             </div>
 
@@ -607,16 +499,6 @@ export default function Cart() {
               <SwipeToPayButton total={total} onComplete={handleCheckout} />
             </div>
           </div>
-
-          {/* Gift + security */}
-          {/* <div className="bg-white/90 dark:bg-gray-800/80 p-4 rounded-2xl shadow-gray-300 shadow-md text-sm">
-            <div className="flex items-center gap-2 mb-2">
-              <Gift className="h-4 w-4 text-pink-500" /> <span>Mark this as a gift</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs text-gray-600">
-              <CreditCard className="h-4 w-4" /> <span>Secure payment • 256-bit encryption</span>
-            </div>
-          </div> */}
         </aside>
       </div>
 
@@ -642,6 +524,7 @@ export default function Cart() {
           </motion.div>
         )}
       </AnimatePresence>
+
       <PhoneNavBar />
     </div>
   );
