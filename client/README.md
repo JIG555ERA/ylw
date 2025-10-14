@@ -9,7 +9,13 @@
 
 ## Author
 
-👤 **jigar**
+👤 **github.com/JIG555ERA/**
 
 * Github: [@JIG555ERA](https://github.com/JIG555ERA)
 
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
