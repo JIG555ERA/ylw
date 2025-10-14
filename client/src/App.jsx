@@ -19,6 +19,14 @@ import NotFound from './globalComponents/notFound/NotFound'
 import CustomCursor from './globalComponents/CustomCursor'
 import Cart from '../src/components/homePage/homePageComponents/cartPage/NewCartPage'
 import { CartProvider } from './globalComponents/CartContext'
+import SignUp  from './globalComponents/auth/SignUP'
+import TermsAndConditions from './components/legalities/TermsAndConditions'
+import PrivacyPolicy from './components/legalities/PrivacyPolicy'
+import RefundAndCancellationPolicy from './components/legalities/RefundAndCancellationPolicy'
+import ReturnPolicy from './components/legalities/ReturnPolicy'
+import ShippingPolicy from './components/legalities/ShippingPolicy'
+import NotFound02 from './globalComponents/notFound/NotFound02'
+import TechnicalError from './globalComponents/notFound/TechnicalError'
 
 function App() {
   return (
@@ -32,11 +40,17 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/product" element={<ProductPage />} />
           <Route path="/publications" element={<Publications />} />
-          <Route path='/auth/signup' element={<AuthSignUP />} />
+          <Route path='/auth/signup' element={<SignUp />} />
           <Route path='/auth/login' element={<AuthLogIN />} />
-          <Route path='/payment' element={<PaymentPage />} />
+          {/* <Route path='/payment' element={<PaymentPage />} /> */}
           <Route path='/order' element={<OrderConfirmation />} />
-          <Route path='/*' element={<NotFound />} />
+          <Route path='/termsAndConditions' element={<TermsAndConditions />} />
+          <Route path='/privacyPolicy' element={<PrivacyPolicy />} />
+          <Route path='/refundAndCancellationPolicy' element={<RefundAndCancellationPolicy />} />
+          <Route path='/returnPolicy' element={<ReturnPolicy />} />
+          <Route path='/shippingPolicy' element={<ShippingPolicy />} />
+          <Route path='/*' element={<NotFound02 />} />
+          <Route path='/tech-error' element={<TechnicalError />} />
       </Routes>
     </CartProvider>
     </>

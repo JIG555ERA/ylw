@@ -13,21 +13,22 @@ const BestSellersSection = () => {
         { id: 0, category: 'Fiction', bookCoverPage: img01, bookTitle: 'Brida', bookAuthor: 'Paulo Coelho', bookPrice: 149, tags:['Adventure ', 'Thriller', 'comic']},
         { id: 1, category: 'Romance', bookCoverPage: img02, bookTitle: 'Veronica Decides to Die', bookAuthor: 'Paulo Coelho', bookPrice: 99, tags:['Adventure', 'Thriller', 'horror'] },
         { id: 2, category: 'Non Fiction', bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199, tags:['Adventure', 'Thriller', 'sci-fi'] },
+        { id: 3, category: 'Non Fiction', bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199, tags:['Adventure', 'Thriller', 'sci-fi'] },
     ]
 
     const handleAddToCart = () => {};
 
     return (
         <div
-        className='w-full xl:h-[420px] h-[320px] flex flex-col justify-evenly md:pt-0 relative font-[Poppins]'>
+        className='w-full xl:h-[420px] md:h-[320px] h-[360px]  flex flex-col justify-evenly md:pt-0 relative font-[Poppins] md:pb-[0px] pb-[40px]'>
             <div
-            className='w-full h-[460px] absolute z-0 '>
+            className='w-full h-[420px] absolute z-0 '>
                 <img 
                 className="w-full bg-cover"
                 src={bestSellerBg} alt="" />
             </div>
             <div
-            className='flex mx-auto flex-col relative'>
+            className='flex mx-auto flex-col translate-y-[-24px] md:translate-y-[0px]'>
                 <h1
                 className='lg:text-[32px] text-[24px] font-semibold text-[#121212] text-center'>
                     Bestsellers
@@ -38,11 +39,11 @@ const BestSellersSection = () => {
                 </p>
             </div>
             <div
-            className='lg:h-[225px] w-full lg:px-[80px] md:px-[40px] px-[16px] h-[180px] mx-auto grid grid-cols-1 xl:flex justify-between  relative'>
+            className='lg:h-[225px] w-full lg:px-[80px] md:px-[40px] px-[16px] md:translate-y-[0px] translate-y-[-24px] xl:overflow-x-scroll [&::-webkit-scrollbar]:hidden h-[180px] mx-auto grid md:grid-cols-2 gird-cols-1 xl:flex justify-between  relative'>
                 {trendingBooks.map((book, index, array) => (
                     <div
                     key={book.id}
-                    className='lg:w-[420px] lg:h-[225px] w-[300px] h-[180px] flex group cursor-pointer'>
+                    className='lg:w-[400px] lg:h-[225px] w-[300px] h-[180px] flex group  cursor-pointer'>
                         <div
                         className='lg:h-[225px] h-[180px] flex justify-center items-center w-[180px]'>
                             <div

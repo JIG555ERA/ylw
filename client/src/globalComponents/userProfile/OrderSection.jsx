@@ -105,13 +105,13 @@ export function OrdersSection() {
   const getStatusColor = (status) => {
     switch (status) {
       case "delivered":
-        return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400";
+        return "bg-green-100 text-green-800 ";
       case "failed":
-        return "bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400";
+        return "bg-red-100 text-red-800 ";
       case "in-progress":
-        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400";
+        return "bg-yellow-100 text-yellow-800 ";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400";
+        return "bg-gray-100 text-gray-800";
     }
   };
 
@@ -122,7 +122,7 @@ export function OrdersSection() {
         <Button
           variant="ghost"
           onClick={() => setSelectedOrder(null)}
-          className="mb-6 hover:bg-gray-100 dark:hover:bg-gray-800"
+          className="mb-6 text-white bg-gradient-to-br from-blue-300 via-blue-500 to-purple-500 hover:scale-105 cursor-pointer shadow-md hover:shadow-md shadow-gray-300 hover:shadow-gray-400"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Orders
@@ -157,14 +157,14 @@ export function OrdersSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="font-medium mb-2">Shipping Address</h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 ">
                 {selectedOrder.shippingAddress}
               </p>
             </div>
             {selectedOrder.estimatedDelivery && (
               <div>
                 <h3 className="font-medium mb-2">Estimated Delivery</h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600 ">
                   {new Date(
                     selectedOrder.estimatedDelivery
                   ).toLocaleDateString("en-US", {
@@ -185,7 +185,7 @@ export function OrdersSection() {
             {selectedOrder.items.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl"
+                className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl"
               >
                 <img
                   src={item.image}
@@ -221,8 +221,8 @@ export function OrdersSection() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-semibold">Your Orders</h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <h1 className="text-3xl font-semibold text-gray-900">Your Orders</h1>
+          <p className="text-gray-600 ">
             Track and manage your book orders
           </p>
         </div>
@@ -243,8 +243,8 @@ export function OrdersSection() {
                 onClick={() => setSelectedFilter(filter)}
                 className={
                   selectedFilter === filter
-                    ? "bg-gradient-to-r from-vibrant-purple to-vibrant-pink text-white"
-                    : ""
+                    ? "bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 text-white cursor-pointer"
+                    : "bg-gradient-to-br from-gray-300 via-gray-500 to-gray-400 cursor-pointer text-white"
                 }
               >
                 {filter.replace("-", " ")}
@@ -271,7 +271,7 @@ export function OrdersSection() {
                   <h3 className="font-semibold group-hover:text-vibrant-purple">
                     Order {order.orderNumber}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-gray-600 ">
                     {new Date(order.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
@@ -286,7 +286,7 @@ export function OrdersSection() {
                     {getStatusIcon(order.status)}
                     {order.status}
                   </Badge>
-                  <Eye className="h-4 w-4 text-gray-400 group-hover:text-vibrant-purple" />
+                  {/* <Eye className="h-4 w-4 text-gray-400 group-hover:text-vibrant-purple" /> */}
                 </div>
               </div>
 
@@ -297,19 +297,19 @@ export function OrdersSection() {
                       key={item.id}
                       src={item.image}
                       alt={item.bookTitle}
-                      className="w-12 h-16 object-cover rounded-lg border-2 border-white dark:border-gray-800 shadow-md"
+                      className="w-12 h-16 object-cover rounded-lg border-2 border-white shadow-md"
                     />
                   ))}
                   {order.items.length > 3 && (
-                    <div className="w-12 h-16 bg-gray-200 dark:bg-gray-700 rounded-lg border-2 border-white dark:border-gray-800 flex items-center justify-center shadow-md">
-                      <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                    <div className="w-12 h-16 bg-gray-200 dark:bg-gray-700 rounded-lg border-2 border-white flex items-center justify-center shadow-md">
+                      <span className="text-xs font-medium text-gray-600 ">
                         +{order.items.length - 3}
                       </span>
                     </div>
                   )}
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-gray-600 ">
                     {order.items.length} item
                     {order.items.length !== 1 ? "s" : ""}
                   </p>
@@ -320,7 +320,7 @@ export function OrdersSection() {
               </div>
 
               {order.estimatedDelivery && (
-                <div className="text-sm text-gray-600 dark:text-gray-400">
+                <div className="text-sm text-gray-600 flex  items-center">
                   <Calendar className="h-4 w-4 inline mr-1" />
                   Estimated delivery:{" "}
                   {new Date(order.estimatedDelivery).toLocaleDateString(
@@ -338,7 +338,7 @@ export function OrdersSection() {
         <div className="text-center py-12">
           <Package className="h-16 w-16 text-gray-400 mx-auto mb-4" />
           <h3 className="text-lg font-medium mb-2">No orders found</h3>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-gray-600 ">
             {selectedFilter === "all"
               ? "You haven't placed any orders yet."
               : `No ${selectedFilter} orders found.`}

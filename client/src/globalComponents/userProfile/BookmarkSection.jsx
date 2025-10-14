@@ -8,12 +8,12 @@ export function BookmarksSection({ bookmarks, onRemoveBookmark }) {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-semibold text-gray-900 dark:text-white mb-2">Bookmarks</h1>
-          <p className="text-gray-600 dark:text-gray-400">Your saved books for later reading</p>
+          <h1 className="text-3xl font-semibold text-gray-900  mb-2">Bookmarks</h1>
+          <p className="text-gray-600 ">Your saved books for later reading</p>
         </div>
-        <div className="flex items-center gap-2 bg-gradient-to-r from-pastel-purple/50 to-pastel-pink/50 px-4 py-2 rounded-full">
-          <Heart className="h-4 w-4 text-vibrant-purple" />
-          <span className="font-medium text-gray-900 dark:text-white">{bookmarks.length} saved</span>
+        <div className="md:w-auto w-[40%] flex items-center gap-2 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 px-4 py-2 rounded-full">
+          <Heart className="h-4 w-4 text-white" />
+          <span className="font-medium text-white">{bookmarks.length} saved</span>
         </div>
       </div>
 
@@ -25,15 +25,15 @@ export function BookmarksSection({ bookmarks, onRemoveBookmark }) {
         </div>
       ) : (
         <div className="text-center py-16">
-          <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-pastel-purple to-vibrant-purple/20 rounded-full flex items-center justify-center">
-            <Bookmark className="h-12 w-12 text-vibrant-purple" />
+          <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 rounded-full flex items-center justify-center">
+            <Bookmark className="h-12 w-12 text-white" />
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">No bookmarks yet</h3>
-          <p className="text-gray-600 dark:text-gray-400 max-w-md mx-auto mb-6">
+          <h3 className="text-xl font-semibold text-gray-900 ">No bookmarks yet</h3>
+          <p className="text-gray-600  max-w-md mx-auto mb-6">
             Start exploring our collection and save books you'd like to read later. 
             You can bookmark books by clicking the heart icon on any book card.
           </p>
-          <Button className="bg-gradient-to-r from-vibrant-purple to-vibrant-pink hover:shadow-lg transition-all duration-300">
+          <Button className="bg-gradient-to-br from-blue-300 via-blue-500 text-white to-purple-300 hover:shadow-lg transition-all duration-300">
             <Bookmark className="h-4 w-4 mr-2" />
             Browse Books
           </Button>

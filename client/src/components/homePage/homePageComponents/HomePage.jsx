@@ -29,7 +29,7 @@ const HomePage = () => {
     <div className=''>
         <TopSection />
         <MidSection />
-        <Advertisements />
+        {/* <Advertisements /> */}
         <PhoneNavBar />
     </div>
   )

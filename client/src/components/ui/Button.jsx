@@ -4,8 +4,8 @@ function Button({ children, className = "", variant = "default", size = "md", ..
   const base =
     "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-200";
   const variants = {
-    default: "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg",
-    outline: "border border-gray-300 dark:border-gray-600 bg-transparent text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700",
+    default: "hover:shadow-lg",
+    outline: "border border-gray-300  bg-transparent text-gray-700  hover:bg-gray-100 ",
   };
   const sizes = {
     sm: "px-3 py-1.5 text-sm",

@@ -11,8 +11,8 @@ const menuItems = [
   { id: "profile", label: "Profile", icon: User },
   { id: "orders", label: "Your Orders", icon: Package },
   { id: "bookmarks", label: "Bookmarks", icon: Bookmark },
-  { id: "about", label: "About Us", icon: Info },
-  { id: "payments", label: "Payments", icon: CreditCard },
+  // { id: "about", label: "About Us", icon: Info },
+  // { id: "payments", label: "Payments", icon: CreditCard },
 ];
 
 export function UserProfile({ isOpen, onClose, bookmarks, onRemoveBookmark }) {
@@ -33,10 +33,10 @@ export function UserProfile({ isOpen, onClose, bookmarks, onRemoveBookmark }) {
             onRemoveBookmark={onRemoveBookmark}
           />
         );
-      case "about":
-        return <AboutSection />;
-      case "payments":
-        return <PaymentSection />;
+      // case "about":
+      //   return <AboutSection />;
+      // case "payments":
+      //   return <PaymentSection />;
       default:
         return <ProfileSection />;
     }
@@ -61,31 +61,31 @@ export function UserProfile({ isOpen, onClose, bookmarks, onRemoveBookmark }) {
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
         className={`
           relative ml-auto w-full max-w-6xl shadow-2xl flex flex-col md:flex-row
-          bg-white md:bg-white/95 md:dark:bg-gray-900/95 md:backdrop-blur-lg
+          bg-white md:bg-white/95  md:backdrop-blur-lg
         `}
       >
         {/* Sidebar Navigation */}
         <div
           className={`
             w-full md:w-80 border-b md:border-b-0 md:border-r 
-            border-gray-200 dark:border-gray-700 
+            border-gray-200  
             p-4 md:p-6 
-            bg-white md:bg-white/80 md:dark:bg-gray-800/80 md:backdrop-blur-sm
+            bg-white md:bg-white/80  md:backdrop-blur-sm
           `}
         >
           {/* Header */}
           <div className="flex items-center justify-between mb-6 md:mb-8">
             <div>
-              <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-900 ">
                 Account
               </h2>
-              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-xs md:text-sm text-gray-600 ">
                 Manage your profile and preferences
               </p>
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+              className="p-2 rounded-full bg-gray-100  hover:bg-gray-200 transition-colors duration-200"
             >
               <X className="h-5 w-5 text-gray-600 dark:text-gray-400" />
             </button>
@@ -98,10 +98,10 @@ export function UserProfile({ isOpen, onClose, bookmarks, onRemoveBookmark }) {
                 <User className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white text-sm md:text-base">
+                <h3 className="font-semibold text-gray-900 text-sm md:text-base">
                   John Doe
                 </h3>
-                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-xs md:text-sm text-gray-600 ">
                   john.doe@example.com
                 </p>
               </div>
@@ -121,7 +121,7 @@ export function UserProfile({ isOpen, onClose, bookmarks, onRemoveBookmark }) {
                   className={`w-full flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2 md:py-3 rounded-xl md:rounded-2xl text-left transition-all duration-200 ${
                     isActive
                       ? "bg-gradient-to-r from-[#a25ee1]/10 to-[#d455b1]/10 text-purple-700 border border-purple-400 shadow"
-                      : "text-gray-600 dark:text-gray-400 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 hover:text-gray-900 dark:hover:text-white"
+                      : "text-gray-600 hover:bg-gray-100/50  hover:text-gray-900 "
                   }`}
                 >
                   <Icon

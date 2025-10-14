@@ -139,7 +139,7 @@ const BookCard = ({ book }) => {
           // Add to Cart button
           <div
             onClick={handleAddToCart}
-            className="group w-[130px] group-hover:w-[170px] xl:h-[52px] md:h-[40px] h-[32px] 
+            className="group w-[130px] group-hover:w-[170px] xl:h-[52px] md:h-[48px] h-[36px] 
               border border-blue-500 font-semibold flex justify-center items-center 
               rounded-[30px] xl:translate-y-[-16px] md:translate-y-[-12px] translate-y-[-8px] lg:text-[14px] text-[12px] cursor-pointer 
               transition-all duration-1000 ease-in-out mx-auto 
@@ -160,7 +160,7 @@ const BookCard = ({ book }) => {
           </div>
         ) : (
           // Quantity selector
-          <div className="flex items-center xl:translate-y-[-16px] md:translate-y-[-12px] translate-y-[-8px] gap-2 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 border-blue-500 border-0 rounded-2xl justify-evenly w-[130px] xl:h-[52px] md:h-[40px] h-[32px] mx-auto mt-2">
+          <div className="flex items-center xl:h-[52px] md:h-[48px] h-[36px]  xl:translate-y-[-16px] md:translate-y-[-12px] translate-y-[-8px] gap-2 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 border-blue-500 border-0 rounded-2xl justify-evenly w-[130px] mx-auto mt-2">
             <button
               onClick={handleDecrease}
               className="h-8 w-10 flex items-center justify-center cursor-pointer"

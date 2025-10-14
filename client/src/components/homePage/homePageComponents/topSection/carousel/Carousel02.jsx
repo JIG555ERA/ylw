@@ -16,6 +16,7 @@ import img04 from '../../../../../assets/bookCoverPages/coverPage04.svg';
 import img05 from '../../../../../assets/bookCoverPages/coverPage05.svg';
 import img06 from '../../../../../assets/bookCoverPages/coverPage06.svg';
 import { icon } from "leaflet";
+import TrendingBooks from "./TrendingBooks";
 
 const booksData = [
   { id: 0, bookCoverPage: img01 },
@@ -156,7 +157,7 @@ const Carousel02 = () => {
 
   return (
     <div
-      className="w-full 2xl:h-screen lg:h-[780px] md:h-[680px] h-[520px] items-center  mt-[80px] xl:py-[50px]  md:py-[40px]  xl:translate-y-[0px] md:translate-y-[-100px] translate-y-[-90px] opacity-100 bg-gradient-to-br from-blue-100 via-white to-purple-100 flex flex-col md:justify-between justify-evenly px-[16px] mx-auto"
+className="w-full h-auto md:gap-[34px] gap-[24px] py-[32px] items-center  mt-[60px] xl:py-[50px]  md:py-[160px]  xl:translate-y-[0px] md:translate-y-[-100px] translate-y-[-60px] opacity-100 bg-gradient-to-br from-blue-100 via-white to-purple-100 flex flex-col md:justify-between justify-evenly px-[16px] mx-auto"
       // style={{
       //   transition: "background 0.8s ease-in-out",
       //   background: `linear-gradient(to right, rgba(${colors[0].join(",")}, 0.3), rgba(${colors[1].join(",")}, 0.3))`,
@@ -193,7 +194,7 @@ const Carousel02 = () => {
       </div>
 
       {/* Carousel */}
-      <div className="w-[80vw] lg:h-[345px] mx-auto pointer-events-none ">
+      {/* <div className="w-[80vw] lg:h-[345px] mx-auto pointer-events-none ">
         <Slider {...settings}>
           {booksData.map((book, index) => (
             <div key={book.id} className="flex justify-center items-start px-2 gap-[20px]">
@@ -205,7 +206,8 @@ const Carousel02 = () => {
             </div>
           ))}
         </Slider>
-      </div>
+      </div> */}
+      <TrendingBooks />
     </div>
   );
 };

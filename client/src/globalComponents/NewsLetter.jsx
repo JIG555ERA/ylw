@@ -29,7 +29,7 @@ const NewsLetter = () => {
             </div>
 
             <div
-            className='lg:w-[40vw] md:w-[55vw] md:h-[58px] h-[120px] flex md:flex-row flex-col gap-[20px] mt-[24px] w-full px-[16px] items-center'>
+            className=' md:px-[80px] px-[16px] md:h-[58px] h-[120px] flex md:flex-row flex-col md:gap-[40px] mt-[24px] w-full items-center'>
                 <input 
                 onChange={(e) => setEmail(e.target.value)}
                 className='w-full focus:outline-gray-200 border-2  h-[58px] rounded-3xl text-[16px] text-[#7C7C7C]/75 font-medium md:px-[18px] px-[16px] flex items-center shadow-lg shadow-gray-300 active:border-white border-white '
