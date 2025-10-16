@@ -74,7 +74,8 @@ const BookCard = ({ book }) => {
 
   return (
     <div className="block group relative lg:w-[210px] lg:h-[370px] w-[156px] h-[275px] lg:mt-[32px] md:mt-[24px] mt-[16px] font-[Poppins] group">
-      {/* ✅ Main Card Content */}
+      <a href={`/product/${book.id}`}>
+        {/* ✅ Main Card Content */}
       <div className="relative z-10 w-full h-full flex flex-col items-start border-2 border-[#EDEDED] rounded-3xl mx-auto transition-transform duration-1000 delay-100 ease-in-out bg-white">
         <div className="w-full md:h-[250px] h-[200px] overflow-hidden">
           {/* Hidden img for color extraction */}
@@ -182,6 +183,7 @@ const BookCard = ({ book }) => {
           </div>
         )}
       </div>
+      </a>
     </div>
   );
 };

@@ -110,14 +110,16 @@ export default function CategoryCard({ category, books = [], count = 0, onClick 
         <div className="mt-auto pt-4 border-t border-gray-200/50 dark:border-white/10 relative z-10">
           <div className="flex items-center justify-between">
             <span className="text-sm text-muted-foreground">Explore {count} books</span>
-            <div
-              className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${
-                isHovered ? "text-current" : "text-foreground"
-              }`}
-            >
-              View All
-              <ChevronRight className="h-4 w-4" />
-            </div>
+            <a href="/categories">
+              <div
+                className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${
+                  isHovered ? "text-current" : "text-foreground"
+                }`}
+              >
+                View All
+                <ChevronRight className="h-4 w-4" />
+              </div>
+            </a>
           </div>
         </div>
 
