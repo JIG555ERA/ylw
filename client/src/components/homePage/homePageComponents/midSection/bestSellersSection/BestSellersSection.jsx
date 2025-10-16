@@ -5,7 +5,8 @@ import img03 from '../../../../../assets/bookCoverPages/coverPage03.svg'
 import ImageSection from '../../../../../globalComponents/ImageSection'
 import bestSellerBg from '../../../../../assets/backgroundImages/bestSellerBg.svg'
 import bestSellerPhoneBg from '../../../../../assets/backgroundImages/bestSellerPhoneBg.svg'
-
+import { useCart } from '../../../../../globalComponents/CartContext'
+import { Minus, Plus } from "lucide-react";
 
 const BestSellersSection = () => {
 
@@ -16,14 +17,14 @@ const BestSellersSection = () => {
         { id: 3, category: 'Non Fiction', bookCoverPage: img03, bookTitle: 'The Great Gatsby', bookAuthor: 'F. Scott Fitzgerald', bookPrice: 199, tags:['Adventure', 'Thriller', 'sci-fi'] },
     ]
 
-    const handleAddToCart = () => {};
+    const { cartItems, addToCart, updateQuantity } = useCart();
 
     return (
         <div
         className='w-full xl:h-[420px] md:h-[320px] h-[360px]  flex flex-col justify-evenly md:pt-0 relative font-[Poppins] md:pb-[0px] pb-[40px]'>
             <div
             className='w-full h-[420px] absolute z-0 '>
-                <img 
+                <img
                 className="w-full bg-cover"
                 src={bestSellerBg} alt="" />
             </div>
@@ -31,7 +32,7 @@ const BestSellersSection = () => {
             className='flex mx-auto flex-col translate-y-[-24px] md:translate-y-[0px]'>
                 <h1
                 className='lg:text-[32px] text-[24px] font-semibold text-[#121212] text-center'>
-                    Bestsellers
+                    Our Best Selling books
                 </h1>
                 <p
                 className='font-normal text-[#8C8C8C] lg:text-[18px] text-[16px] text-center'>
@@ -40,84 +41,129 @@ const BestSellersSection = () => {
             </div>
             <div
             className='lg:h-[225px] w-full lg:px-[80px] md:px-[40px] px-[16px] md:translate-y-[0px] translate-y-[-24px] xl:overflow-x-scroll [&::-webkit-scrollbar]:hidden h-[180px] mx-auto grid md:grid-cols-2 gird-cols-1 xl:flex justify-between  relative'>
-                {trendingBooks.map((book, index, array) => (
-                    <div
-                    key={book.id}
-                    className='lg:w-[400px] lg:h-[225px] w-[300px] h-[180px] flex group  cursor-pointer'>
+                {trendingBooks.map((book, index, array) => {
+                    // ✅ check if this book is already in cart
+                    const cartItem = cartItems.find((item) => item.id === book.id);
+                    const quantity = cartItem?.quantity || 0;
+
+                    const handleAddToCart = () => {
+                        addToCart(book); // start with quantity = 1
+                    };
+
+                    const handleIncrease = () => {
+                        if (quantity < 3) {
+                            updateQuantity(book.id, quantity + 1);
+                        }
+                    };
+
+                    const handleDecrease = () => {
+                        if (quantity > 1) {
+                            updateQuantity(book.id, quantity - 1);
+                        } else if (quantity === 1) {
+                            // if 0 → remove and back to Add to Cart
+                            updateQuantity(book.id, 0);
+                        }
+                    };
+
+                    return (
                         <div
-                        className='lg:h-[225px] h-[180px] flex justify-center items-center w-[180px]'>
+                        key={book.id}
+                        className='lg:w-[400px] lg:h-[225px] w-[300px] h-[180px] flex group  cursor-pointer'>
                             <div
-                            className='lg:h-[210px] lg:w-[150px] w-[130px] aspect-[3/4] mx-auto'>
-                                <ImageSection bookCoverPage={book.bookCoverPage} />
+                            className='lg:h-[225px] h-[180px] flex justify-center items-center w-[180px]'>
+                                <div
+                                className='lg:h-[210px] lg:w-[150px] w-[130px] aspect-[3/4] mx-auto'>
+                                    <ImageSection bookCoverPage={book.bookCoverPage} />
+                                </div>
                             </div>
-                        </div>
-                        <div
-                        className='lg:w-[180px] w-[150px] h-full flex flex-col justify-between lg:py-8 py-6 lg:translate-y-[0px] translate-y-[-8px]'>
-                            <p
-                            className='lg:text-[18px] text-[16px] font-semibold text-[#064FA4] line-clamp-1'>
-                                {book.bookTitle}
-                            </p>
+                            <div
+                            className='lg:w-[180px] w-[150px] h-full flex flex-col justify-between lg:py-8 py-6 lg:translate-y-[0px] translate-y-[-8px]'>
+                                <p
+                                className='lg:text-[18px] text-[16px] font-semibold text-[#064FA4] line-clamp-1'>
+                                    {book.bookTitle}
+                                </p>
 
-                            <p
-                            className='lg:text-[16px] text-[14px] font-semibold text-[#8C8C8C] line-clamp-1'>
-                                {book.bookAuthor}
-                            </p>
+                                <p
+                                className='lg:text-[16px] text-[14px] font-semibold text-[#8C8C8C] line-clamp-1'>
+                                    {book.bookAuthor}
+                                </p>
 
-                            <p
-                            className='text-[18px] font-semibold bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
-                            bg-clip-text text-transparent'>
-                                <span className='font-[Roboto]'>₹</span>{book.bookPrice}
-                            </p>
+                                <p
+                                className='text-[18px] font-semibold bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300
+                                bg-clip-text text-transparent'>
+                                    <span className='font-[Roboto]'>₹</span>{book.bookPrice}
+                                </p>
 
-                            <div className="flex flex-row mb-4 gap-2 overflow-hidden">
-                                {book.tags.slice(0, 2).map((tag, index) => (
-                                    <div
-                                    key={index}
-                                    className="text-xs bg-white/60 border cursor-pointer border-gray-100 flex justify-center items-center rounded-2xl px-2 py-1 hover:shadow-md shadow-gray-300 backdrop-blur-sm"
-                                    >
-                                    {tag}
-                                    </div>
-                                ))}
-                                {book.tags.length > 2 && (
-                                    <div
-                                        className="text-xs bg-white/60 border border-gray-100  rounded-2xl px-2 py-1 hover:shadow-md shadow-gray-300 backdrop-blur-sm"
+                                <div className="flex flex-row mb-4 gap-2 overflow-hidden">
+                                    {book.tags.slice(0, 2).map((tag, index) => (
+                                        <div
+                                        key={index}
+                                        className="text-xs bg-white/60 border cursor-pointer border-gray-100 flex justify-center items-center rounded-2xl px-2 py-1 hover:shadow-md shadow-gray-300 backdrop-blur-sm"
                                         >
-                                        +{book.tags.length - 2}
+                                        {tag}
+                                        </div>
+                                    ))}
+                                    {book.tags.length > 2 && (
+                                        <div
+                                            className="text-xs bg-white/60 border border-gray-100  rounded-2xl px-2 py-1 hover:shadow-md shadow-gray-300 backdrop-blur-sm"
+                                            >
+                                            +{book.tags.length - 2}
+                                        </div>
+                                    )}
+                                </div>
+
+                                {quantity === 0 ? (
+                                // Add to Cart button
+                                <div
+                                    onClick={handleAddToCart}
+                                    className="group w-[130px] group-hover:w-[170px] md:h-[40px] h-[36px]
+                                    border border-blue-500 font-semibold flex justify-center items-center
+                                    rounded-[30px] translate-y-[-8px] lg:text-[14px] text-[12px] cursor-pointer
+                                    transition-all duration-1000 ease-in-out mx-auto
+                                    bg-white relative overflow-hidden md:mt-[0px] mt-[12px] hover:shadow-md hover:shadow-gray-400 hover:scale-105"
+                                >
+                                    <span
+                                    className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300
+                                        bg-clip-text text-transparent transition-all duration-1000 ease-in-out
+                                        group-hover:text-white group-hover:bg-none"
+                                    >
+                                    Add to Cart
+                                    </span>
+                                    <div
+                                    className="absolute inset-0 rounded-[30px]
+                                        bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300
+                                        opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out -z-10"
+                                    />
+                                </div>
+                                ) : (
+                                // Quantity selector
+                                <div className="flex items-center md:h-[40px] h-[36px]  translate-y-[-8px]  gap-2 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 border-blue-500 border-0 rounded-2xl justify-evenly w-[130px] mx-auto mt-2">
+                                    <button
+                                    onClick={handleDecrease}
+                                    className="h-8 w-10 flex items-center justify-center cursor-pointer"
+                                    >
+                                    <Minus className="h-5 w-5 text-white" />
+                                    </button>
+                                    <div className="w-2 text-center text-[20px] text-white font-normal">
+                                    {quantity}
                                     </div>
+                                    <button
+                                    onClick={handleIncrease}
+                                    disabled={quantity >= 3}
+                                    className={`h-8 w-10 flex items-center justify-center cursor-pointer ${
+                                        quantity >= 3 ? "opacity-50 cursor-not-allowed" : ""
+                                    }`}
+                                    >
+                                    <Plus className="h-5 w-5 text-white" />
+                                    </button>
+                                </div>
                                 )}
                             </div>
-
-                            <div
-                            onClick={handleAddToCart}
-                            className="group w-[130px] group-hover:w-[170px] lg:h-[37px] h-[30px] 
-                                        border border-blue-500 font-semibold flex justify-center items-center 
-                                        rounded-[30px] lg:text-[14px] text-[12px] cursor-pointer 
-                                        transition-all duration-1000 ease-in-out mx-auto 
-                                         relative overflow-hidden md:mt-[0px] mt-[12px]"
-                            >
-                            <span
-                                className="bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
-                                        bg-clip-text text-transparent transition-all duration-1000 ease-in-out 
-                                        group-hover:text-white group-hover:bg-none"
-                            >
-                                Add to Cart
-                            </span>
-
-                            {/* Hover gradient background overlay */}
-                            <div
-                                className="absolute inset-0 rounded-[30px] 
-                                        bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 
-                                        opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out -z-10"
-                            />
-                            </div>
-
                         </div>
-
-                    </div>
-                ))}
-
+                    );
+                })}
             </div>
-            
+
         </div>
     )
 }

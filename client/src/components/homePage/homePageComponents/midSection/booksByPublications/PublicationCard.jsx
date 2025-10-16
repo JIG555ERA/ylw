@@ -55,7 +55,7 @@ const PublicationCard = ({ context = cardContext }) => {
           {context.tags.slice(0, 2).map((tag, index) => (
             <div
               key={index}
-              className="text-xs bg-white/60 border border-gray-100 flex justify-center items-center rounded-2xl px-2 py-1 hover:shadow-md shadow-gray-300 backdrop-blur-sm"
+              className="text-[11px] bg-white/60 border border-gray-100 flex justify-center items-center rounded-2xl px-2 py-1 hover:shadow-md shadow-gray-300 backdrop-blur-sm"
             >
               {tag}
             </div>

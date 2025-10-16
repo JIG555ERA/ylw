@@ -90,7 +90,7 @@ const BooksByPublications = ({}) => {
             className='lg:px-[80px] md:px-[40px] mt-[24px] px-[16px] flex flex-col items-center justify-center bg-gradient-to-br from-purple-100 via-white to-blue-100 lg:py-[80px] md:py-[60px] py-[24px]'>
                 {/* description & tags */}
                 <div
-                className='flex flex-col w-full justify-center items-center'>
+                className='flex flex-col w-full h-full justify-center items-center'>
                     <div className='h-[50px] flex justify-center items-center rounded-3xl bg-white/75 px-[16px] gap-[8px] shadow-gray-400 hover:scale-105 shadow-2xl hover:shadow-2xl cursor-pointer'><Building2 className='h-5 w-5 text-cyan-500'/><h1 className='text-[16px] font-medium'>Trusted Publishers</h1></div>
                     <h1 className='bg-gradient-to-br from-blue-300 via-blue-500 to-purple-400 bg-clip-text text-transparent font-bold lg:text-[48px] text-center text-[32px] py-[16px]'>Books By Publications</h1>
                     <p className='text-gray-500/80 lg:text-[16px] text-[14px] font-medium lg:w-[35vw] flex text-center'>Discover exceptional literature from world-renowned publishers. From academic excellence to popular fiction, explore curated collections from the industry's most trusted names.</p>
@@ -100,11 +100,11 @@ const BooksByPublications = ({}) => {
                     </div>
                 </div>
                 {/* cards */}
-                <div className='w-full h-auto lg:grid 2xl:grid-cols-4 lg:grid-cols-2 flex overflow-x-scroll [&::-webkit-scrollbar]:hidden lg:gap-[24px] gap-[16px] mt-[24px] mx-auto'>
+                <div className='w-full h-full lg:grid 2xl:grid-cols-4 lg:grid-cols-2 flex overflow-x-scroll [&::-webkit-scrollbar]:hidden lg:gap-[24px] gap-[16px] mt-[24px] mx-auto'>
                    
                    {cardContextList.map((card) => (
                     <div
-                    className='mx-auto flex'>
+                    className='mx-auto flex w-full md:h-[520px] h-full items-center'>
                         <PublicationCard context={card} />
                     </div>
                    ))}

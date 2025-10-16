@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Star, BookOpen, ShoppingCart } from "lucide-react";
+import { Star, BookOpen, ShoppingCart, Minus, Plus } from "lucide-react"; // Import Minus and Plus icons
+import { useCart } from '../../../../../globalComponents/CartContext'; // Adjust path as necessary
 
 const popularBookData = [
   {
@@ -34,7 +35,7 @@ const popularBookData = [
     ],
   },
   {
-    id: 12,
+    id: 12, // Changed ID to avoid conflict with `id: 2` in `trendingBooks` in BestSellersSection (if they were to be combined or shared context)
     title: "Thinking, Fast and Slow",
     author: "Marcus Thompson",
     coverColor: "from-orange-600 via-red-600 to-pink-600",
@@ -80,10 +81,13 @@ const popularBookData = [
   },
 ];
 
-function TrendingBooks({ onBookClick, onAddToCart }) {
+function TrendingBooks({ onBookClick }) { // Removed onAddToCart from props as we're using CartContext directly
   const [hoveredBook, setHoveredBook] = useState(null);
   const [expandedBook, setExpandedBook] = useState(null); // mobile expand
   const [isMobile, setIsMobile] = useState(false);
+
+  // Use Cart Context
+  const { cartItems, addToCart, updateQuantity } = useCart();
 
   // Check window width for mobile/desktop
   useEffect(() => {
@@ -106,6 +110,29 @@ function TrendingBooks({ onBookClick, onAddToCart }) {
             {popularBookData.map((popularData, index) => {
               const { book } = getBookData(popularData.id);
               if (!book) return null;
+
+              // Cart logic for each book
+              const cartItem = cartItems.find((item) => item.id === book.id);
+              const quantity = cartItem?.quantity || 0;
+
+              const handleAddToCart = () => {
+                addToCart(book); // Start with quantity = 1
+              };
+
+              const handleIncrease = () => {
+                if (quantity < 3) { // Max quantity of 3
+                  updateQuantity(book.id, quantity + 1);
+                }
+              };
+
+              const handleDecrease = () => {
+                if (quantity > 1) {
+                  updateQuantity(book.id, quantity - 1);
+                } else if (quantity === 1) {
+                  // If 1, remove from cart
+                  updateQuantity(book.id, 0);
+                }
+              };
 
               const isHovered = hoveredBook === popularData.id;
               const isExpanded = expandedBook === popularData.id;
@@ -201,16 +228,47 @@ function TrendingBooks({ onBookClick, onAddToCart }) {
                             <span className="font-[Roboto]">₹</span>
                             {book.price}
                           </div>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              onAddToCart?.(book);
-                            }}
-                            className="flex items-center gap-1 px-3 py-2 bg-gradient-to-r from-purple-500 to-pink-400/60 text-white font-medium rounded-lg hover:shadow-lg transition-all duration-200"
-                          >
-                            <ShoppingCart className="h-3 w-3" />
-                            Add to Cart
-                          </button>
+
+                          {/* Desktop CTA (Add to Cart / Quantity) */}
+                          {quantity === 0 ? (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleAddToCart();
+                              }}
+                              className="flex items-center gap-1 px-3 py-2 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 text-white font-medium rounded-2xl hover:shadow-lg transition-all duration-200"
+                            >
+                              <ShoppingCart className="h-3 w-3" />
+                              Add to Cart
+                            </button>
+                          ) : (
+                            <div className="flex items-center gap-2 bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 border-blue-500 border-0 rounded-2xl justify-evenly w-32 py-1.5">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleDecrease();
+                                    }}
+                                    className="h-6 w-8 flex items-center justify-center cursor-pointer"
+                                >
+                                    <Minus className="h-4 w-4 text-white" />
+                                </button>
+                                <div className="w-2 text-center text-sm text-white font-normal">
+                                    {quantity}
+                                </div>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleIncrease();
+                                    }}
+                                    disabled={quantity >= 3}
+                                    className={`h-6 w-8 flex items-center justify-center cursor-pointer ${
+                                        quantity >= 3 ? "opacity-50 cursor-not-allowed" : ""
+                                    }`}
+                                >
+                                    <Plus className="h-4 w-4 text-white" />
+                                </button>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </motion.div>
@@ -247,16 +305,47 @@ function TrendingBooks({ onBookClick, onAddToCart }) {
                             <span className="font-[Roboto]">₹</span>
                             {book.price}
                           </div>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              onAddToCart?.(book);
-                            }}
-                            className="flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-purple-500 to-pink-400/60 text-white font-medium rounded-lg hover:shadow-md transition-all duration-200 text-sm"
-                          >
-                            <ShoppingCart className="h-3 w-3" />
-                            Add
-                          </button>
+
+                          {/* Mobile CTA (Add to Cart / Quantity) */}
+                          {quantity === 0 ? (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleAddToCart();
+                              }}
+                              className="flex items-center gap-1 px-3 py-1.5 bg-gradient-to-br rounded-[30px] from-blue-300 via-blue-500 to-purple-300 border-blue text-white font-medium  hover:shadow-md transition-all duration-200 text-sm"
+                            >
+                              <ShoppingCart className="h-3 w-3" />
+                              Add
+                            </button>
+                          ) : (
+                            <div className="flex items-center gap-1 rounded-[30px] bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 border-blue-500 border-0  justify-evenly w-28 py-1">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleDecrease();
+                                    }}
+                                    className="h-6 w-8 flex items-center justify-center cursor-pointer"
+                                >
+                                    <Minus className="h-4 w-4 text-white" />
+                                </button>
+                                <div className="w-2 text-center text-sm text-white font-normal">
+                                    {quantity}
+                                </div>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleIncrease();
+                                    }}
+                                    disabled={quantity >= 3}
+                                    className={`h-6 w-8 flex items-center justify-center cursor-pointer ${
+                                        quantity >= 3 ? "opacity-50 cursor-not-allowed" : ""
+                                    }`}
+                                >
+                                    <Plus className="h-4 w-4 text-white" />
+                                </button>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </motion.div>

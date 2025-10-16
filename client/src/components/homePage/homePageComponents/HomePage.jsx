@@ -18,11 +18,11 @@ const HomePage = () => {
   const [activePage, setActivePage] = useState('Home')
 
   const navItems = [
-    { name: 'Home', icon: 'homeIcon', selectedIcon: 'selectedHomeIcon', link: ` http://192.168.29.11:5174//home`},
-    { name: 'Categories', icon: 'categoryIcon', selectedIcon: 'selectedCategoryIcon', link: ` http://192.168.29.11:5174/category`},
-    { name: 'Product', icon: 'categoryIcon', selectedIcon: 'selectedCategoryIcon', link: ` http://192.168.29.11:5174/product`},
-    { name: 'Liked', icon: 'favouriteIcon', selectedIcon: 'selectedFavouriteIcon', link: ` http://192.168.29.11:5174/liked`},
-    { name: 'Profile', icon: 'userProfileIcon', selectedIcon: 'selectedUserProfileIcon', link: ` http://192.168.29.11:5174/profile`},
+    { name: 'Home', icon: 'homeIcon', selectedIcon: 'selectedHomeIcon', link: `/home`},
+    { name: 'Categories', icon: 'categoryIcon', selectedIcon: 'selectedCategoryIcon', link: `/category`},
+    { name: 'Product', icon: 'categoryIcon', selectedIcon: 'selectedCategoryIcon', link: `/product`},
+    { name: 'Liked', icon: 'favouriteIcon', selectedIcon: 'selectedFavouriteIcon', link: `/liked`},
+    { name: 'Profile', icon: 'userProfileIcon', selectedIcon: 'selectedUserProfileIcon', link: `/profile`},
   ]
 
   return (
