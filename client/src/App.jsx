@@ -27,6 +27,7 @@ import ReturnPolicy from './components/legalities/ReturnPolicy'
 import ShippingPolicy from './components/legalities/ShippingPolicy'
 import NotFound02 from './globalComponents/notFound/NotFound02'
 import TechnicalError from './globalComponents/notFound/TechnicalError'
+import RefundPolicy from './components/legalities/RefundPolicy'
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path='/refundAndCancellationPolicy' element={<RefundAndCancellationPolicy />} />
           <Route path='/returnPolicy' element={<ReturnPolicy />} />
           <Route path='/shippingPolicy' element={<ShippingPolicy />} />
+          <Route path='/refundPolicy' element={<RefundPolicy />} />
           <Route path='/*' element={<NotFound02 />} />
           <Route path='/tech-error' element={<TechnicalError />} />
       </Routes>
