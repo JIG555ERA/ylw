@@ -27,7 +27,7 @@ export const Navbar = ({ active = "", onCartClick }) => {
     { name: "Home", icon1: home_icon_01, icon2: home_icon_02, link: `/` },
     { name: "Categories", icon1: categories_icon_01,icon2: categories_icon_02, link: `/categories` },
     { name: "Liked", icon1: liked_icon_01, icon2: liked_icon_02, link: `/liked` },
-    { name: "Cart", icon1: cart_icon_01, icon2: cart_icon_02 }, // 🚨 removed link here
+    { name: "Cart", icon1: cart_icon_01, icon2: cart_icon_02, link: `/cart` }, // 🚨 removed link here
   ];
 
   return (
@@ -41,12 +41,12 @@ export const Navbar = ({ active = "", onCartClick }) => {
             </div>
           </a>
           {/* Left nav items (with href) */}
-          {navItems.map((item) => (
+          {navItems.slice(0, 3).map((item) => (
             <a key={item.name} href={item.link}>
               <li
                 className={`flex items-center cursor-pointer transition-all duration-300 ease-in-out ${
                   activePage === item.name
-                    ? "text-blue-400 font-semibold px-4 py-2 bg-blue-100 text-[20px] rounded-2xl border border-blue-400"
+                    ? "text-blue-400 font-semibold px-4 py-2 bg-blue-100 text-[20px] rounded-2xl border border-blue-400 transition-all delay-150 duration-200 ease-in-out"
                     : "text-[#8C8C8C]"
                 }`}
                 onClick={() => setActivePage(item.name)}
@@ -64,20 +64,20 @@ export const Navbar = ({ active = "", onCartClick }) => {
 
 
           {/* Right nav items (Cart opens drawer) */}
-          {/* <li
+          <li
             className={`relative flex items-center cursor-pointer transition-all duration-300 ${
               activePage === "Cart" ? "text-[#121212] font-semibold" : "text-[#8C8C8C]"
             }`}
             onClick={onCartClick} // ✅ opens drawer
           >
-            <img className="mr-2 h-[24px] w-[24px]" src={cartIcon} alt="Cart" />
+            <img className="mr-2 h-[24px] w-[24px]" src={cart_icon_02} alt="Cart" />
             <p>Cart</p>
             {cartItems.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs font-semibold rounded-full px-1.5 py-0.5">
                 {cartItems.length}
               </span>
             )}
-          </li> */}
+          </li>
 
           {/* Profile */}
           <li
