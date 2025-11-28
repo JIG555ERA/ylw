@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { CartProvider } from "./globalComponents/CartContext";
 
 import Navbar from "./components/homePage/homePageComponents/topSection/navBar/navbar";  // <-- YOUR NAVBAR
-import LoaderGIF from "./globalComponents/LoaderGIF";
+import LoaderGIF from "./globalComponents/loaderGIF";
 
 // Lazy-loaded pages
 const HomePage = lazy(() => import("./components/homePage/homePageComponents/HomePage"));
