@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar } from '../topSection/navBar/navbar'
+import Navbar from '../topSection/navBar/navbar'
 
 const LikePage = () => {
     return (

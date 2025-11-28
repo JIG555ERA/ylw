@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // Import useParams
-import { Navbar } from '../topSection/navBar/navbar';
+import Navbar from '../topSection/navBar/navbar.jsx';
 import StarRating from '../../productDisplayPage/StarDisplay';
 import ImageSection from '../../../../globalComponents/ImageSection';
 // Import all your book cover and author images directly

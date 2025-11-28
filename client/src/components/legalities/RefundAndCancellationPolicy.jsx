@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navbar } from '../homePage/homePageComponents/topSection/navBar/navbar'
+import Navbar from '../homePage/homePageComponents/topSection/navBar/navbar'
 import bookStoreLogo from '../../assets/logos/bookStoreLogo.svg'
 import PhoneNavBar from '../homePage/homePageComponents/topSection/navBar/PhoneNavBar';
 

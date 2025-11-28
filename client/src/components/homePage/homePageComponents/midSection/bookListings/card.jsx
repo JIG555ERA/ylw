@@ -74,11 +74,12 @@ const BookCard = ({ book }) => {
 
   return (
     <div className="block group relative lg:w-[210px] lg:h-[370px] w-[156px] h-[275px] lg:mt-[32px] md:mt-[24px] mt-[16px] font-[Poppins] group">
-      <a href={`/product/${book.id}`}>
+      
         {/* ✅ Main Card Content */}
       <div className="relative z-10 w-full h-full flex flex-col items-start border-2 border-[#EDEDED] rounded-3xl mx-auto transition-transform duration-1000 delay-100 ease-in-out bg-white">
         <div className="w-full md:h-[250px] h-[200px] overflow-hidden">
           {/* Hidden img for color extraction */}
+          
           <img
             ref={imgRef}
             src={book.bookCoverPage}
@@ -86,7 +87,6 @@ const BookCard = ({ book }) => {
             className="hidden"
             crossOrigin="anonymous"
           />
-
           <div
             className="absolute w-full h-[200px] inset-0 rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity p-3 duration-1000 delay-100 ease-in-out z-0"
             style={{
@@ -99,9 +99,11 @@ const BookCard = ({ book }) => {
           </div>
 
           {/* Book image */}
+          <a href={`/product/${book.id}`}>
           <div className="lg:w-[130px] w-[90px] h-auto aspect-[3/4] mx-auto md:mt-6 mt-3">
             <ImageSection bookCoverPage={book.bookCoverPage} />
           </div>
+          </a>
         </div>
 
         {/* Book info */}
@@ -183,7 +185,7 @@ const BookCard = ({ book }) => {
           </div>
         )}
       </div>
-      </a>
+      
     </div>
   );
 };

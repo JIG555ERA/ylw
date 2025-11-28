@@ -19,7 +19,7 @@ import {
   Truck
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { Navbar } from "../topSection/navBar/navbar";
+import Navbar from "../topSection/navBar/navbar";
 import PhoneNavBar from "../topSection/navBar/PhoneNavBar";
 import bookStoreLogo from '../../../../assets/logos/bookStoreLogo.svg'
 import ShinyText from "../../../../globalComponents/shinyText/ShinyText";

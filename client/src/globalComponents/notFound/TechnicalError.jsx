@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar } from '../../components/homePage/homePageComponents/topSection/navBar/navbar'
+import Navbar from '../../components/homePage/homePageComponents/topSection/navBar/navbar'
 import PhoneNavBar from '../../components/homePage/homePageComponents/topSection/navBar/PhoneNavBar'
 import cat_plant from '../../assets/backgroundImages/optimized_cat_plant.png'
 import bookStoreLogo from '../../assets/logos/bookStoreLogo.svg'

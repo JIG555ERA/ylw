@@ -70,13 +70,13 @@ export const SearchBar = () => {
         <div className="flex justify-center items-center w-full">
           <div
             className={`flex h-[50px] ${
-              active ? "w-[1000px] shadow-none" : "lg:w-[300px] w-[65vw] shadow-md"
-            } rounded-full bg-gradient-to-r from-[#F3CD00] to-[#064FA4] transition-all duration-500 items-center justify-center mr-2`}
+              active ? "w-[1000px] shadow-none" : "lg:w-[480px] w-[65vw] shadow-md"
+            } rounded-full bg-gradient-to-r  transition-all duration-500 items-center justify-center mr-2`}
           >
             <input
               type="text"
               className={`text-sm h-[48px] rounded-full px-5 outline-none text-gray-500 ${
-                active ? "w-[998px]" : "lg:w-[298px] w-[65vw]"
+                active ? "w-[998px]" : "lg:w-[478px] w-[65vw]"
               } transition-all duration-500 bg-white`}
               placeholder="Search..."
               value={searchValue}

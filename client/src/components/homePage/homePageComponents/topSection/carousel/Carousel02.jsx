@@ -173,7 +173,7 @@ className="w-full h-auto md:gap-[34px] gap-[24px] py-[32px] items-center  mt-[60
       {/* Search Bar */}
       
         {/* <SearchBar /> */}
-      <SearchBar02 />
+      <SearchBar />
       <div
         className="w-full h-auto items-center lg:gap-8 md:gap-6 gap-3 flex flex-wrap justify-center"
       >

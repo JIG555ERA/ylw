@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navbar } from './navBar/navbar'
+import Navbar from './navBar/navbar'
 import Carousel01 from './carousel/Carousel'
 import Carousel02 from './carousel/Carousel02'
 import bookStoreLogo from '../../../../assets/logos/bookStoreLogo.svg'

@@ -3,7 +3,7 @@ import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import BookCard from "../midSection/bookListings/card";
-import { Navbar } from "../topSection/navBar/navbar";
+import Navbar from "../topSection/navBar/navbar";
 import filledCheck from '../../../../assets/icons/filledCheck.svg';
 import emptyCheck from '../../../../assets/icons/emptyCheck.svg';
 import author01 from '../../../../assets/authorImages/author01.svg';
@@ -19,7 +19,7 @@ import filterIcon from '../../../../assets/icons/filterIcon.svg'
 import { booksData0 } from "../../../../globalComponents/booksData";
 import Advertisements from "../../../../globalComponents/advertisements/Advertisements";
 
-export const CategoryPage = ({ collection = "Fiction" }) => {
+export default function CategoryPage ({ collection = "Fiction" }) {
   const [openCard, setOpenCard] = useState({ 0: true});
   const [category, setCategory] = useState({});
   const [author, setAuthor] = useState({});

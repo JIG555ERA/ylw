@@ -13,7 +13,7 @@ import {
   Share2,
   MessageCircle,
 } from "lucide-react";
-import { Navbar } from '../../components/homePage/homePageComponents/topSection/navBar/navbar'
+import Navbar from '../../components/homePage/homePageComponents/topSection/navBar/navbar'
 import PhoneNavBar from "../homePage/homePageComponents/topSection/navBar/PhoneNavBar";
 import ImageSection from "../../globalComponents/ImageSection";
 import img01 from '../../assets/bookCoverPages/coverPage01.svg'
