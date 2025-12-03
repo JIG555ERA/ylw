@@ -164,7 +164,7 @@ className="w-full h-auto md:gap-[34px] gap-[24px] py-[32px] items-center  mt-[60
       // }}
     >
       {/* Title */}
-      <h1 className="xl:text-[56px] md:text-[44px] text-[24px] font-extrabold text-center">
+      <h1 className="xl:text-[56px] md:text-[44px] text-[24px] font-extrabold text-center ">
         <GradientText>
           Your Literary World
         </GradientText>
