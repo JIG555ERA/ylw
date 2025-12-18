@@ -194,7 +194,7 @@ const FeedBackPage = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 font-medium hover:opacity-90 transition disabled:opacity-60"
+                className="w-full rounded-xl bg-gradient-to-br from-blue-300 via-blue-500 to-purple-300 text-white py-3 font-medium hover:opacity-90 transition disabled:opacity-60"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Feedback'}
               </button>

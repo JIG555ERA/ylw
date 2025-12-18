@@ -4,6 +4,7 @@ import { CartProvider } from "./globalComponents/CartContext";
 
 import Navbar from "./components/homePage/homePageComponents/topSection/navBar/navbar";  // <-- YOUR NAVBAR
 import LoaderGIF from "./globalComponents/loaderGIF";
+import PincodeAvailabilityChecker from "./globalComponents/PinCodeAvailabilityChecker";
 
 // Lazy-loaded pages
 const HomePage = lazy(() => import("./components/homePage/homePageComponents/HomePage"));
@@ -72,6 +73,7 @@ function App() {
           <Route path="/*" element={<NotFound02 />} />
           <Route path="/tech-error" element={<TechnicalError />} />
         </Routes>
+        <PincodeAvailabilityChecker />
       </Suspense>
     </CartProvider>
   );
