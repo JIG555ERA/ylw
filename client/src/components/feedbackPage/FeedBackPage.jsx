@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Navbar from '../homePage/homePageComponents/topSection/navBar/navbar'
 import { Star, X } from 'lucide-react'
+import PhoneNavBar from '../homePage/homePageComponents/topSection/navBar/PhoneNavBar'
+import bookStoreLogo from '../../assets/logos/bookStoreLogo.svg'
 
 const FeedBackPage = () => {
   const [rating, setRating] = useState(0)
@@ -60,6 +62,16 @@ const FeedBackPage = () => {
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-blue-100 via-white to-purple-100 font-[Poppins]">
       <Navbar />
+      {/* Mobile-only logo */}
+        <a href="/" className="block lg:hidden w-full py-4">
+            <div className="flex justify-center items-center">
+            <img
+                src={bookStoreLogo}
+                alt="Book Store Logo"
+                className="h-[72px] w-auto" // Adjust size as needed
+            />
+            </div>
+        </a>
 
       {/* Error Modal */}
       {showError && (
@@ -82,7 +94,7 @@ const FeedBackPage = () => {
       )}
 
       {/* Page Wrapper */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 md:pt-12 pt-8 md:pb-10 pb-22">
         {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-3xl sm:text-4xl font-semibold text-gray-800">
@@ -195,6 +207,7 @@ const FeedBackPage = () => {
           Thank you for taking the time to help us improve 🌟
         </div>
       </div>
+      <PhoneNavBar />
     </div>
   )
 }
