@@ -51,7 +51,7 @@ export const SearchBar = () => {
   const filteredCards = suggestionSectionCard;
 
   return (
-    <div className="relative w-full 2xl:translate-y-[-13vh] [2000px]:translate-y-[4vh] z-50">
+    <div className="relative w-full 2xl:translate-y-[-13vh] 4xl:translate-y-[10vh] z-50">
       {/* BACKDROP */}
       {active && (
         <div

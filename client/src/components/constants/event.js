@@ -1,0 +1,1 @@
+const event_id = "https://www.ylw.co.in/?utm_source=LLIM&utm_medium=offline&utm_campaign=tsunami&utm_id=tsunami-jan-2026"

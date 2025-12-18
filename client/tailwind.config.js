@@ -13,8 +13,12 @@ module.exports = {
         'vibrant-emerald': '#059669',
         'pastel-purple': '#C4B5FD',
         'pastel-pink': '#FBCFE8',
+      },
+      screens: {
+        '2xl': '1536px', // override/ensure availability
+        '4xl': '1600px', // your custom breakpoint
       }
     }
   },
   plugins: []
-}
+};

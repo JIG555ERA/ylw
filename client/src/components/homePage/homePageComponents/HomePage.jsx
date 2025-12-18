@@ -6,9 +6,12 @@ import { BiChevronRightCircle } from "react-icons/bi";
 import PhoneNavBar from './topSection/navBar/PhoneNavBar';
 import Advertisements from '../../../globalComponents/advertisements/Advertisements';
 import BooksByPublications from './midSection/booksByPublications/BooksByPublications';
+import useCampaignTracker from '../../../globalComponents/useCampaignTracker';
 
 const HomePage = () => {
 
+  useCampaignTracker()
+  
   const [ bar, setBar ] = useState(false);
 
   const handleBar = () => {

@@ -12,9 +12,11 @@ const LikePage = lazy(() => import("./components/homePage/homePageComponents/lik
 const Cart = lazy(() => import("./components/homePage/homePageComponents/cartPage/NewCartPage"));
 const ProductPage = lazy(() => import("./components/homePage/homePageComponents/productPage/ProductPage"));
 const Publications = lazy(() => import("./components/publications/Publications"));
+const Payment = lazy(() => import("./components/paymentPage/PaymentPage"))
 
 const SignUp = lazy(() => import("./globalComponents/auth/SignUP"));
 const AuthLogIN = lazy(() => import("./globalComponents/auth/AuthLogIN"));
+const FeedBackPage = lazy(() => import("./components/feedbackPage/FeedBackPage"))
 
 const OrderConfirmation = lazy(() => import("./components/orderConfirmation/OrderConfirmation"));
 
@@ -49,6 +51,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/publications" element={<Publications />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/feedback" element={<FeedBackPage />} />
 
           <Route path="/auth/signup" element={<SignUp />} />
           <Route path="/auth/login" element={<AuthLogIN />} />

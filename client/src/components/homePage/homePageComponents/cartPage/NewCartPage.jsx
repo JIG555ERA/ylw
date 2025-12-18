@@ -19,6 +19,7 @@ import {
   Truck
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../topSection/navBar/navbar";
 import PhoneNavBar from "../topSection/navBar/PhoneNavBar";
 import bookStoreLogo from '../../../../assets/logos/bookStoreLogo.svg'
@@ -343,6 +344,7 @@ export default function Cart({ open, onClose }) {
   const [appliedCoupon, setAppliedCoupon] = useState(null);
   const [showCoupons, setShowCoupons] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const navigate = useNavigate();
 
   // subtotal
   const subtotal = (cartItems || []).reduce((s, it) => {
@@ -356,7 +358,8 @@ export default function Cart({ open, onClose }) {
   const total = Math.max(0, subtotal - discount + deliveryCharges);
 
   const handleCheckout = () => {
-    alert("Proceed to checkout — total: ₹" + Number(total || 0).toFixed(2));
+    // alert("Proceed to checkout — total: ₹" + Number(total || 0).toFixed(2));
+    navigate("/payment")
   };
 
   return (
